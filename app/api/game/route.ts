@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
-import { randomUUID } from "crypto";
 import { pickRandomLocations, getElectionData, getStreetViewUrl } from "@/lib/gameData";
-import { createSession } from "@/lib/gameStore";
+import { createToken } from "@/lib/sessionToken";
 import type { RoundPublic, GameSession } from "@/lib/types";
 
 const ROUNDS_PER_GAME = 5;
@@ -13,7 +12,6 @@ export async function GET() {
     const locs = pickRandomLocations(ROUNDS_PER_GAME);
     const election = getElectionData();
 
-    const sessionId = randomUUID();
     const secretRounds = locs.map((loc, i) => {
       const result = election[loc.fips];
       return {
@@ -25,7 +23,7 @@ export async function GET() {
       };
     });
 
-    createSession(sessionId, secretRounds);
+    const sessionToken = createToken(secretRounds);
 
     const publicRounds: RoundPublic[] = locs.map((loc, i) => ({
       roundNumber: i + 1,
@@ -35,7 +33,7 @@ export async function GET() {
       heading: loc.heading,
     }));
 
-    const body: GameSession = { sessionId, rounds: publicRounds };
+    const body: GameSession = { sessionToken, rounds: publicRounds };
     return NextResponse.json(body);
   } catch (err) {
     console.error("/api/game error:", err);

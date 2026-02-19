@@ -39,6 +39,5 @@ next-env.d.ts
 *.prj
 *.cpg
 *.xml
-data/*.geojson
 counties.zip
 2024_results.csv

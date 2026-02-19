@@ -53,7 +53,7 @@ export default function Game() {
       const res = await fetch("/api/guess", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId: session.sessionId, roundNumber: round.roundNumber, guessedMargin: margin }),
+        body: JSON.stringify({ sessionToken: session.sessionToken, roundNumber: round.roundNumber, guessedMargin: margin }),
       });
       if (!res.ok) return;
       const result = (await res.json()) as GuessResult;

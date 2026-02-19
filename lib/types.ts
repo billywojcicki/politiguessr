@@ -33,7 +33,7 @@ export interface GameRound {
 
 /** What the /api/game route returns for a new game */
 export interface GameSession {
-  sessionId: string;
+  sessionToken: string;
   rounds: RoundPublic[];
 }
 
@@ -48,7 +48,7 @@ export interface RoundPublic {
 
 /** Sent from client when submitting a guess */
 export interface GuessPayload {
-  sessionId: string;
+  sessionToken: string;
   roundNumber: number;
   guessedMargin: number;
 }
