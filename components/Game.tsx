@@ -33,7 +33,6 @@ export default function Game() {
     setResults([]);
     setCurrentRound(0);
     setGuessedMargin(0);
-
     const res = await fetch("/api/game");
     if (!res.ok) return;
     const data = (await res.json()) as GameSession;
@@ -50,19 +49,13 @@ export default function Game() {
       if (!session || phase !== "playing") return;
       setTimerPaused(true);
       setPhase("reveal");
-
       const round = session.rounds[currentRound];
       const res = await fetch("/api/guess", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sessionId: session.sessionId,
-          roundNumber: round.roundNumber,
-          guessedMargin: margin,
-        }),
+        body: JSON.stringify({ sessionId: session.sessionId, roundNumber: round.roundNumber, guessedMargin: margin }),
       });
       if (!res.ok) return;
-
       const result = (await res.json()) as GuessResult;
       const roundResult: RoundResult = { ...result, timedOut };
       setCurrentResult(roundResult);
@@ -97,11 +90,8 @@ export default function Game() {
   // ── Loading ──────────────────────────────────────────────────────────────
   if (phase === "loading") {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-gray-950">
-        <div className="text-center space-y-4">
-          <div className="text-4xl animate-pulse">🗺️</div>
-          <p className="text-gray-400 text-lg">Loading game…</p>
-        </div>
+      <div className="fixed inset-0 bg-black flex items-center justify-center">
+        <span className="font-mono text-xs tracking-widest text-white/30 uppercase animate-pulse">Loading…</span>
       </div>
     );
   }
@@ -114,41 +104,55 @@ export default function Game() {
     const grade = pct >= 0.9 ? "S" : pct >= 0.75 ? "A" : pct >= 0.6 ? "B" : pct >= 0.45 ? "C" : "D";
 
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-gray-950 p-4 overflow-y-auto">
-        <div className="max-w-lg w-full space-y-6 py-8">
-          <div className="text-center space-y-2">
-            <h2 className="text-4xl font-black">Final Score</h2>
-            <div className="text-7xl font-black tabular-nums">
-              <span className={pct >= 0.9 ? "text-yellow-400" : pct >= 0.6 ? "text-green-400" : "text-red-400"}>
-                {totalScore}
-              </span>
-              <span className="text-gray-500 text-4xl">/{maxScore}</span>
-            </div>
-            <div className="text-6xl font-black text-gray-300">Grade {grade}</div>
-          </div>
+      <div className="fixed inset-0 bg-black flex flex-col overflow-y-auto">
+        {/* Header */}
+        <div className="border-b border-white/10 px-6 py-3 flex items-center justify-between flex-shrink-0">
+          <span className="font-mono text-xs text-white/30 tracking-widest uppercase">PolitiGuessr</span>
+          <span className="font-mono text-xs text-white/30 tracking-widest uppercase">Results</span>
+        </div>
 
-          <div className="bg-gray-900 rounded-xl overflow-hidden divide-y divide-gray-800">
-            {results.map((r) => (
-              <div key={r.roundNumber} className="flex items-center px-4 py-3 gap-3">
-                <span className="text-gray-500 text-sm w-5">#{r.roundNumber}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-sm truncate">{r.county}, {stateAbbr(r.state)}</div>
-                  <div className="text-xs text-gray-400 flex gap-2">
-                    <span>Actual: <span className={marginColor(r.actualMargin)}>{formatMargin(r.actualMargin)}</span></span>
-                    <span>·</span>
-                    <span>Guess: <span className={marginColor(r.guessedMargin)}>{formatMargin(r.guessedMargin)}</span></span>
-                  </div>
-                </div>
-                <div className={`text-lg font-bold tabular-nums ${r.score >= 80 ? "text-green-400" : r.score >= 50 ? "text-yellow-400" : "text-red-400"}`}>
-                  {r.score}
-                </div>
+        <div className="flex-1 flex items-start justify-center px-6 py-10">
+          <div className="w-full max-w-sm space-y-6">
+            {/* Score */}
+            <div className="space-y-1">
+              <p className="font-mono text-xs text-white/30 tracking-widest uppercase">Final score</p>
+              <div className="flex items-baseline gap-3">
+                <span className={`text-7xl font-bold tabular-nums leading-none ${pct >= 0.9 ? "text-yellow-400" : pct >= 0.6 ? "text-white" : "text-white/50"}`}>
+                  {totalScore}
+                </span>
+                <span className="font-mono text-white/20 text-lg">/ {maxScore}</span>
               </div>
-            ))}
-          </div>
+              <p className="font-mono text-xs text-white/30 tracking-widest">GRADE {grade}</p>
+            </div>
 
-          <button onClick={startGame} className="w-full py-4 bg-white text-gray-900 font-black text-xl rounded-xl hover:bg-gray-100 active:scale-95 transition-all">
-            Play Again
-          </button>
+            <div className="border-t border-white/10" />
+
+            {/* Round breakdown */}
+            <div className="divide-y divide-white/10 border border-white/10">
+              {results.map((r) => (
+                <div key={r.roundNumber} className="flex items-center px-3 py-2.5 gap-3">
+                  <span className="font-mono text-xs text-white/20 w-4">0{r.roundNumber}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-medium truncate">{r.county}, {stateAbbr(r.state)}</div>
+                    <div className="font-mono text-xs text-white/30 flex gap-3 mt-0.5">
+                      <span>Actual <span className={marginColor(r.actualMargin)}>{formatMargin(r.actualMargin)}</span></span>
+                      <span>Guess <span className={marginColor(r.guessedMargin)}>{formatMargin(r.guessedMargin)}</span></span>
+                    </div>
+                  </div>
+                  <span className={`font-mono text-sm font-bold tabular-nums ${r.score >= 80 ? "text-white" : r.score >= 50 ? "text-white/60" : "text-white/30"}`}>
+                    {r.score}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={startGame}
+              className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+            >
+              Play Again →
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -160,49 +164,44 @@ export default function Game() {
 
   return (
     <div className="fixed inset-0">
-      {/* Street View fills the full screen */}
+      {/* Street View */}
       <StreetViewPanorama lat={round.lat} lng={round.lng} heading={round.heading} />
 
       {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3 bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
-        <div className="text-sm text-gray-300 font-medium">
-          Round <span className="text-white font-bold">{currentRound + 1}</span> of {ROUNDS}
-        </div>
-        <div className="pointer-events-auto">
-          <CountdownTimer
-            key={timerKey}
-            seconds={ROUND_SECONDS}
-            onExpire={() => submitGuess(guessedMargin, true)}
-            paused={timerPaused || devMode}
-          />
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="text-sm text-gray-300 font-medium">
-            Score: <span className="text-white font-bold">{totalScore}</span>
-          </div>
+      <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3 bg-black/80 border-b border-white/10">
+        <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
+          Round <span className="text-white">{String(currentRound + 1).padStart(2, "0")}</span>/{ROUNDS}
+        </span>
+        <CountdownTimer
+          key={timerKey}
+          seconds={ROUND_SECONDS}
+          onExpire={() => submitGuess(guessedMargin, true)}
+          paused={timerPaused || devMode}
+        />
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
+            Score <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
+          </span>
           <button
             onClick={() => setDevMode((d) => !d)}
-            title="Toggle dev mode (disables timer)"
-            className={`pointer-events-auto text-xs px-2 py-0.5 rounded font-mono border transition-colors ${
-              devMode
-                ? "bg-yellow-400/20 border-yellow-400/50 text-yellow-400"
-                : "bg-black/30 border-white/20 text-white/30 hover:text-white/60"
-            }`}
+            className={`font-mono text-xs px-1.5 py-0.5 border tracking-widest transition-colors ${devMode ? "border-yellow-400 text-yellow-400" : "border-white/10 text-white/20 hover:text-white/40"}`}
           >
             DEV
           </button>
         </div>
       </div>
 
-      {/* Guess controls — playing phase only */}
+      {/* Guess panel */}
       {phase === "playing" && (
         <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-6 px-4">
-          <div className="w-full max-w-md bg-black/75 backdrop-blur-sm rounded-2xl p-4 space-y-4 border border-white/10">
-            <p className="text-center text-gray-300 text-sm font-medium">How did this county vote in 2024?</p>
+          <div className="w-full max-w-md bg-black border border-white/20 p-5 space-y-4">
+            <p className="font-mono text-xs text-white/30 tracking-widest uppercase text-center">
+              How did this county vote?
+            </p>
             <MarginSlider value={guessedMargin} onChange={setGuessedMargin} />
             <button
               onClick={() => submitGuess(guessedMargin)}
-              className="w-full py-3 bg-white text-gray-900 font-bold text-lg rounded-xl hover:bg-gray-100 active:scale-95 transition-all"
+              className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
             >
               Lock In
             </button>
@@ -210,7 +209,7 @@ export default function Game() {
         </div>
       )}
 
-      {/* Big centered reveal */}
+      {/* Reveal panel */}
       {phase === "reveal" && currentResult && (
         <RevealPanel
           result={currentResult}
@@ -223,6 +222,8 @@ export default function Game() {
   );
 }
 
+// ── Reveal ────────────────────────────────────────────────────────────────
+
 interface RevealPanelProps {
   result: RoundResult;
   onAdvance: () => void;
@@ -233,67 +234,50 @@ interface RevealPanelProps {
 function RevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown }: RevealPanelProps) {
   const isRed = result.actualMargin > 0.5;
   const isBlue = result.actualMargin < -0.5;
-  const accentColor = isRed ? "text-red-400" : isBlue ? "text-blue-400" : "text-purple-300";
   const diff = Math.abs(result.actualMargin - result.guessedMargin);
-  const accuracy = diff < 2 ? "Incredible!" : diff < 5 ? "Very close!" : diff < 15 ? "Nice try" : "Way off";
+  const accuracy = diff < 2 ? "Incredible" : diff < 5 ? "Very close" : diff < 15 ? "Nice try" : "Way off";
 
   return (
-    /* Full-screen dim backdrop */
-    <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-      <div className="w-full max-w-sm bg-gray-950 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-
-        {/* State map — full width, tall */}
-        <div className="relative w-full bg-gray-900" style={{ height: 200 }}>
+    <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70 px-4">
+      <div className="w-full max-w-sm bg-black border border-white/20">
+        {/* Map */}
+        <div className="border-b border-white/10 bg-[#0a0a0a]" style={{ height: 180 }}>
           <CountyMap fips={result.fips} className="w-full h-full" />
-          {/* Timed-out badge */}
-          {result.timedOut && (
-            <div className="absolute top-2 left-2 bg-black/70 text-yellow-400 text-xs font-bold px-2 py-1 rounded">
-              ⏱ Time&apos;s up
-            </div>
-          )}
         </div>
 
-        <div className="p-5 space-y-4">
-          {/* County + state + actual result */}
-          <div className="text-center space-y-0.5">
-            <div className="text-3xl font-black text-white leading-tight">{result.county}</div>
-            <div className="text-lg text-gray-400">{result.state}</div>
-            <div className={`text-5xl font-black mt-2 ${accentColor}`}>
-              {formatMargin(result.actualMargin)}
-            </div>
-          </div>
+        {/* County + result */}
+        <div className="px-5 pt-4 pb-2 border-b border-white/10 space-y-0.5">
+          {result.timedOut && (
+            <p className="font-mono text-xs text-yellow-400 tracking-widest uppercase mb-2">⏱ Time&apos;s up</p>
+          )}
+          <h2 className="text-2xl font-bold leading-tight tracking-tight">{result.county}</h2>
+          <p className="font-mono text-xs text-white/40 tracking-wider uppercase">{result.state}</p>
+          <p className={`text-4xl font-bold tabular-nums mt-2 ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
+            {formatMargin(result.actualMargin)}
+          </p>
+        </div>
 
-          {/* Guess vs actual */}
-          <div className="flex items-center justify-between bg-gray-900 rounded-xl px-4 py-3">
-            <div className="text-center">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Your guess</div>
-              <div className={`text-xl font-bold ${marginColor(result.guessedMargin)}`}>
-                {formatMargin(result.guessedMargin)}
-              </div>
+        {/* Stats */}
+        <div className="grid grid-cols-3 divide-x divide-white/10 border-b border-white/10">
+          {[
+            { label: "Your Guess", value: formatMargin(result.guessedMargin), color: marginColor(result.guessedMargin) },
+            { label: accuracy, value: `+${result.score}`, color: result.score >= 80 ? "text-white" : result.score >= 50 ? "text-white/60" : "text-white/30" },
+            { label: `Off by`, value: `${diff.toFixed(1)}`, color: "text-white/50" },
+          ].map(({ label, value, color }) => (
+            <div key={label} className="px-3 py-3 text-center space-y-1">
+              <p className="font-mono text-xs text-white/25 tracking-wider uppercase leading-tight">{label}</p>
+              <p className={`font-mono text-sm font-bold tabular-nums ${color}`}>{value}</p>
             </div>
-            <div className="text-center">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">{accuracy}</div>
-              <div className={`text-4xl font-black ${result.score >= 80 ? "text-green-400" : result.score >= 50 ? "text-yellow-400" : "text-red-400"}`}>
-                +{result.score}
-              </div>
-              <div className="text-xs text-gray-600 mt-0.5">off by {diff.toFixed(1)} pts</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Actual</div>
-              <div className={`text-xl font-bold ${accentColor}`}>
-                {formatMargin(result.actualMargin)}
-              </div>
-            </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Next button */}
+        {/* Next button */}
+        <div className="p-4">
           <button
             onClick={onAdvance}
-            className="w-full py-3 bg-white text-gray-900 font-black text-lg rounded-xl hover:bg-gray-100 active:scale-95 transition-all"
+            className="w-full border border-white py-3 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
           >
-            {isLastRound
-              ? "See Results"
-              : `Next Round${autoAdvanceCountdown !== null ? ` (${autoAdvanceCountdown})` : ""}`}
+            {isLastRound ? "See Results" : `Next Round${autoAdvanceCountdown !== null ? ` (${autoAdvanceCountdown})` : ""}`} →
           </button>
         </div>
       </div>

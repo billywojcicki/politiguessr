@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-grotesk: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+}
+
+body {
+  font-family: var(--font-grotesk);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}

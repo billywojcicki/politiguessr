@@ -2,59 +2,58 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 text-center">
-      <div className="max-w-lg space-y-8">
-        {/* Logo / Title */}
-        <div className="space-y-3">
-          <h1 className="text-6xl font-black tracking-tight">
-            <span className="text-blue-400">Politi</span>
-            <span className="text-red-400">Guessr</span>
-          </h1>
-          <p className="text-gray-400 text-xl">
-            Can you tell how a county voted just by looking at it?
+    <main className="min-h-screen bg-black text-white flex flex-col">
+      {/* Masthead */}
+      <div className="border-b border-white/20 px-6 py-4 flex items-center justify-between">
+        <span className="font-mono text-xs text-white/40 tracking-widest uppercase">Est. 2024</span>
+        <span className="font-mono text-xs text-white/40 tracking-widest uppercase">United States</span>
+      </div>
+
+      {/* Hero */}
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 max-w-2xl mx-auto w-full">
+        <div className="w-full space-y-8">
+
+          {/* Title */}
+          <div>
+            <h1 className="text-[clamp(3rem,12vw,7rem)] font-bold leading-none tracking-tight uppercase">
+              Politi
+              <br />
+              Guessr
+            </h1>
+            <div className="border-t border-white mt-4 pt-4">
+              <p className="font-mono text-sm text-white/60 tracking-wide uppercase">
+                Guess the county. Read the landscape.
+              </p>
+            </div>
+          </div>
+
+          {/* Rules */}
+          <div className="border border-white/20 divide-y divide-white/10">
+            {[
+              ["01", "A Street View image. Anywhere in America."],
+              ["02", "Slide from D+50 to R+50. Make your call."],
+              ["03", "15 seconds per round. Five rounds. Max 500 pts."],
+            ].map(([n, text]) => (
+              <div key={n} className="flex gap-4 px-4 py-3">
+                <span className="font-mono text-xs text-white/30 pt-0.5 w-5 flex-shrink-0">{n}</span>
+                <span className="text-sm text-white/70">{text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <Link
+            href="/play"
+            className="block w-full border border-white py-4 text-center font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+          >
+            Play →
+          </Link>
+
+          {/* Footer note */}
+          <p className="font-mono text-xs text-white/20 text-center tracking-wider uppercase">
+            2024 Presidential Results · Google Street View
           </p>
         </div>
-
-        {/* How to play */}
-        <div className="bg-gray-900 rounded-2xl p-6 space-y-4 text-left">
-          <h2 className="text-lg font-bold text-gray-200">How to play</h2>
-          <ol className="space-y-3 text-gray-400">
-            <li className="flex gap-3">
-              <span className="text-2xl leading-none">🌍</span>
-              <span>You'll see a Street View image of a random US location</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-2xl leading-none">🗳️</span>
-              <span>
-                Guess how the county voted in the 2024 presidential election — from{" "}
-                <span className="text-blue-400 font-semibold">D+50</span> to{" "}
-                <span className="text-red-400 font-semibold">R+50</span>
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-2xl leading-none">⏱️</span>
-              <span>You have 15 seconds per round — 5 rounds total</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-2xl leading-none">🎯</span>
-              <span>
-                Score up to <strong className="text-white">100 points</strong> per round — the
-                closer your guess, the higher your score
-              </span>
-            </li>
-          </ol>
-        </div>
-
-        <Link
-          href="/play"
-          className="block w-full py-5 bg-white text-gray-900 font-black text-2xl rounded-2xl hover:bg-gray-100 active:scale-95 transition-all shadow-lg"
-        >
-          Play →
-        </Link>
-
-        <p className="text-gray-600 text-xs">
-          Data: 2024 US Presidential Election results · Google Street View
-        </p>
       </div>
     </main>
   );
