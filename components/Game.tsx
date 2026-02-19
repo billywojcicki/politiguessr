@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import MarginSlider, { formatMargin, marginColor } from "./MarginSlider";
 import CountdownTimer from "./CountdownTimer";
+import StreetViewPanorama from "./StreetViewPanorama";
 import type { GameSession, GuessResult } from "@/lib/types";
 
 const ROUNDS = 5;
@@ -23,7 +24,6 @@ export default function Game() {
   const [timerPaused, setTimerPaused] = useState(false);
   const [results, setResults] = useState<RoundResult[]>([]);
   const [currentResult, setCurrentResult] = useState<RoundResult | null>(null);
-  const [imgLoaded, setImgLoaded] = useState(false);
   const [autoAdvanceCountdown, setAutoAdvanceCountdown] = useState<number | null>(null);
 
   const startGame = useCallback(async () => {
@@ -31,7 +31,6 @@ export default function Game() {
     setResults([]);
     setCurrentRound(0);
     setGuessedMargin(0);
-    setImgLoaded(false);
 
     const res = await fetch("/api/game");
     if (!res.ok) {
@@ -103,7 +102,6 @@ export default function Game() {
     } else {
       setCurrentRound(nextRound);
       setGuessedMargin(0);
-      setImgLoaded(false);
       setTimerKey((k) => k + 1);
       setTimerPaused(false);
       setPhase("playing");
@@ -228,20 +226,10 @@ export default function Game() {
 
         {/* Street View */}
         <div className="relative w-full rounded-xl overflow-hidden bg-gray-900 aspect-[16/10]">
-          {!imgLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-gray-500 text-sm animate-pulse">Loading Street View…</div>
-            </div>
-          )}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={round.streetViewUrl}
-            alt="Street View"
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
-              imgLoaded ? "opacity-100" : "opacity-0"
-            }`}
-            onLoad={() => setImgLoaded(true)}
-            onError={() => setImgLoaded(true)}
+          <StreetViewPanorama
+            lat={round.lat}
+            lng={round.lng}
+            heading={round.heading}
           />
 
           {/* Reveal overlay */}

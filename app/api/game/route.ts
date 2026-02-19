@@ -30,6 +30,9 @@ export async function GET() {
     const publicRounds: RoundPublic[] = locs.map((loc, i) => ({
       roundNumber: i + 1,
       streetViewUrl: getStreetViewUrl(loc.lat, loc.lng, loc.heading),
+      lat: loc.lat,
+      lng: loc.lng,
+      heading: loc.heading,
     }));
 
     const body: GameSession = { sessionId, rounds: publicRounds };

@@ -41,6 +41,9 @@ export interface GameSession {
 export interface RoundPublic {
   roundNumber: number;
   streetViewUrl: string;
+  lat: number;
+  lng: number;
+  heading: number;
 }
 
 /** Sent from client when submitting a guess */
