@@ -13,11 +13,11 @@ A web game where players see an interactive Google Street View of a random US lo
 
 ## Key Files & Directories
 - `data/election-results.json` — county FIPS → election data (generated, do not edit)
-- `data/counties.geojson` — Census county boundaries + election data merged (generated, 25MB)
+- `data/counties.geojson` — Census county boundaries + election data merged (generated, 25MB, committed to git)
 - `data/locations.json` — 500 curated Street View locations, pre-validated (generated, **do not regenerate unless adding more**)
 - `scripts/process-data.ts` — parses CSV + shapefile → generates data/
 - `scripts/curate-locations.ts` — hits Street View Metadata API to build locations.json
-- `2024_results.csv`, `cb_2023_us_county_500k.*` — raw source data in project root
+- `2024_results.csv`, `cb_2023_us_county_500k.*` — raw source data in project root (git-ignored)
 
 ## Data Pipeline Status
 **Already run — do not re-run unless explicitly asked.**
@@ -29,10 +29,10 @@ To add more locations: `TARGET=1000 npm run curate-locations` (resumes from exis
 
 ## Architecture
 - Game is fully client-side except for API routes:
-  - `GET /api/game` — returns sessionId + 5 random rounds (Street View URL, lat/lng/heading). Answers kept server-side in `globalThis` session store.
-  - `POST /api/guess` — accepts guess, returns fips, county, state, actual margin, score
+  - `GET /api/game` — returns `sessionToken` (HMAC-signed) + 5 random rounds (Street View URL, lat/lng/heading). Answers encoded in the signed token, no server-side state.
+  - `POST /api/guess` — accepts `sessionToken` + guess, verifies HMAC signature, returns fips, county, state, actual margin, score
   - `GET /api/county-map?fips=XXXXX` — returns SVG of state with county highlighted red/blue
-- Session store uses `globalThis` to survive Next.js HMR reloads
+- Sessions are **stateless**: answers are HMAC-signed into the token using `SESSION_SECRET`. See `lib/sessionToken.ts`.
 - All game UI in `components/Game.tsx` — single component, phases: loading → playing → reveal → done
 - `GuessResult` includes `fips` so client can fetch county map SVG after reveal
 
@@ -42,9 +42,16 @@ To add more locations: `TARGET=1000 npm run curate-locations` (resumes from exis
 - End game screen has per-round REVIEW button — opens full-screen Street View for that location
 - DEV mode toggle (top-right during game) pauses both the round timer and auto-advance timer
 
-## API Keys
-- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` — used client-side for Street View JS API
-- `GOOGLE_MAPS_API_KEY` — used server-side / in scripts
+## Deployment
+- Deployed on Vercel (free/Hobby plan) — auto-deploys on push to `master`
+- Pushing to any other branch (e.g. `dev`) creates a Vercel preview deployment at a unique URL
+- Recommended workflow: develop on `dev`, test via preview URL, merge to `master` to ship
+- `next.config.mjs` has `outputFileTracingIncludes` to ensure data files are bundled into serverless functions
+
+## Environment Variables
+- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` — client-side Street View JS API (set in Vercel dashboard)
+- `GOOGLE_MAPS_API_KEY` — local scripts only, not needed on Vercel
+- `SESSION_SECRET` — random 32+ char secret for HMAC session signing (set in Vercel dashboard)
 - Never commit .env.local
 
 ## Conventions
