@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// Set to true to hide street names, addresses, and disable walking (anti-cheat)
+const RESTRICT_NAVIGATION = false;
+
 interface Props {
   lat: number;
   lng: number;
@@ -47,17 +50,16 @@ export default function StreetViewPanorama({ lat, lng, heading }: Props) {
           position: { lat, lng },
           pov: { heading, pitch: 0 },
           zoom: 0,
-          // Anti-cheat: hide controls that reveal location
-          addressControl: false,
-          linksControl: false,       // no walking arrows
-          clickToGo: false,          // no click-to-walk
-          panControl: false,
-          motionTracking: false,
-          motionTrackingControl: false,
-          fullscreenControl: false,
-          // Allow look-around
           scrollwheel: true,
           enableCloseButton: false,
+          // Controlled by RESTRICT_NAVIGATION flag above
+          addressControl: RESTRICT_NAVIGATION ? false : undefined,
+          linksControl: RESTRICT_NAVIGATION ? false : undefined,
+          clickToGo: RESTRICT_NAVIGATION ? false : undefined,
+          panControl: RESTRICT_NAVIGATION ? false : undefined,
+          motionTracking: RESTRICT_NAVIGATION ? false : undefined,
+          motionTrackingControl: RESTRICT_NAVIGATION ? false : undefined,
+          fullscreenControl: RESTRICT_NAVIGATION ? false : undefined,
         });
 
         // Listen for the panorama to finish loading
