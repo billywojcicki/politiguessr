@@ -67,11 +67,12 @@ export default function Game() {
 
   useEffect(() => {
     if (autoAdvanceCountdown === null) return;
+    if (devMode) return;
     if (autoAdvanceCountdown <= 0) { setAutoAdvanceCountdown(null); advance(); return; }
     const id = setTimeout(() => setAutoAdvanceCountdown((c) => (c ?? 0) - 1), 1000);
     return () => clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoAdvanceCountdown]);
+  }, [autoAdvanceCountdown, devMode]);
 
   const advance = useCallback(() => {
     setAutoAdvanceCountdown(null);
@@ -129,29 +130,43 @@ export default function Game() {
 
             {/* Round breakdown */}
             <div className="divide-y divide-white/10 border border-white/10">
-              {results.map((r) => (
-                <div key={r.roundNumber} className="flex items-center px-3 py-2.5 gap-3">
-                  <span className="font-mono text-xs text-white/20 w-4">0{r.roundNumber}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm font-medium truncate">{r.county}, {stateAbbr(r.state)}</div>
-                    <div className="font-mono text-xs text-white/30 flex gap-3 mt-0.5">
-                      <span>Actual <span className={marginColor(r.actualMargin)}>{formatMargin(r.actualMargin)}</span></span>
-                      <span>Guess <span className={marginColor(r.guessedMargin)}>{formatMargin(r.guessedMargin)}</span></span>
+              {results.map((r, i) => {
+                const loc = session!.rounds[i];
+                return (
+                  <div key={r.roundNumber} className="flex items-center px-3 py-2.5 gap-3">
+                    <span className="font-mono text-xs text-white/20 w-4">0{r.roundNumber}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-medium truncate">{r.county}, {stateAbbr(r.state)}</div>
+                      <div className="font-mono text-xs text-white/30 flex gap-3 mt-0.5">
+                        <span>Actual <span className={marginColor(r.actualMargin)}>{formatMargin(r.actualMargin)}</span></span>
+                        <span>Guess <span className={marginColor(r.guessedMargin)}>{formatMargin(r.guessedMargin)}</span></span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                      <span className={`font-mono text-sm font-bold tabular-nums ${r.score >= 80 ? "text-white" : r.score >= 50 ? "text-white/60" : "text-white/30"}`}>
+                        {r.score}
+                      </span>
+                      <ReviewModal loc={loc} result={r} />
                     </div>
                   </div>
-                  <span className={`font-mono text-sm font-bold tabular-nums ${r.score >= 80 ? "text-white" : r.score >= 50 ? "text-white/60" : "text-white/30"}`}>
-                    {r.score}
-                  </span>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
-            <button
-              onClick={startGame}
-              className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
-            >
-              Play Again →
-            </button>
+            <div className="flex gap-3">
+              <a
+                href="/"
+                className="flex-1 border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white transition-colors duration-150"
+              >
+                Home
+              </a>
+              <button
+                onClick={startGame}
+                className="flex-1 border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+              >
+                Play Again →
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -235,7 +250,17 @@ function RevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown }: R
   const isRed = result.actualMargin > 0.5;
   const isBlue = result.actualMargin < -0.5;
   const diff = Math.abs(result.actualMargin - result.guessedMargin);
-  const accuracy = diff < 2 ? "Incredible" : diff < 5 ? "Very close" : diff < 15 ? "Nice try" : "Way off";
+  const gotPartyRight =
+    (result.actualMargin > 0.5 && result.guessedMargin > 0.5) ||
+    (result.actualMargin < -0.5 && result.guessedMargin < -0.5) ||
+    (Math.abs(result.actualMargin) <= 0.5 && Math.abs(result.guessedMargin) <= 0.5);
+  const accuracy = !gotPartyRight
+    ? "Wrong party"
+    : diff < 5
+    ? "Nailed it"
+    : diff < 15
+    ? "Correct"
+    : "Right party";
 
   return (
     <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70 px-4">
@@ -282,6 +307,51 @@ function RevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown }: R
         </div>
       </div>
     </div>
+  );
+}
+
+// ── Review Modal ──────────────────────────────────────────────────────────
+
+import type { RoundPublic } from "@/lib/types";
+
+function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult }) {
+  const [open, setOpen] = useState(false);
+  const isRed = result.actualMargin > 0.5;
+  const isBlue = result.actualMargin < -0.5;
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+      >
+        View
+      </button>
+
+      {open && (
+        <div className="fixed inset-0 z-50 flex flex-col bg-black">
+          {/* Bar */}
+          <div className="border-b border-white/10 px-4 py-3 flex items-center justify-between flex-shrink-0">
+            <div>
+              <span className="font-bold text-sm">{result.county}, {stateAbbr(result.state)}</span>
+              <span className={`font-mono text-sm ml-3 ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
+                {formatMargin(result.actualMargin)}
+              </span>
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+            >
+              ← Back
+            </button>
+          </div>
+          {/* Panorama */}
+          <div className="flex-1">
+            <StreetViewPanorama lat={loc.lat} lng={loc.lng} heading={loc.heading} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
