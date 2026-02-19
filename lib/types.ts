@@ -56,6 +56,7 @@ export interface GuessPayload {
 /** Returned after a guess is submitted */
 export interface GuessResult {
   roundNumber: number;
+  fips: string;
   county: string;
   state: string;
   actualMargin: number;

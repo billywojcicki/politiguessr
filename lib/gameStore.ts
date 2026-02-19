@@ -65,6 +65,7 @@ export function scoreGuess(
 
   return {
     roundNumber,
+    fips: round.fips,
     county: round.county,
     state: round.state,
     actualMargin: round.margin,

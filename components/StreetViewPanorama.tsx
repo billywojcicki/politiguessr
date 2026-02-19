@@ -52,14 +52,15 @@ export default function StreetViewPanorama({ lat, lng, heading }: Props) {
           zoom: 0,
           scrollwheel: true,
           enableCloseButton: false,
+          addressControl: false,
+          fullscreenControl: false,
           // Controlled by RESTRICT_NAVIGATION flag above
-          addressControl: RESTRICT_NAVIGATION ? false : undefined,
+
           linksControl: RESTRICT_NAVIGATION ? false : undefined,
           clickToGo: RESTRICT_NAVIGATION ? false : undefined,
           panControl: RESTRICT_NAVIGATION ? false : undefined,
           motionTracking: RESTRICT_NAVIGATION ? false : undefined,
           motionTrackingControl: RESTRICT_NAVIGATION ? false : undefined,
-          fullscreenControl: RESTRICT_NAVIGATION ? false : undefined,
         });
 
         // Listen for the panorama to finish loading
