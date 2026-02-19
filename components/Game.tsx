@@ -143,8 +143,8 @@ export default function Game() {
                       </div>
                     </div>
                     <div className="flex items-center gap-3 flex-shrink-0">
-                      <span className={`font-mono text-sm font-bold tabular-nums ${r.score >= 80 ? "text-white" : r.score >= 50 ? "text-white/60" : "text-white/30"}`}>
-                        {r.score}
+                      <span className="font-mono text-sm font-bold tabular-nums text-white">
+                        {r.score} <span className="text-xs font-normal text-white/40">pts</span>
                       </span>
                       <ReviewModal loc={loc} result={r} />
                     </div>
@@ -325,7 +325,7 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
         onClick={() => setOpen(true)}
         className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
       >
-        View
+        Review
       </button>
 
       {open && (

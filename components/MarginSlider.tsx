@@ -7,7 +7,7 @@ interface MarginSliderProps {
 }
 
 export function formatMargin(margin: number): string {
-  if (Math.abs(margin) < 0.5) return "EVEN";
+  if (Math.abs(margin) < 0.5) return "SPLIT";
   if (margin > 0) return `R+${Math.abs(margin).toFixed(1)}`;
   return `D+${Math.abs(margin).toFixed(1)}`;
 }
@@ -83,7 +83,7 @@ export default function MarginSlider({ value, onChange, disabled }: MarginSlider
       {/* Labels */}
       <div className="flex justify-between text-xs text-white/30 tracking-widest uppercase">
         <span>D+50</span>
-        <span>EVEN</span>
+        <span>SPLIT</span>
         <span>R+50</span>
       </div>
     </div>

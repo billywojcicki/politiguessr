@@ -1,11 +1,12 @@
 # PolitiGuessr
 
 ## Project Overview
-A web game where players see an interactive Google Street View of a random US location and guess how the county voted (D+X to R+X) in the 2024 presidential election. Think GeoGuessr but for political leanings.
+A web game where players see an interactive Google Street View of a random US location and guess how the county voted (D+X to R+X) in the 2024 presidential election. Think GeoGuessr but for political leanings. County is the unit of play (3,143 counties, standardized nationwide).
 
 ## Tech Stack
 - Next.js 14.2.5 (App Router) — Node 18, no src/ dir
 - React 18, TypeScript, Tailwind CSS
+- Fonts: Space Grotesk + Space Mono (loaded via next/font/google)
 - Google Maps JS API (interactive Street View panorama)
 - Turf.js (point-in-polygon, used in data scripts only)
 - Supabase — planned for auth/leaderboards, not yet set up
@@ -27,12 +28,19 @@ A web game where players see an interactive Google Street View of a random US lo
 To add more locations: `TARGET=1000 npm run curate-locations` (resumes from existing file)
 
 ## Architecture
-- Game is fully client-side except for two API routes:
+- Game is fully client-side except for API routes:
   - `GET /api/game` — returns sessionId + 5 random rounds (Street View URL, lat/lng/heading). Answers kept server-side in `globalThis` session store.
-  - `POST /api/guess` — accepts guess, returns county name, actual margin, score
-  - `GET /api/county-map?fips=XXXXX` — returns SVG of state with county highlighted
+  - `POST /api/guess` — accepts guess, returns fips, county, state, actual margin, score
+  - `GET /api/county-map?fips=XXXXX` — returns SVG of state with county highlighted red/blue
 - Session store uses `globalThis` to survive Next.js HMR reloads
 - All game UI in `components/Game.tsx` — single component, phases: loading → playing → reveal → done
+- `GuessResult` includes `fips` so client can fetch county map SVG after reveal
+
+## Game Design
+- Slider range: D+50 to R+50 (note: some counties exceed this in reality)
+- Scoring: `max(0, round(100 - |actual - guess|))` per round, 5 rounds, max 500 pts
+- End game screen has per-round REVIEW button — opens full-screen Street View for that location
+- DEV mode toggle (top-right during game) pauses both the round timer and auto-advance timer
 
 ## API Keys
 - `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` — used client-side for Street View JS API
@@ -43,4 +51,5 @@ To add more locations: `TARGET=1000 npm run curate-locations` (resumes from exis
 - TypeScript everywhere; scripts excluded from Next.js tsconfig (have own tsx config)
 - Tailwind for all styling, no separate CSS files
 - Components in /components, game logic in /lib, API routes in /app/api/
-- `RESTRICT_NAVIGATION = false` in StreetViewPanorama.tsx — flip to true to re-enable anti-cheat
+- `RESTRICT_NAVIGATION = false` in StreetViewPanorama.tsx — flip to true to re-enable anti-cheat (hides address, disables walking)
+- Design: editorial/monospace aesthetic — black bg, Space Grotesk/Mono, sharp borders, red/blue only for partisan data
