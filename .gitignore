@@ -33,3 +33,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.local
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.xml
+data/*.geojson
+counties.zip
+2024_results.csv
