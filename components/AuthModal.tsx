@@ -6,28 +6,49 @@ import type { User } from "@supabase/supabase-js";
 
 type Mode = "signin" | "signup" | "forgot" | "forgot-sent";
 
-export default function AuthModal() {
+const USERNAME_REGEX = /^[a-zA-Z0-9_-]{3,20}$/;
+
+export default function AuthModal({ compact = false }: { compact?: boolean }) {
   const [user, setUser] = useState<User | null>(null);
+  const [displayUsername, setDisplayUsername] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setUser(data.session?.user ?? null));
+    supabase.auth.getSession().then(({ data }) => {
+      const u = data.session?.user ?? null;
+      setUser(u);
+      if (u) fetchUsername(u.id);
+    });
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
-      setUser(session?.user ?? null);
+      const u = session?.user ?? null;
+      setUser(u);
+      if (u) fetchUsername(u.id);
+      else setDisplayUsername(null);
     });
     return () => subscription.unsubscribe();
   }, []);
+
+  async function fetchUsername(userId: string) {
+    const { data } = await supabase
+      .from("profiles")
+      .select("username")
+      .eq("id", userId)
+      .single();
+    setDisplayUsername(data?.username ?? null);
+  }
 
   const closeModal = () => {
     setOpen(false);
     setMode("signin");
     setEmail("");
+    setUsername("");
     setPassword("");
     setConfirm("");
     setError(null);
@@ -36,6 +57,7 @@ export default function AuthModal() {
   const switchMode = (next: Mode) => {
     setMode(next);
     setError(null);
+    setUsername("");
     setPassword("");
     setConfirm("");
   };
@@ -50,13 +72,32 @@ export default function AuthModal() {
   };
 
   const signUp = async () => {
+    if (!USERNAME_REGEX.test(username)) {
+      setError("Username must be 3–20 characters: letters, numbers, _ or -");
+      return;
+    }
     if (password !== confirm) { setError("Passwords don't match."); return; }
     if (password.length < 6) { setError("Password must be at least 6 characters."); return; }
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { data, error: signUpError } = await supabase.auth.signUp({ email, password });
+    if (signUpError) { setLoading(false); setError(signUpError.message); return; }
+    if (data.user) {
+      const { error: updateError } = await supabase
+        .from("profiles")
+        .update({ username })
+        .eq("id", data.user.id);
+      if (updateError) {
+        setLoading(false);
+        if (updateError.code === "23505") {
+          setError("That username is already taken. Please choose another.");
+        } else {
+          setError("Account created but username could not be saved. Set it in Account settings.");
+        }
+        return;
+      }
+    }
     setLoading(false);
-    if (error) { setError(error.message); return; }
     closeModal();
   };
 
@@ -77,14 +118,24 @@ export default function AuthModal() {
     return (
       <div className="flex items-center gap-2">
         <span className="font-mono text-xs text-white/40 tracking-widest uppercase truncate max-w-[140px]">
-          {user.email}
+          {displayUsername ?? user.email}
         </span>
-        <button
-          onClick={signOut}
-          className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
-        >
-          Sign Out
-        </button>
+        {!compact && (
+          <>
+            <a
+              href="/account"
+              className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+            >
+              Account
+            </a>
+            <button
+              onClick={signOut}
+              className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+            >
+              Sign Out
+            </button>
+          </>
+        )}
       </div>
     );
   }
@@ -180,6 +231,13 @@ export default function AuthModal() {
                     autoFocus
                   />
                   <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username (letters, numbers, _ or -)"
+                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
+                  />
+                  <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -190,14 +248,14 @@ export default function AuthModal() {
                     type="password"
                     value={confirm}
                     onChange={(e) => setConfirm(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && email && password && confirm && signUp()}
+                    onKeyDown={(e) => e.key === "Enter" && email && username && password && confirm && signUp()}
                     placeholder="Confirm password"
                     className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
                   />
                   {error && <p className="font-mono text-xs text-red-400">{error}</p>}
                   <button
                     onClick={signUp}
-                    disabled={loading || !email || !password || !confirm}
+                    disabled={loading || !email || !username || !password || !confirm}
                     className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     {loading ? "Creating account…" : "Create Account →"}

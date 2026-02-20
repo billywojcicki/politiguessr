@@ -47,9 +47,13 @@ To enrich town names: `npm run enrich-locations` (skips already-enriched, retrie
 - Auth via Supabase email + password — `components/AuthModal.tsx`
 - Auth is **optional** — anonymous play is fully supported
 - Modal has three modes: **Sign In**, **Create Account**, **Forgot Password** (sends reset link)
+- Sign-up requires a **username** (3–20 chars, `[a-zA-Z0-9_-]`, globally unique) stored in `profiles.username`
 - Email confirmation is **disabled** in Supabase — signups are immediately active
 - User tier stored in `profiles` table (`free` | `pro`). Pro is placeholder — no payment integration yet.
 - A Postgres trigger auto-creates a `profiles` row on every new user signup.
+- Account settings page at `/account` — change username, email, password, delete account
+- `DELETE /api/account` — server-side account deletion (games → profile → auth user, service role)
+- `AuthModal` accepts `compact` prop — hides Account/Sign Out buttons (used in game headers)
 - To manually grant Pro: `update profiles set tier = 'pro' where id = (select id from auth.users where email = 'x@y.com');`
 
 ## Game Limits
@@ -64,7 +68,7 @@ To enrich town names: `npm run enrich-locations` (skips already-enriched, retrie
 ## Database (Supabase)
 Tables:
 - `games` — `id, user_id, total_score, rounds (jsonb), played_at` — RLS: insert own, select all
-- `profiles` — `id, tier ('free'|'pro'), created_at` — RLS: select own only
+- `profiles` — `id, username (unique), tier ('free'|'pro'), created_at` — RLS: select + update own only
 - `anon_rate_limits` — `ip_hash, game_date, count` — no RLS (server-side only via service role)
 
 `rounds` JSONB shape: `[{ roundNumber, fips, county, state, town, actualMargin, guessedMargin, score, timedOut }]`

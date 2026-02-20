@@ -185,7 +185,7 @@ export default function Game() {
       <div className="fixed inset-0 bg-black flex flex-col overflow-y-auto">
         <div className="border-b border-white/10 px-6 py-3 flex items-center justify-between flex-shrink-0">
           <span className="font-mono text-xs text-white/30 tracking-widest uppercase">PolitiGuessr</span>
-          <AuthModal />
+          <AuthModal compact />
         </div>
         <div className="flex-1 flex items-start justify-center px-6 py-10">
           <div className="w-full max-w-sm space-y-6">
@@ -251,7 +251,7 @@ export default function Game() {
         {/* Header */}
         <div className="border-b border-white/10 px-6 py-3 flex items-center justify-between flex-shrink-0">
           <span className="font-mono text-xs text-white/30 tracking-widest uppercase">PolitiGuessr</span>
-          <AuthModal />
+          <AuthModal compact />
         </div>
 
         <div className="flex-1 flex items-start justify-center px-6 py-10">
@@ -355,7 +355,7 @@ export default function Game() {
           <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
             Score <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
           </span>
-          <AuthModal />
+          <AuthModal compact />
           <button
             onClick={() => {
               const next = !timerOff;
