@@ -82,7 +82,7 @@ export default function Home() {
               </div>
               {/* Title text */}
               <h1 className="relative text-[clamp(3rem,12vw,7rem)] font-bold leading-none tracking-tight uppercase">
-                Politi
+                Vote
                 <br />
                 Guessr
               </h1>
@@ -97,7 +97,7 @@ export default function Home() {
             {[
               ["1", "Click around Google Street View"],
               ["2", "Guess how the county voted from D+100 to R+100"],
-              ["3", "30 seconds/round, 5 rounds, 1000 pts max"],
+              ["3", "30 seconds, 5 rounds, 1000 pts max"],
             ].map(([n, text]) => (
               <div key={n} className="flex gap-4 px-4 py-3">
                 <span className="font-mono text-xs text-white/30 pt-0.5 w-5 flex-shrink-0">{n}</span>
@@ -128,7 +128,7 @@ export default function Home() {
 
           {/* Footer note */}
           <p className="font-mono text-xs text-white/20 text-center tracking-wider uppercase">
-            2024 Presidential Results · Google Street View
+            Contact @jiratickets for support · help me out with the server bill
           </p>
         </div>
       </div>

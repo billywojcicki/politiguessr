@@ -503,37 +503,101 @@ function DailyRevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown
     (result.actualMargin > 0.5 && result.guessedMargin > 0.5) ||
     (result.actualMargin < -0.5 && result.guessedMargin < -0.5) ||
     (Math.abs(result.actualMargin) <= 0.5 && Math.abs(result.guessedMargin) <= 0.5);
-  const accuracy = !gotPartyRight ? "Wrong party" : diff < 5 ? "Nailed it" : diff < 15 ? "Correct" : "Right party";
+  const accuracy = !gotPartyRight
+    ? "Wrong party"
+    : diff < 5
+    ? "Spot on"
+    : diff < 15
+    ? "Very close"
+    : diff < 30
+    ? "Close"
+    : "Right direction";
+
+  const toPercent = (m: number) => Math.max(0, Math.min(100, ((m + 100) / 200) * 100));
+  const actualPct = toPercent(result.actualMargin);
+  const guessPct = toPercent(result.guessedMargin);
+  const actualColor = isRed ? "#ef4444" : isBlue ? "#3b82f6" : "#6b7280";
+  const scoreColor = result.score >= 80 ? "text-white" : result.score >= 50 ? "text-white/70" : "text-white/40";
 
   return (
     <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/70 px-4">
       <div className="w-full max-w-sm bg-black border border-white/20">
-        <div className="border-b border-white/10 bg-[#0a0a0a]" style={{ height: 180 }}>
+        {/* Map */}
+        <div className="border-b border-white/10 bg-[#0a0a0a]" style={{ height: 140 }}>
           <CountyMap fips={result.fips} className="w-full h-full" />
         </div>
-        <div className="px-5 pt-4 pb-2 border-b border-white/10 space-y-0.5">
-          {result.timedOut && (
-            <p className="font-mono text-xs text-yellow-400 tracking-widest uppercase mb-2">⏱ Time&apos;s up</p>
-          )}
-          <h2 className="text-2xl font-bold leading-tight tracking-tight">{result.county}</h2>
-          {result.town && <p className="font-mono text-xs text-white/60 tracking-wider">{result.town}</p>}
-          <p className="font-mono text-xs text-white/40 tracking-wider uppercase">{result.state}</p>
-          <p className={`text-4xl font-bold tabular-nums mt-2 ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
-            {formatMargin(result.actualMargin)}
-          </p>
+
+        {/* Location + Answer */}
+        <div className="px-5 pt-4 pb-3 border-b border-white/10 flex items-start justify-between gap-4">
+          <div className="min-w-0">
+            {result.timedOut && (
+              <p className="font-mono text-xs text-yellow-400 tracking-widest uppercase mb-1">⏱ Time&apos;s up</p>
+            )}
+            <h2 className="text-xl font-bold leading-tight tracking-tight truncate">{result.county}</h2>
+            {result.town && <p className="font-mono text-xs text-white/50 tracking-wider truncate">{result.town}</p>}
+            <p className="font-mono text-xs text-white/30 tracking-wider uppercase">{result.state}</p>
+          </div>
+          <div className="flex-shrink-0 text-right">
+            <p className={`text-3xl font-bold tabular-nums ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
+              {formatMargin(result.actualMargin)}
+            </p>
+          </div>
         </div>
-        <div className="grid grid-cols-3 divide-x divide-white/10 border-b border-white/10">
-          {[
-            { label: "Your Guess", value: formatMargin(result.guessedMargin), color: marginColor(result.guessedMargin) },
-            { label: accuracy, value: `+${result.score}`, color: result.score >= 80 ? "text-white" : result.score >= 50 ? "text-white/60" : "text-white/30" },
-            { label: "Off by", value: `${diff.toFixed(1)}`, color: "text-white/50" },
-          ].map(({ label, value, color }) => (
-            <div key={label} className="px-3 py-3 text-center space-y-1">
-              <p className="font-mono text-xs text-white/25 tracking-wider uppercase leading-tight">{label}</p>
-              <p className={`font-mono text-sm font-bold tabular-nums ${color}`}>{value}</p>
-            </div>
-          ))}
+
+        {/* Visual Track */}
+        <div className="px-5 py-4 border-b border-white/10">
+          <div className="flex justify-between font-mono text-[10px] text-white/25 mb-2 tracking-wider">
+            <span>D+100</span>
+            <span>R+100</span>
+          </div>
+          {/* Floating labels above markers */}
+          <div className="relative h-5 mb-0.5">
+            <span
+              className="absolute bottom-0 -translate-x-1/2 font-mono text-[9px] text-white/40 tracking-wider uppercase"
+              style={{ left: `${guessPct}%` }}
+            >you</span>
+            <span
+              className="absolute bottom-0 -translate-x-1/2 font-mono text-[9px] tracking-wider uppercase"
+              style={{ left: `${actualPct}%`, color: actualColor }}
+            >actual</span>
+          </div>
+          <div className="relative h-1.5" style={{ background: "linear-gradient(to right, #2563EB 50%, #DC2626 50%)" }}>
+            {/* Gap line between guess and actual */}
+            {Math.abs(actualPct - guessPct) > 1 && (
+              <div
+                className="absolute top-1/2 -translate-y-1/2 h-px bg-white/30"
+                style={{ left: `${Math.min(actualPct, guessPct)}%`, width: `${Math.abs(actualPct - guessPct)}%` }}
+              />
+            )}
+            {/* Guess dot (hollow, smaller) */}
+            <div
+              className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-white bg-black"
+              style={{ left: `${guessPct}%` }}
+            />
+            {/* Actual dot (solid, larger) */}
+            <div
+              className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full"
+              style={{ left: `${actualPct}%`, backgroundColor: actualColor }}
+            />
+          </div>
+          {/* Legend */}
+          <div className="flex justify-between items-center mt-2.5">
+            <span className="font-mono text-xs text-white/35 tracking-wider">
+              Guess: <span className="text-white/60">{formatMargin(result.guessedMargin)}</span>
+            </span>
+            <span className="font-mono text-xs text-white/35 tracking-wider">
+              Actual: <span className={isRed ? "text-red-400" : isBlue ? "text-blue-400" : "text-white/60"}>{formatMargin(result.actualMargin)}</span>
+            </span>
+          </div>
         </div>
+
+        {/* Score */}
+        <div className="px-5 py-3 border-b border-white/10 flex items-center justify-between">
+          <span className={`text-3xl font-bold tabular-nums ${scoreColor}`}>{result.score} pts</span>
+          <span className="font-mono text-xs text-white/40 tracking-widest uppercase">{accuracy}</span>
+        </div>
+
+        {/* Next button */}
         <div className="p-4">
           <button
             onClick={onAdvance}
