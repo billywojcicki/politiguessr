@@ -43,11 +43,13 @@ To enrich town names: `npm run enrich-locations` (skips already-enriched, retrie
 - `GuessResult` includes `fips` so client can fetch county map SVG after reveal
 
 ## Auth & Accounts
-- Auth via Supabase email OTP (magic code, not magic link) — `components/AuthModal.tsx`
+- Auth via Supabase email + password — `components/AuthModal.tsx`
 - Auth is **optional** — anonymous play is fully supported
-- On sign-in: `supabase.auth.signInWithOtp({ email })` → user enters 6-digit code → `supabase.auth.verifyOtp(...)`
+- Modal has three modes: **Sign In**, **Create Account**, **Forgot Password** (sends reset link)
+- Email confirmation is **disabled** in Supabase — signups are immediately active
 - User tier stored in `profiles` table (`free` | `pro`). Pro is placeholder — no payment integration yet.
 - A Postgres trigger auto-creates a `profiles` row on every new user signup.
+- To manually grant Pro: `update profiles set tier = 'pro' where id = (select id from auth.users where email = 'x@y.com');`
 
 ## Game Limits
 - **Anonymous**: 3 games/day — tracked client-side (localStorage) + server-side (IP hash in `anon_rate_limits` table)
