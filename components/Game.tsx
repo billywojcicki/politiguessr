@@ -341,8 +341,8 @@ export default function Game() {
           >
             Quit
           </a>
-          <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
-            Round <span className="text-white">{String(currentRound + 1).padStart(2, "0")}</span>/{ROUNDS}
+          <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
+            <span className="text-white">{String(currentRound + 1).padStart(2, "0")}</span>/{ROUNDS}
           </span>
         </div>
         <CountdownTimer
@@ -352,10 +352,9 @@ export default function Game() {
           paused={timerPaused || timerOff}
         />
         <div className="flex items-center gap-3">
-          <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
-            Score <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
+          <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
+            <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
           </span>
-          <AuthModal compact />
           <button
             onClick={() => {
               const next = !timerOff;
@@ -380,18 +379,20 @@ export default function Game() {
 
       {/* Guess panel */}
       {phase === "playing" && (
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center pb-6 px-4">
-          <div className="w-full max-w-md bg-black border border-white/20 p-5 space-y-4">
-            <p className="font-mono text-xs text-white/30 tracking-widest uppercase text-center">
-              How did this county vote?
-            </p>
+        <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pb-4">
+          <div className="w-full max-w-md mx-auto bg-black border border-white/20 p-3 space-y-2.5">
             <MarginSlider value={guessedMargin} onChange={setGuessedMargin} />
-            <button
-              onClick={() => submitGuess(guessedMargin)}
-              className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
-            >
-              Lock In
-            </button>
+            <div className="flex items-center gap-3">
+              <span className={`font-mono text-xl font-bold tabular-nums tracking-tight flex-shrink-0 w-24 ${marginColor(guessedMargin)}`}>
+                {formatMargin(guessedMargin)}
+              </span>
+              <button
+                onClick={() => submitGuess(guessedMargin)}
+                className="flex-1 border border-white py-2.5 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+              >
+                Lock In →
+              </button>
+            </div>
           </div>
         </div>
       )}

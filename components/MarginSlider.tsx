@@ -26,16 +26,11 @@ export default function MarginSlider({ value, onChange, disabled }: MarginSlider
   const isBlue = value < -0.5;
 
   return (
-    <div className="w-full space-y-3 font-mono">
-      {/* Current value */}
-      <div className="text-center">
-        <span className={`text-3xl font-bold tabular-nums tracking-tight ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
-          {formatMargin(value)}
-        </span>
-      </div>
+    <div className="w-full font-mono flex items-center gap-2">
+      <span className="text-xs text-white/30 tracking-widest uppercase flex-shrink-0">D+100</span>
 
       {/* Track */}
-      <div className="relative py-3">
+      <div className="relative flex-1 py-2">
         {/* Base line */}
         <div className="absolute left-0 right-0 top-1/2 h-px bg-white/20" />
 
@@ -80,12 +75,7 @@ export default function MarginSlider({ value, onChange, disabled }: MarginSlider
         />
       </div>
 
-      {/* Labels */}
-      <div className="flex justify-between text-xs text-white/30 tracking-widest uppercase">
-        <span>D+100</span>
-        <span>SPLIT</span>
-        <span>R+100</span>
-      </div>
+      <span className="text-xs text-white/30 tracking-widest uppercase flex-shrink-0">R+100</span>
     </div>
   );
 }
