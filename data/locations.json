@@ -3,3000 +3,3500 @@
     "lat": 29.85887228717979,
     "lng": -82.67662703366386,
     "fips": "12023",
-    "heading": 60
+    "heading": 60,
+    "town": null
   },
   {
     "lat": 30.339863893412286,
     "lng": -81.4617778060355,
     "fips": "12031",
-    "heading": 51
+    "heading": 51,
+    "town": null
   },
   {
     "lat": 42.59296540819931,
     "lng": -83.07977473961307,
     "fips": "26099",
-    "heading": 126
+    "heading": 126,
+    "town": null
   },
   {
     "lat": 39.01067740705682,
     "lng": -76.72631987845944,
     "fips": "24003",
-    "heading": 228
+    "heading": 228,
+    "town": null
   },
   {
     "lat": 34.37945518195941,
     "lng": -118.54091076922441,
     "fips": "06037",
-    "heading": 268
+    "heading": 268,
+    "town": "Santa Clarita"
   },
   {
     "lat": 41.51229259303772,
     "lng": -87.63150785186335,
     "fips": "17031",
-    "heading": 204
+    "heading": 204,
+    "town": null
   },
   {
     "lat": 41.20341586828976,
     "lng": -73.60073821197193,
     "fips": "36119",
-    "heading": 330
+    "heading": 330,
+    "town": "Bedford"
   },
   {
     "lat": 38.10108427198928,
     "lng": -97.36279906354665,
     "fips": "20079",
-    "heading": 186
+    "heading": 186,
+    "town": "Newton"
   },
   {
     "lat": 38.39032628139366,
     "lng": -77.54849756872852,
     "fips": "51179",
-    "heading": 73
+    "heading": 73,
+    "town": null
   },
   {
     "lat": 44.288008009784384,
     "lng": -88.3263489153679,
     "fips": "55087",
-    "heading": 176
+    "heading": 176,
+    "town": null
   },
   {
     "lat": 40.55245324014312,
     "lng": -96.94104166089745,
     "fips": "31151",
-    "heading": 154
+    "heading": 154,
+    "town": null
   },
   {
     "lat": 40.13522439858782,
     "lng": -82.03324280519635,
     "fips": "39119",
-    "heading": 291
+    "heading": 291,
+    "town": "Dresden"
   },
   {
     "lat": 42.59122812822801,
     "lng": -73.95725914078095,
     "fips": "36001",
-    "heading": 273
+    "heading": 273,
+    "town": "Voorheesville"
   },
   {
     "lat": 28.138698867951163,
     "lng": -82.6765169625274,
     "fips": "12103",
-    "heading": 335
+    "heading": 335,
+    "town": "Tarpon Springs"
   },
   {
     "lat": 37.537431519797856,
     "lng": -77.38564444060938,
     "fips": "51087",
-    "heading": 197
+    "heading": 197,
+    "town": "Montrose"
   },
   {
     "lat": 30.640892364214782,
     "lng": -88.17244150174619,
     "fips": "01097",
-    "heading": 30
+    "heading": 30,
+    "town": "Mobile"
   },
   {
     "lat": 33.14578037357182,
     "lng": -86.36030547531992,
     "fips": "01121",
-    "heading": 19
+    "heading": 19,
+    "town": "Fayetteville"
   },
   {
     "lat": 40.87492532001451,
     "lng": -73.38556888888085,
     "fips": "36103",
-    "heading": 332
+    "heading": 332,
+    "town": "Huntington"
   },
   {
     "lat": 46.32141893601914,
     "lng": -120.22729201242466,
     "fips": "53077",
-    "heading": 190
+    "heading": 190,
+    "town": "Toppenish"
   },
   {
     "lat": 39.98838450478995,
     "lng": -105.03259329222607,
     "fips": "08014",
-    "heading": 119
+    "heading": 119,
+    "town": "Broomfield"
   },
   {
     "lat": 34.4721233841358,
     "lng": -81.53397993968899,
     "fips": "45087",
-    "heading": 100
+    "heading": 100,
+    "town": "Whitmire"
   },
   {
     "lat": 39.13061269099247,
     "lng": -84.4908241775142,
     "fips": "39061",
-    "heading": 156
+    "heading": 156,
+    "town": null
   },
   {
     "lat": 37.050420317925344,
     "lng": -76.47532886068218,
     "fips": "51700",
-    "heading": 4
+    "heading": 4,
+    "town": "Newport News"
   },
   {
     "lat": 39.20422138741576,
     "lng": -77.37236612641621,
     "fips": "24031",
-    "heading": 316
+    "heading": 316,
+    "town": "Dickerson"
   },
   {
     "lat": 36.694485669721956,
     "lng": -79.88190508856417,
     "fips": "51690",
-    "heading": 296
+    "heading": 296,
+    "town": "Martinsville"
   },
   {
     "lat": 45.0535784090591,
     "lng": -89.54068739191956,
     "fips": "55073",
-    "heading": 69
+    "heading": 69,
+    "town": "Wausau"
   },
   {
     "lat": 41.6192643582906,
     "lng": -87.62686742231422,
     "fips": "17031",
-    "heading": 229
+    "heading": 229,
+    "town": "South Holland"
   },
   {
     "lat": 42.27747995373978,
     "lng": -71.1358071944789,
     "fips": "25025",
-    "heading": 299
+    "heading": 299,
+    "town": "Boston"
   },
   {
     "lat": 40.02315886219178,
     "lng": -85.50518809021457,
     "fips": "18065",
-    "heading": 72
+    "heading": 72,
+    "town": null
   },
   {
     "lat": 41.75101628162585,
     "lng": -93.61637939096413,
     "fips": "19153",
-    "heading": 186
+    "heading": 186,
+    "town": "Ankeny"
   },
   {
     "lat": 41.223489501322916,
     "lng": -96.23122771728855,
     "fips": "31055",
-    "heading": 240
+    "heading": 240,
+    "town": "Omaha"
   },
   {
     "lat": 39.284834472869925,
     "lng": -83.54643493960785,
     "fips": "39071",
-    "heading": 304
+    "heading": 304,
+    "town": "Leesburg"
   },
   {
     "lat": 37.87606218124989,
     "lng": -120.59751314024325,
     "fips": "06109",
-    "heading": 167
+    "heading": 167,
+    "town": "Jamestown"
   },
   {
     "lat": 40.87547378687455,
     "lng": -87.28236199978284,
     "fips": "18111",
-    "heading": 203
+    "heading": 203,
+    "town": "Brook"
   },
   {
     "lat": 43.65666747942719,
     "lng": -116.49244377371612,
     "fips": "16001",
-    "heading": 245
+    "heading": 245,
+    "town": "Meridian"
   },
   {
     "lat": 40.872099647381866,
     "lng": -111.87793663174304,
     "fips": "49011",
-    "heading": 252
+    "heading": 252,
+    "town": "Bountiful"
   },
   {
     "lat": 33.81374379539538,
     "lng": -84.18860061899649,
     "fips": "13089",
-    "heading": 123
+    "heading": 123,
+    "town": "Stone Mountain"
   },
   {
     "lat": 39.25642917901601,
     "lng": -77.01274042680126,
     "fips": "24027",
-    "heading": 151
+    "heading": 151,
+    "town": "Glenelg"
   },
   {
     "lat": 45.92887946681432,
     "lng": -122.41076522926136,
     "fips": "53011",
-    "heading": 130
+    "heading": 130,
+    "town": "Amboy"
   },
   {
     "lat": 42.919320797513684,
     "lng": -83.44826563599236,
     "fips": "26087",
-    "heading": 122
+    "heading": 122,
+    "town": "Goodrich"
   },
   {
     "lat": 37.28116904676038,
     "lng": -76.71867880113085,
     "fips": "51830",
-    "heading": 25
+    "heading": 25,
+    "town": "Williamsburg"
   },
   {
     "lat": 44.5729359525131,
     "lng": -96.11351182555978,
     "fips": "27081",
-    "heading": 328
+    "heading": 328,
+    "town": "Taunton"
   },
   {
     "lat": 30.41089393287655,
     "lng": -91.15027542785857,
     "fips": "22033",
-    "heading": 147
+    "heading": 147,
+    "town": "Baton Rouge"
   },
   {
     "lat": 39.773283944621085,
     "lng": -77.71065046021587,
     "fips": "42055",
-    "heading": 224
+    "heading": 224,
+    "town": "Greencastle"
   },
   {
     "lat": 36.52878101069171,
     "lng": -82.49586257918362,
     "fips": "47163",
-    "heading": 75
+    "heading": 75,
+    "town": "Kingsport"
   },
   {
     "lat": 39.705333141323784,
     "lng": -74.26070769446366,
     "fips": "34029",
-    "heading": 25
+    "heading": 25,
+    "town": "Stafford Township"
   },
   {
     "lat": 40.85024124876584,
     "lng": -90.81645985093799,
     "fips": "17071",
-    "heading": 307
+    "heading": 307,
+    "town": "Biggsville"
   },
   {
     "lat": 30.644314361832887,
     "lng": -81.54420485451723,
     "fips": "12089",
-    "heading": 352
+    "heading": 352,
+    "town": "Yulee"
   },
   {
     "lat": 43.37184844940733,
     "lng": -89.529088624323,
     "fips": "55021",
-    "heading": 108
+    "heading": 108,
+    "town": null
   },
   {
     "lat": 36.544684652681745,
     "lng": -82.49304503980296,
     "fips": "47163",
-    "heading": 331
+    "heading": 331,
+    "town": "Kingsport"
   },
   {
     "lat": 28.13422413155797,
     "lng": -81.9620316491537,
     "fips": "12105",
-    "heading": 292
+    "heading": 292,
+    "town": "Lakeland"
   },
   {
     "lat": 32.45444494956113,
     "lng": -83.727571459685,
     "fips": "13153",
-    "heading": 346
+    "heading": 346,
+    "town": "Perry"
   },
   {
     "lat": 32.490484282216464,
     "lng": -80.67602863745462,
     "fips": "45013",
-    "heading": 227
+    "heading": 227,
+    "town": null
   },
   {
     "lat": 39.89650490345308,
     "lng": -85.74322799381937,
     "fips": "18059",
-    "heading": 217
+    "heading": 217,
+    "town": null
   },
   {
     "lat": 41.59942011802208,
     "lng": -87.84646769167887,
     "fips": "17031",
-    "heading": 312
+    "heading": 312,
+    "town": "Orland Hills"
   },
   {
     "lat": 41.21828320881981,
     "lng": -73.08730224631314,
     "fips": "09170",
-    "heading": 26
+    "heading": 26,
+    "town": "Milford"
   },
   {
     "lat": 37.74730757506982,
     "lng": -122.40501014191295,
     "fips": "06075",
-    "heading": 319
+    "heading": 319,
+    "town": "San Francisco"
   },
   {
     "lat": 39.926600304972474,
     "lng": -83.87517188804951,
     "fips": "39023",
-    "heading": 316
+    "heading": 316,
+    "town": "Springfield"
   },
   {
     "lat": 43.10448213027632,
     "lng": -89.19255444454467,
     "fips": "55025",
-    "heading": 223
+    "heading": 223,
+    "town": "Cottage Grove"
   },
   {
     "lat": 45.4534423589033,
     "lng": -93.16295989833861,
     "fips": "27059",
-    "heading": 129
+    "heading": 129,
+    "town": null
   },
   {
     "lat": 28.577018501924492,
     "lng": -81.40973483719344,
     "fips": "12095",
-    "heading": 288
+    "heading": 288,
+    "town": "Orlando"
   },
   {
     "lat": 45.55033976999135,
     "lng": -122.54850336141348,
     "fips": "41051",
-    "heading": 100
+    "heading": 100,
+    "town": "Portland"
   },
   {
     "lat": 41.080825819474725,
     "lng": -75.61576806740815,
     "fips": "42025",
-    "heading": 235
+    "heading": 235,
+    "town": null
   },
   {
     "lat": 38.34157244578471,
     "lng": -77.49461656267557,
     "fips": "51179",
-    "heading": 294
+    "heading": 294,
+    "town": "Fredericksburg"
   },
   {
     "lat": 38.30806539591042,
     "lng": -77.50523147707943,
     "fips": "51630",
-    "heading": 258
+    "heading": 258,
+    "town": "Fredericksburg"
   },
   {
     "lat": 40.53259444901388,
     "lng": -86.6399713724449,
     "fips": "18015",
-    "heading": 147
+    "heading": 147,
+    "town": "Delphi"
   },
   {
     "lat": 42.413675903937715,
     "lng": -83.06700478037895,
     "fips": "26163",
-    "heading": 159
+    "heading": 159,
+    "town": "Detroit"
   },
   {
     "lat": 43.80559366392967,
     "lng": -70.81233210338861,
     "fips": "23031",
-    "heading": 193
+    "heading": 193,
+    "town": "Cornish"
   },
   {
     "lat": 37.675961050054575,
     "lng": -92.99927438075365,
     "fips": "29059",
-    "heading": 340
+    "heading": 340,
+    "town": "Long Lane"
   },
   {
     "lat": 41.879917537120775,
     "lng": -87.71825534757632,
     "fips": "17031",
-    "heading": 330
+    "heading": 330,
+    "town": "Chicago"
   },
   {
     "lat": 43.081173755604866,
     "lng": -112.73677638126344,
     "fips": "16011",
-    "heading": 219
+    "heading": 219,
+    "town": "Aberdeen"
   },
   {
     "lat": 45.09319990435442,
     "lng": -93.0314656678618,
     "fips": "27123",
-    "heading": 14
+    "heading": 14,
+    "town": "White Bear Township"
   },
   {
     "lat": 40.65625577375274,
     "lng": -74.19711685032786,
     "fips": "34039",
-    "heading": 41
+    "heading": 41,
+    "town": "Elizabeth"
   },
   {
     "lat": 34.3162465496175,
     "lng": -84.19454025623783,
     "fips": "13117",
-    "heading": 190
+    "heading": 190,
+    "town": "Cumming"
   },
   {
     "lat": 39.84093168383974,
     "lng": -83.08617805614425,
     "fips": "39049",
-    "heading": 153
+    "heading": 153,
+    "town": "Grove City"
   },
   {
     "lat": 33.517572560623115,
     "lng": -84.4504921345425,
     "fips": "13113",
-    "heading": 355
+    "heading": 355,
+    "town": "Fayetteville"
   },
   {
     "lat": 37.38443978971461,
     "lng": -76.70126915715075,
     "fips": "51095",
-    "heading": 141
+    "heading": 141,
+    "town": "Williamsburg"
   },
   {
     "lat": 40.04245254572763,
     "lng": -80.68962451594729,
     "fips": "54069",
-    "heading": 56
+    "heading": 56,
+    "town": "Bethlehem"
   },
   {
     "lat": 39.31424769487872,
     "lng": -76.7046681001241,
     "fips": "24510",
-    "heading": 346
+    "heading": 346,
+    "town": "Baltimore"
   },
   {
     "lat": 41.01548326089673,
     "lng": -79.10232204159465,
     "fips": "42065",
-    "heading": 308
+    "heading": 308,
+    "town": "Sprankle Mills"
   },
   {
     "lat": 43.01925068780081,
     "lng": -88.0622705196106,
     "fips": "55079",
-    "heading": 99
+    "heading": 99,
+    "town": "West Allis"
   },
   {
     "lat": 32.74222330684085,
     "lng": -97.22966586264513,
     "fips": "48439",
-    "heading": 272
+    "heading": 272,
+    "town": "Fort Worth"
   },
   {
     "lat": 41.06057232995199,
     "lng": -111.99016323996791,
     "fips": "49011",
-    "heading": 147
+    "heading": 147,
+    "town": "Layton"
   },
   {
     "lat": 43.605621730242646,
     "lng": -96.5318236143146,
     "fips": "46099",
-    "heading": 343
+    "heading": 343,
+    "town": "Valley Springs"
   },
   {
     "lat": 42.28279010034143,
     "lng": -77.61732008743996,
     "fips": "36101",
-    "heading": 282
+    "heading": 282,
+    "town": null
   },
   {
     "lat": 31.807785858570572,
     "lng": -89.83618201421794,
     "fips": "28127",
-    "heading": 298
+    "heading": 298,
+    "town": null
   },
   {
     "lat": 39.06968744737069,
     "lng": -85.88265882001916,
     "fips": "18005",
-    "heading": 148
+    "heading": 148,
+    "town": "Columbus"
   },
   {
     "lat": 37.3206843793173,
     "lng": -76.7573986604964,
     "fips": "51095",
-    "heading": 146
+    "heading": 146,
+    "town": "Williamsburg"
   },
   {
     "lat": 40.09741533986119,
     "lng": -83.12905951410929,
     "fips": "39049",
-    "heading": 257
+    "heading": 257,
+    "town": "Dublin"
   },
   {
     "lat": 39.10007639925759,
     "lng": -84.70643786591809,
     "fips": "21015",
-    "heading": 90
+    "heading": 90,
+    "town": "Hebron"
   },
   {
     "lat": 35.771364660385245,
     "lng": -97.37109403042265,
     "fips": "40083",
-    "heading": 72
+    "heading": 72,
+    "town": "Guthrie"
   },
   {
     "lat": 41.57768962433605,
     "lng": -92.80050711681967,
     "fips": "19099",
-    "heading": 139
+    "heading": 139,
+    "town": "Lynnville"
   },
   {
     "lat": 42.47413638185336,
     "lng": -78.74528649756962,
     "fips": "36029",
-    "heading": 108
+    "heading": 108,
+    "town": "Springville"
   },
   {
     "lat": 34.01284864756351,
     "lng": -84.69032721215312,
     "fips": "13067",
-    "heading": 296
+    "heading": 296,
+    "town": "Acworth"
   },
   {
     "lat": 34.178292822047965,
     "lng": -84.12830575746148,
     "fips": "13117",
-    "heading": 281
+    "heading": 281,
+    "town": "Cumming"
   },
   {
     "lat": 47.58095842825115,
     "lng": -117.39211692406761,
     "fips": "53063",
-    "heading": 210
+    "heading": 210,
+    "town": "Spokane"
   },
   {
     "lat": 35.94874390207034,
     "lng": -79.56650018271823,
     "fips": "37081",
-    "heading": 311
+    "heading": 311,
+    "town": "Liberty"
   },
   {
     "lat": 40.448770369409495,
     "lng": -75.51055788394224,
     "fips": "42077",
-    "heading": 51
+    "heading": 51,
+    "town": "Zionsville"
   },
   {
     "lat": 29.563715833944183,
     "lng": -95.51868413308647,
     "fips": "48157",
-    "heading": 189
+    "heading": 189,
+    "town": "Missouri City"
   },
   {
     "lat": 36.48629120021206,
     "lng": -85.87481692720478,
     "fips": "47111",
-    "heading": 358
+    "heading": 358,
+    "town": "Red Boiling Springs"
   },
   {
     "lat": 43.27487498536882,
     "lng": -89.52130576421936,
     "fips": "55025",
-    "heading": 20
+    "heading": 20,
+    "town": "Lodi"
   },
   {
     "lat": 41.842904419334054,
     "lng": -94.26718961650388,
     "fips": "19049",
-    "heading": 28
+    "heading": 28,
+    "town": "Jamaica"
   },
   {
     "lat": 42.49236566094338,
     "lng": -83.56990848373185,
     "fips": "26125",
-    "heading": 344
+    "heading": 344,
+    "town": "Wixom"
   },
   {
     "lat": 32.63472062406676,
     "lng": -83.61336269075557,
     "fips": "13153",
-    "heading": 75
+    "heading": 75,
+    "town": "Warner Robins"
   },
   {
     "lat": 41.28342467945079,
     "lng": -81.9138344883151,
     "fips": "39093",
-    "heading": 84
+    "heading": 84,
+    "town": "Columbia Station"
   },
   {
     "lat": 32.405467352735165,
     "lng": -93.79543743536038,
     "fips": "22017",
-    "heading": 173
+    "heading": 173,
+    "town": "Shreveport"
   },
   {
     "lat": 34.173091731086814,
     "lng": -86.3469338877273,
     "fips": "01095",
-    "heading": 302
+    "heading": 302,
+    "town": "Horton"
   },
   {
     "lat": 38.960753360069944,
     "lng": -76.65610072228222,
     "fips": "24003",
-    "heading": 218
+    "heading": 218,
+    "town": "Bowie"
   },
   {
     "lat": 36.611121622571,
     "lng": -82.14438097681351,
     "fips": "51520",
-    "heading": 351
+    "heading": 351,
+    "town": "Bristol"
   },
   {
     "lat": 39.06244305483102,
     "lng": -77.56299204131051,
     "fips": "51107",
-    "heading": 294
+    "heading": 294,
+    "town": "Leesburg"
   },
   {
     "lat": 41.04097333296508,
     "lng": -81.57844365254816,
     "fips": "39153",
-    "heading": 215
+    "heading": 215,
+    "town": "Akron"
   },
   {
     "lat": 30.696669534788338,
     "lng": -100.42484885444699,
     "fips": "48435",
-    "heading": 141
+    "heading": 141,
+    "town": "Sonora"
   },
   {
     "lat": 33.227204766194575,
     "lng": -96.79253919930305,
     "fips": "48085",
-    "heading": 343
+    "heading": 343,
+    "town": "Prosper"
   },
   {
     "lat": 43.08932655996216,
     "lng": -88.1399716296305,
     "fips": "55133",
-    "heading": 17
+    "heading": 17,
+    "town": "Brookfield"
   },
   {
     "lat": 44.07589114032004,
     "lng": -70.4034411138423,
     "fips": "23001",
-    "heading": 244
+    "heading": 244,
+    "town": "Poland"
   },
   {
     "lat": 41.19306555521652,
     "lng": -73.64840264627065,
     "fips": "36119",
-    "heading": 304
+    "heading": 304,
+    "town": "Bedford"
   },
   {
     "lat": 39.75744374915589,
     "lng": -75.05346844210915,
     "fips": "34015",
-    "heading": 268
+    "heading": 268,
+    "town": "Washington Township"
   },
   {
     "lat": 43.0101638157932,
     "lng": -89.61445432903912,
     "fips": "55025",
-    "heading": 206
+    "heading": 206,
+    "town": "Verona"
   },
   {
     "lat": 36.20447168048641,
     "lng": -85.61541292934491,
     "fips": "47141",
-    "heading": 350
+    "heading": 350,
+    "town": "Bloomington Springs"
   },
   {
     "lat": 33.77141804919425,
     "lng": -84.3976842114194,
     "fips": "13121",
-    "heading": 17
+    "heading": 17,
+    "town": "Atlanta"
   },
   {
     "lat": 40.17609597097509,
     "lng": -75.10929747095098,
     "fips": "42091",
-    "heading": 186
+    "heading": 186,
+    "town": "Hatboro"
   },
   {
     "lat": 45.64016907847461,
     "lng": -85.01907413614738,
     "fips": "26047",
-    "heading": 359
+    "heading": 359,
+    "town": "Harbor Springs"
   },
   {
     "lat": 36.66755716815018,
     "lng": -79.86322823052762,
     "fips": "51690",
-    "heading": 281
+    "heading": 281,
+    "town": "Martinsville"
   },
   {
     "lat": 36.682745873791156,
     "lng": -79.84509978010018,
     "fips": "51690",
-    "heading": 283
+    "heading": 283,
+    "town": "Martinsville"
   },
   {
     "lat": 41.76359570481423,
     "lng": -88.3705050801173,
     "fips": "17089",
-    "heading": 188
+    "heading": 188,
+    "town": "Aurora"
   },
   {
     "lat": 40.872084437223,
     "lng": -73.99243645985048,
     "fips": "34003",
-    "heading": 112
+    "heading": 112,
+    "town": "Leonia"
   },
   {
     "lat": 39.89032916613832,
     "lng": -78.38668575105068,
     "fips": "42009",
-    "heading": 218
+    "heading": 218,
+    "town": "Clearville"
   },
   {
     "lat": 41.517343849312745,
     "lng": -75.5481602119101,
     "fips": "42069",
-    "heading": 332
+    "heading": 332,
+    "town": "Jermyn"
   },
   {
     "lat": 39.47054687561717,
     "lng": -76.83764396500736,
     "fips": "24005",
-    "heading": 198
+    "heading": 198,
+    "town": "Reisterstown"
   },
   {
     "lat": 28.544538299191853,
     "lng": -81.48859407452817,
     "fips": "12095",
-    "heading": 285
+    "heading": 285,
+    "town": "Orlando"
   },
   {
     "lat": 44.95013243355637,
     "lng": -93.32551801984434,
     "fips": "27053",
-    "heading": 347
+    "heading": 347,
+    "town": "Minneapolis"
   },
   {
     "lat": 35.04823063698801,
     "lng": -85.3031565768754,
     "fips": "47065",
-    "heading": 168
+    "heading": 168,
+    "town": "Chattanooga"
   },
   {
     "lat": 42.175013832483714,
     "lng": -71.06341424116982,
     "fips": "25021",
-    "heading": 345
+    "heading": 345,
+    "town": "Randolph"
   },
   {
     "lat": 38.91707554662899,
     "lng": -76.71225323255278,
     "fips": "24033",
-    "heading": 164
+    "heading": 164,
+    "town": "Bowie"
   },
   {
     "lat": 40.971376740962654,
     "lng": -85.12455281553143,
     "fips": "18003",
-    "heading": 197
+    "heading": 197,
+    "town": "Fort Wayne"
   },
   {
     "lat": 42.98802840041291,
     "lng": -89.55619013414638,
     "fips": "55025",
-    "heading": 341
+    "heading": 341,
+    "town": "Verona"
   },
   {
     "lat": 29.690830591840943,
     "lng": -95.42819697045825,
     "fips": "48201",
-    "heading": 71
+    "heading": 71,
+    "town": "Houston"
   },
   {
     "lat": 37.57646262927743,
     "lng": -77.47460972139201,
     "fips": "51760",
-    "heading": 106
+    "heading": 106,
+    "town": "Richmond"
   },
   {
     "lat": 42.37433729368521,
     "lng": -82.926662016031,
     "fips": "26163",
-    "heading": 112
+    "heading": 112,
+    "town": "Grosse Pointe Park"
   },
   {
     "lat": 30.15562065620241,
     "lng": -92.56811891881759,
     "fips": "22001",
-    "heading": 50
+    "heading": 50,
+    "town": "Morse"
   },
   {
     "lat": 40.75280051927811,
     "lng": -73.99550166957572,
     "fips": "36061",
-    "heading": 24
+    "heading": 24,
+    "town": "New York"
   },
   {
     "lat": 39.08606866422259,
     "lng": -92.06692433739694,
     "fips": "29007",
-    "heading": 299
+    "heading": 299,
+    "town": "Thompson"
   },
   {
     "lat": 40.64024632311048,
     "lng": -73.66879905480207,
     "fips": "36059",
-    "heading": 14
+    "heading": 14,
+    "town": "East Rockaway"
   },
   {
     "lat": 34.154373844826644,
     "lng": -99.31355229986002,
     "fips": "48487",
-    "heading": 238
+    "heading": 238,
+    "town": "Vernon"
   },
   {
     "lat": 33.700825375024905,
     "lng": -84.2536219096029,
     "fips": "13089",
-    "heading": 330
+    "heading": 330,
+    "town": "Decatur"
   },
   {
     "lat": 41.71663361831097,
     "lng": -81.24314811700377,
     "fips": "39085",
-    "heading": 138
+    "heading": 138,
+    "town": "Painesville"
   },
   {
     "lat": 40.672696763972205,
     "lng": -73.8677091514678,
     "fips": "36047",
-    "heading": 71
+    "heading": 71,
+    "town": "Brooklyn"
   },
   {
     "lat": 34.021748183850015,
     "lng": -84.07178404266676,
     "fips": "13135",
-    "heading": 302
+    "heading": 302,
+    "town": "Suwanee"
   },
   {
     "lat": 36.14823733993281,
     "lng": -79.69940707391372,
     "fips": "37081",
-    "heading": 351
+    "heading": 351,
+    "town": "McLeansville"
   },
   {
     "lat": 33.77935507085881,
     "lng": -79.13900939786821,
     "fips": "45051",
-    "heading": 285
+    "heading": 285,
+    "town": "Conway"
   },
   {
     "lat": 35.59771569946705,
     "lng": -78.16051466519043,
     "fips": "37101",
-    "heading": 73
+    "heading": 73,
+    "town": "Kenly"
   },
   {
     "lat": 42.729300378624,
     "lng": -73.78255019898792,
     "fips": "36001",
-    "heading": 316
+    "heading": 316,
+    "town": "Latham"
   },
   {
     "lat": 39.703654779253505,
     "lng": -90.6268906171909,
     "fips": "17171",
-    "heading": 11
+    "heading": 11,
+    "town": "Valley City"
   },
   {
     "lat": 29.851087530693412,
     "lng": -95.05908047563493,
     "fips": "48201",
-    "heading": 263
+    "heading": 263,
+    "town": "Crosby"
   },
   {
     "lat": 40.713880969032985,
     "lng": -73.94803827937841,
     "fips": "36047",
-    "heading": 51
+    "heading": 51,
+    "town": "Brooklyn"
   },
   {
     "lat": 35.38610434391018,
     "lng": -97.56748396861973,
     "fips": "40109",
-    "heading": 317
+    "heading": 317,
+    "town": "Oklahoma City"
   },
   {
     "lat": 32.48182583049654,
     "lng": -100.01655877412995,
     "fips": "48441",
-    "heading": 211
+    "heading": 211,
+    "town": "Merkel"
   },
   {
     "lat": 40.67600166431549,
     "lng": -73.66688858082237,
     "fips": "36059",
-    "heading": 79
+    "heading": 79,
+    "town": "Malverne"
   },
   {
     "lat": 32.95253365364453,
     "lng": -96.4425337374643,
     "fips": "48397",
-    "heading": 73
+    "heading": 73,
+    "town": "Rockwall"
   },
   {
     "lat": 35.306583561969695,
     "lng": -81.21752253103162,
     "fips": "37071",
-    "heading": 251
+    "heading": 251,
+    "town": null
   },
   {
     "lat": 41.644844624052475,
     "lng": -72.79267376500485,
     "fips": "09110",
-    "heading": 356
+    "heading": 356,
+    "town": "Berlin"
   },
   {
     "lat": 45.20392151271036,
     "lng": -93.83588668636774,
     "fips": "27171",
-    "heading": 199
+    "heading": 199,
+    "town": "Buffalo"
   },
   {
     "lat": 27.286823912488536,
     "lng": -82.52255887596398,
     "fips": "12115",
-    "heading": 214
+    "heading": 214,
+    "town": "Sarasota"
   },
   {
     "lat": 33.89456459624332,
     "lng": -83.56901717031955,
     "fips": "13219",
-    "heading": 313
+    "heading": 313,
+    "town": "Statham"
   },
   {
     "lat": 30.192022275000504,
     "lng": -90.85161323196483,
     "fips": "22005",
-    "heading": 61
+    "heading": 61,
+    "town": "Sorrento"
   },
   {
     "lat": 37.86096928409048,
     "lng": -122.21478612290161,
     "fips": "06013",
-    "heading": 86
+    "heading": 86,
+    "town": "Oakland"
   },
   {
     "lat": 40.43228192949525,
     "lng": -82.98201562556049,
     "fips": "39117",
-    "heading": 311
+    "heading": 311,
+    "town": "Ashley"
   },
   {
     "lat": 28.012579201475027,
     "lng": -82.7812938282165,
     "fips": "12103",
-    "heading": 148
+    "heading": 148,
+    "town": "Dunedin"
   },
   {
     "lat": 39.8145766150249,
     "lng": -86.32127482695108,
     "fips": "18097",
-    "heading": 238
+    "heading": 238,
+    "town": "Indianapolis"
   },
   {
     "lat": 30.480048321864885,
     "lng": -90.03556771113483,
     "fips": "22103",
-    "heading": 31
+    "heading": 31,
+    "town": "Abita Springs"
   },
   {
     "lat": 32.949745279432946,
     "lng": -96.6902712819668,
     "fips": "48113",
-    "heading": 1
+    "heading": 1,
+    "town": "Richardson"
   },
   {
     "lat": 40.05485246049424,
     "lng": -75.03491853199138,
     "fips": "42101",
-    "heading": 287
+    "heading": 287,
+    "town": "Philadelphia"
   },
   {
     "lat": 41.735368844598405,
     "lng": -88.24755597082186,
     "fips": "17043",
-    "heading": 74
+    "heading": 74,
+    "town": "Aurora"
   },
   {
     "lat": 38.1209067261776,
     "lng": -94.8045894298967,
     "fips": "20107",
-    "heading": 214
+    "heading": 214,
+    "town": "Mound City"
   },
   {
     "lat": 47.33400365253058,
     "lng": -122.57531799621832,
     "fips": "53053",
-    "heading": 155
+    "heading": 155,
+    "town": "Gig Harbor"
   },
   {
     "lat": 38.87183386948154,
     "lng": -77.06582008174863,
     "fips": "51013",
-    "heading": 136
+    "heading": 136,
+    "town": "Arlington"
   },
   {
     "lat": 41.18095404401998,
     "lng": -81.80954070676687,
     "fips": "39103",
-    "heading": 87
+    "heading": 87,
+    "town": "Medina"
   },
   {
     "lat": 32.796043955926386,
     "lng": -97.36186841231107,
     "fips": "48439",
-    "heading": 92
+    "heading": 92,
+    "town": "Fort Worth"
   },
   {
     "lat": 40.800095045569186,
     "lng": -73.93184281007292,
     "fips": "36061",
-    "heading": 165
+    "heading": 165,
+    "town": "New York"
   },
   {
     "lat": 34.663531582165135,
     "lng": -77.17494981306908,
     "fips": "37133",
-    "heading": 342
+    "heading": 342,
+    "town": "Hubert"
   },
   {
     "lat": 35.906869719618776,
     "lng": -78.8788493287851,
     "fips": "37063",
-    "heading": 50
+    "heading": 50,
+    "town": null
   },
   {
     "lat": 39.58625900065112,
     "lng": -76.13987297502352,
     "fips": "24025",
-    "heading": 68
+    "heading": 68,
+    "town": "Havre de Grace"
   },
   {
     "lat": 41.46727550256029,
     "lng": -91.43749577476602,
     "fips": "19103",
-    "heading": 160
+    "heading": 160,
+    "town": "Lone Tree"
   },
   {
     "lat": 40.47023403189676,
     "lng": -74.49488803363671,
     "fips": "34035",
-    "heading": 62
+    "heading": 62,
+    "town": "Franklin Township"
   },
   {
     "lat": 41.48981697288342,
     "lng": -81.94639769005522,
     "fips": "39035",
-    "heading": 32
+    "heading": 32,
+    "town": "Bay Village"
   },
   {
     "lat": 41.484576469581214,
     "lng": -90.57307370116024,
     "fips": "17161",
-    "heading": 109
+    "heading": 109,
+    "town": "Rock Island"
   },
   {
     "lat": 40.75540008888076,
     "lng": -74.29518651631638,
     "fips": "34013",
-    "heading": 131
+    "heading": 131,
+    "town": "Millburn"
   },
   {
     "lat": 30.048213437375676,
     "lng": -95.41444257652603,
     "fips": "48201",
-    "heading": 253
+    "heading": 253,
+    "town": "Spring"
   },
   {
     "lat": 40.05395974447958,
     "lng": -82.49041636552971,
     "fips": "39089",
-    "heading": 93
+    "heading": 93,
+    "town": "Newark"
   },
   {
     "lat": 30.375064631460898,
     "lng": -88.54851532540916,
     "fips": "28059",
-    "heading": 43
+    "heading": 43,
+    "town": "Pascagoula"
   },
   {
     "lat": 40.550986685951344,
     "lng": -79.82971396672266,
     "fips": "42003",
-    "heading": 266
+    "heading": 266,
+    "town": "Plum"
   },
   {
     "lat": 30.80390580516615,
     "lng": -81.78805214568926,
     "fips": "13039",
-    "heading": 75
+    "heading": 75,
+    "town": "Kingsland"
   },
   {
     "lat": 33.9027624712827,
     "lng": -83.67980435647048,
     "fips": "13297",
-    "heading": 285
+    "heading": 285,
+    "town": "Monroe"
   },
   {
     "lat": 37.02968991856229,
     "lng": -121.65571780257083,
     "fips": "06085",
-    "heading": 65
+    "heading": 65,
+    "town": "Gilroy"
   },
   {
     "lat": 31.700432442706273,
     "lng": -106.20612584047623,
     "fips": "48141",
-    "heading": 352
+    "heading": 352,
+    "town": "Horizon City"
   },
   {
     "lat": 40.46880943774549,
     "lng": -74.30736591127412,
     "fips": "34023",
-    "heading": 324
+    "heading": 324,
+    "town": "Sayreville"
   },
   {
     "lat": 43.31181966731686,
     "lng": -71.56889287170695,
     "fips": "33013",
-    "heading": 90
+    "heading": 90,
+    "town": "Canterbury"
   },
   {
     "lat": 42.62303794057189,
     "lng": -83.55996968458156,
     "fips": "26125",
-    "heading": 14
+    "heading": 14,
+    "town": "White Lake Township"
   },
   {
     "lat": 32.07550472399593,
     "lng": -81.25310128114226,
     "fips": "13051",
-    "heading": 251
+    "heading": 251,
+    "town": "Pooler"
   },
   {
     "lat": 36.98241691059968,
     "lng": -79.134401041276,
     "fips": "51143",
-    "heading": 287
+    "heading": 287,
+    "town": "Straightstone"
   },
   {
     "lat": 32.90709892674554,
     "lng": -96.65069108509867,
     "fips": "48113",
-    "heading": 154
+    "heading": 154,
+    "town": "Garland"
   },
   {
     "lat": 29.38018901592309,
     "lng": -95.0963873412571,
     "fips": "48167",
-    "heading": 179
+    "heading": 179,
+    "town": "Santa Fe"
   },
   {
     "lat": 38.339705129829994,
     "lng": -122.01394293425335,
     "fips": "06095",
-    "heading": 162
+    "heading": 162,
+    "town": "Vacaville"
   },
   {
     "lat": 26.627162387374025,
     "lng": -80.29962919440798,
     "fips": "12099",
-    "heading": 189
+    "heading": 189,
+    "town": "Wellington"
   },
   {
     "lat": 34.624554977304584,
     "lng": -86.40337564510403,
     "fips": "01089",
-    "heading": 345
+    "heading": 345,
+    "town": "Gurley"
   },
   {
     "lat": 41.076728936066765,
     "lng": -81.42947293304992,
     "fips": "39153",
-    "heading": 183
+    "heading": 183,
+    "town": "Akron"
   },
   {
     "lat": 37.34082061980752,
     "lng": -120.76018961198967,
     "fips": "06047",
-    "heading": 111
+    "heading": 111,
+    "town": "Livingston"
   },
   {
     "lat": 40.77773068287174,
     "lng": -74.05993074381759,
     "fips": "34017",
-    "heading": 52
+    "heading": 52,
+    "town": "Secaucus"
   },
   {
     "lat": 39.6966013255502,
     "lng": -75.0126347927833,
     "fips": "34015",
-    "heading": 293
+    "heading": 293,
+    "town": "Monroe"
   },
   {
     "lat": 34.97399614153236,
     "lng": -78.65508818459574,
     "fips": "37051",
-    "heading": 86
+    "heading": 86,
+    "town": "Autryville"
   },
   {
     "lat": 29.87530179447907,
     "lng": -95.41481910712997,
     "fips": "48201",
-    "heading": 249
+    "heading": 249,
+    "town": "Houston"
   },
   {
     "lat": 33.446660717663185,
     "lng": -84.47804192589369,
     "fips": "13113",
-    "heading": 31
+    "heading": 31,
+    "town": "Fayetteville"
   },
   {
     "lat": 34.37013091731682,
     "lng": -119.05956152369986,
     "fips": "06111",
-    "heading": 4
+    "heading": 4,
+    "town": "Santa Paula"
   },
   {
     "lat": 28.663147947323715,
     "lng": -81.23363766482197,
     "fips": "12117",
-    "heading": 30
+    "heading": 30,
+    "town": "Oviedo"
   },
   {
     "lat": 41.90693703479141,
     "lng": -70.79598523061229,
     "fips": "25023",
-    "heading": 174
+    "heading": 174,
+    "town": "Carver"
   },
   {
     "lat": 27.25614682817323,
     "lng": -82.39163981696642,
     "fips": "12115",
-    "heading": 351
+    "heading": 351,
+    "town": "Sarasota"
   },
   {
     "lat": 42.01036720187729,
     "lng": -77.26908817808615,
     "fips": "36101",
-    "heading": 5
+    "heading": 5,
+    "town": "Addison"
   },
   {
     "lat": 38.8110377079083,
     "lng": -77.1353690929108,
     "fips": "51510",
-    "heading": 276
+    "heading": 276,
+    "town": "Alexandria"
   },
   {
     "lat": 33.84901395132791,
     "lng": -85.03846431373711,
     "fips": "13143",
-    "heading": 43
+    "heading": 43,
+    "town": "Temple"
   },
   {
     "lat": 38.378424754559184,
     "lng": -90.98039302199899,
     "fips": "29071",
-    "heading": 2
+    "heading": 2,
+    "town": "Union"
   },
   {
     "lat": 41.76792226575936,
     "lng": -70.84181476631863,
     "fips": "25023",
-    "heading": 255
+    "heading": 255,
+    "town": "Rochester"
   },
   {
     "lat": 34.17661671257486,
     "lng": -83.95570691790276,
     "fips": "13139",
-    "heading": 207
+    "heading": 207,
+    "town": "Flowery Branch"
   },
   {
     "lat": 38.35665702228183,
     "lng": -76.50253085719605,
     "fips": "24037",
-    "heading": 213
+    "heading": 213,
+    "town": null
   },
   {
     "lat": 35.11680693637013,
     "lng": -106.68277618892928,
     "fips": "35001",
-    "heading": 349
+    "heading": 349,
+    "town": "Albuquerque"
   },
   {
     "lat": 41.55297402125922,
     "lng": -88.24442933152106,
     "fips": "17197",
-    "heading": 277
+    "heading": 277,
+    "town": "Plainfield"
   },
   {
     "lat": 34.046191055565785,
     "lng": -84.10422107052649,
     "fips": "13135",
-    "heading": 330
+    "heading": 330,
+    "town": "Suwanee"
   },
   {
     "lat": 43.23875730140345,
     "lng": -87.9723872554468,
     "fips": "55089",
-    "heading": 257
+    "heading": 257,
+    "town": "Thiensville"
   },
   {
     "lat": 37.77085532181162,
     "lng": -122.467607532564,
     "fips": "06075",
-    "heading": 344
+    "heading": 344,
+    "town": "San Francisco"
   },
   {
     "lat": 36.063047579856,
     "lng": -86.67323802550614,
     "fips": "47037",
-    "heading": 276
+    "heading": 276,
+    "town": "Nashville"
   },
   {
     "lat": 40.5192635513713,
     "lng": -74.33508747064235,
     "fips": "34023",
-    "heading": 332
+    "heading": 332,
+    "town": "Edison"
   },
   {
     "lat": 41.772067701121365,
     "lng": -93.7211949153477,
     "fips": "19153",
-    "heading": 12
+    "heading": 12,
+    "town": "Polk City"
   },
   {
     "lat": 40.825676531934356,
     "lng": -74.30683362348894,
     "fips": "34013",
-    "heading": 266
+    "heading": 266,
+    "town": "Roseland"
   },
   {
     "lat": 37.42561913198369,
     "lng": -122.00222645466245,
     "fips": "06085",
-    "heading": 320
+    "heading": 320,
+    "town": "San Jose"
   },
   {
     "lat": 30.05132907261714,
     "lng": -95.18333520311593,
     "fips": "48201",
-    "heading": 211
+    "heading": 211,
+    "town": "Houston"
   },
   {
     "lat": 34.19615682440042,
     "lng": -117.67707636217744,
     "fips": "06037",
-    "heading": 297
+    "heading": 297,
+    "town": "Claremont"
   },
   {
     "lat": 34.78040673498917,
     "lng": -80.6480125257854,
     "fips": "45057",
-    "heading": 322
+    "heading": 322,
+    "town": "Lancaster"
   },
   {
     "lat": 41.78925876551416,
     "lng": -73.12131294201373,
     "fips": "09160",
-    "heading": 203
+    "heading": 203,
+    "town": "Torrington"
   },
   {
     "lat": 33.444777443341174,
     "lng": -88.80982252197474,
     "fips": "28105",
-    "heading": 68
+    "heading": 68,
+    "town": "Starkville"
   },
   {
     "lat": 32.08057870737475,
     "lng": -92.18591135634993,
     "fips": "22021",
-    "heading": 86
+    "heading": 86,
+    "town": "Clarks"
   },
   {
     "lat": 35.82145287555926,
     "lng": -79.12228367086729,
     "fips": "37037",
-    "heading": 327
+    "heading": 327,
+    "town": "Chapel Hill"
   },
   {
     "lat": 34.85356726846633,
     "lng": -81.05249882394509,
     "fips": "45091",
-    "heading": 14
+    "heading": 14,
+    "town": "Rock Hill"
   },
   {
     "lat": 41.328849785522564,
     "lng": -73.85353110407772,
     "fips": "36119",
-    "heading": 72
+    "heading": 72,
+    "town": "Mohegan Lake"
   },
   {
     "lat": 36.63622854450442,
     "lng": -88.56547390465803,
     "fips": "21083",
-    "heading": 307
+    "heading": 307,
+    "town": "Sedalia"
   },
   {
     "lat": 34.10173039746193,
     "lng": -118.08591422547073,
     "fips": "06037",
-    "heading": 61
+    "heading": 61,
+    "town": "San Gabriel"
   },
   {
     "lat": 41.35002783570124,
     "lng": -80.57536843534439,
     "fips": "39155",
-    "heading": 114
+    "heading": 114,
+    "town": "Burghill"
   },
   {
     "lat": 39.256024413810685,
     "lng": -76.63845567934378,
     "fips": "24510",
-    "heading": 247
+    "heading": 247,
+    "town": "Baltimore"
   },
   {
     "lat": 38.866686492990205,
     "lng": -77.00181371578059,
     "fips": "11001",
-    "heading": 292
+    "heading": 292,
+    "town": "Washington"
   },
   {
     "lat": 40.572820638082504,
     "lng": -80.21011503778718,
     "fips": "42003",
-    "heading": 51
+    "heading": 51,
+    "town": "Sewickley"
   },
   {
     "lat": 36.87735606815984,
     "lng": -76.383452347745,
     "fips": "51740",
-    "heading": 326
+    "heading": 326,
+    "town": "Portsmouth"
   },
   {
     "lat": 40.276725278312945,
     "lng": -80.17585366719429,
     "fips": "42125",
-    "heading": 107
+    "heading": 107,
+    "town": "Canonsburg"
   },
   {
     "lat": 38.43877880971876,
     "lng": -90.61364632931983,
     "fips": "29099",
-    "heading": 329
+    "heading": 329,
+    "town": "Eureka"
   },
   {
     "lat": 40.78045165272448,
     "lng": -74.28972195134394,
     "fips": "34013",
-    "heading": 187
+    "heading": 187,
+    "town": "West Orange"
   },
   {
     "lat": 35.73186082448809,
     "lng": -86.40138558904448,
     "fips": "47149",
-    "heading": 327
+    "heading": 327,
+    "town": "Murfreesboro"
   },
   {
     "lat": 41.16528261100706,
     "lng": -73.21448642443028,
     "fips": "09120",
-    "heading": 29
+    "heading": 29,
+    "town": "Bridgeport"
   },
   {
     "lat": 41.50429612133084,
     "lng": -90.13273355025952,
     "fips": "17073",
-    "heading": 330
+    "heading": 330,
+    "town": "Geneseo"
   },
   {
     "lat": 37.24182495302734,
     "lng": -87.23148415711889,
     "fips": "21177",
-    "heading": 48
+    "heading": 48,
+    "town": "Greenville"
   },
   {
     "lat": 29.60526964869091,
     "lng": -97.94779370538103,
     "fips": "48187",
-    "heading": 42
+    "heading": 42,
+    "town": "Seguin"
   },
   {
     "lat": 41.67693214346066,
     "lng": -71.26171072922406,
     "fips": "44001",
-    "heading": 95
+    "heading": 95,
+    "town": "Bristol"
   },
   {
     "lat": 39.82769868283398,
     "lng": -75.47467391442034,
     "fips": "42045",
-    "heading": 75
+    "heading": 75,
+    "town": "Garnet Valley"
   },
   {
     "lat": 39.96535661914013,
     "lng": -75.3991813208987,
     "fips": "42045",
-    "heading": 46
+    "heading": 46,
+    "town": "Newtown Square"
   },
   {
     "lat": 40.449815695724325,
     "lng": -75.37280589777853,
     "fips": "42017",
-    "heading": 201
+    "heading": 201,
+    "town": "Quakertown"
   },
   {
     "lat": 39.62751642851134,
     "lng": -105.09984777184927,
     "fips": "08031",
-    "heading": 292
+    "heading": 292,
+    "town": "Littleton"
   },
   {
     "lat": 35.85503914413497,
     "lng": -101.75055345726983,
     "fips": "48341",
-    "heading": 324
+    "heading": 324,
+    "town": "Stinnett"
   },
   {
     "lat": 41.34558113977526,
     "lng": -72.10210199339255,
     "fips": "09180",
-    "heading": 293
+    "heading": 293,
+    "town": "New London"
   },
   {
     "lat": 39.8011672021712,
     "lng": -105.07518578786072,
     "fips": "08059",
-    "heading": 297
+    "heading": 297,
+    "town": "Arvada"
   },
   {
     "lat": 37.23272275172561,
     "lng": -76.72270830209717,
     "fips": "51095",
-    "heading": 70
+    "heading": 70,
+    "town": "Williamsburg"
   },
   {
     "lat": 35.320711939649804,
     "lng": -93.17709948798337,
     "fips": "05115",
-    "heading": 263
+    "heading": 263,
+    "town": "Russellville"
   },
   {
     "lat": 36.130740190611,
     "lng": -85.33768541481894,
     "fips": "47141",
-    "heading": 343
+    "heading": 343,
+    "town": "Monterey"
   },
   {
     "lat": 38.714283084722865,
     "lng": -89.8949980397371,
     "fips": "17119",
-    "heading": 30
+    "heading": 30,
+    "town": "Troy"
   },
   {
     "lat": 38.41036242518675,
     "lng": -83.71778419639418,
     "fips": "21069",
-    "heading": 189
+    "heading": 189,
+    "town": "Flemingsburg"
   },
   {
     "lat": 40.76155951715989,
     "lng": -78.75077402257463,
     "fips": "42033",
-    "heading": 32
+    "heading": 32,
+    "town": "Westover"
   },
   {
     "lat": 38.72604258202242,
     "lng": -77.55022079766242,
     "fips": "51153",
-    "heading": 71
+    "heading": 71,
+    "town": "Linton Hall"
   },
   {
     "lat": 32.900964790929066,
     "lng": -97.15032479615097,
     "fips": "48439",
-    "heading": 142
+    "heading": 142,
+    "town": "Colleyville"
   },
   {
     "lat": 45.507870501528664,
     "lng": -92.99527167354151,
     "fips": "27025",
-    "heading": 120
+    "heading": 120,
+    "town": "North Branch"
   },
   {
     "lat": 41.66661004801492,
     "lng": -71.27476867809098,
     "fips": "44001",
-    "heading": 105
+    "heading": 105,
+    "town": "Bristol"
   },
   {
     "lat": 26.641388892940473,
     "lng": -81.95362224793156,
     "fips": "12071",
-    "heading": 6
+    "heading": 6,
+    "town": "Cape Coral"
   },
   {
     "lat": 40.70592347655945,
     "lng": -73.91697505494041,
     "fips": "36047",
-    "heading": 21
+    "heading": 21,
+    "town": "Brooklyn"
   },
   {
     "lat": 40.6920397696445,
     "lng": -73.48924771750596,
     "fips": "36059",
-    "heading": 137
+    "heading": 137,
+    "town": "Seaford"
   },
   {
     "lat": 35.14393485390736,
     "lng": -80.98785045748474,
     "fips": "37119",
-    "heading": 318
+    "heading": 318,
+    "town": "Charlotte"
   },
   {
     "lat": 35.25374055285055,
     "lng": -80.93846030157167,
     "fips": "37119",
-    "heading": 63
+    "heading": 63,
+    "town": "Charlotte"
   },
   {
     "lat": 35.39200427564611,
     "lng": -83.64972286518035,
     "fips": "37075",
-    "heading": 82
+    "heading": 82,
+    "town": "Almond"
   },
   {
     "lat": 42.791920084672725,
     "lng": -73.98349189204069,
     "fips": "36093",
-    "heading": 255
+    "heading": 255,
+    "town": "Rotterdam"
   },
   {
     "lat": 39.12520033870693,
     "lng": -94.8392669990633,
     "fips": "20209",
-    "heading": 331
+    "heading": 331,
+    "town": "Kansas City"
   },
   {
     "lat": 33.9685835949113,
     "lng": -84.10268234938133,
     "fips": "13135",
-    "heading": 268
+    "heading": 268,
+    "town": null
   },
   {
     "lat": 38.80645853639652,
     "lng": -76.9671459266557,
     "fips": "24033",
-    "heading": 301
+    "heading": 301,
+    "town": "Fort Washington"
   },
   {
     "lat": 41.762664996425215,
     "lng": -71.55679967761156,
     "fips": "44007",
-    "heading": 99
+    "heading": 99,
+    "town": "Scituate"
   },
   {
     "lat": 43.08807949639985,
     "lng": -88.15185477520156,
     "fips": "55133",
-    "heading": 272
+    "heading": 272,
+    "town": "Brookfield"
   },
   {
     "lat": 35.79319160490276,
     "lng": -80.84336746818008,
     "fips": "37097",
-    "heading": 333
+    "heading": 333,
+    "town": "Statesville"
   },
   {
     "lat": 46.60219915475164,
     "lng": -98.45823520199713,
     "fips": "38045",
-    "heading": 6
+    "heading": 6,
+    "town": "Marion"
   },
   {
     "lat": 41.936995234470814,
     "lng": -87.65083132883225,
     "fips": "17031",
-    "heading": 201
+    "heading": 201,
+    "town": "Chicago"
   },
   {
     "lat": 33.18765138494539,
     "lng": -96.68713751374989,
     "fips": "48085",
-    "heading": 20
+    "heading": 20,
+    "town": "McKinney"
   },
   {
     "lat": 39.913473125748276,
     "lng": -105.08131454593975,
     "fips": "08014",
-    "heading": 300
+    "heading": 300,
+    "town": "Broomfield"
   },
   {
     "lat": 37.60763491341011,
     "lng": -97.42303836028925,
     "fips": "20173",
-    "heading": 122
+    "heading": 122,
+    "town": "Wichita"
   },
   {
     "lat": 41.651637340590604,
     "lng": -81.3795303295451,
     "fips": "39085",
-    "heading": 157
+    "heading": 157,
+    "town": "Mentor"
   },
   {
     "lat": 37.66781042315807,
     "lng": -121.90544008076066,
     "fips": "06001",
-    "heading": 5
+    "heading": 5,
+    "town": "Pleasanton"
   },
   {
     "lat": 41.74195512193946,
     "lng": -71.3471909970596,
     "fips": "44001",
-    "heading": 306
+    "heading": 306,
+    "town": "Barrington"
   },
   {
     "lat": 38.04357418307322,
     "lng": -122.7996653049206,
     "fips": "06041",
-    "heading": 2
+    "heading": 2,
+    "town": "Point Reyes Station"
   },
   {
     "lat": 32.86385853019508,
     "lng": -96.59416257195053,
     "fips": "48113",
-    "heading": 353
+    "heading": 353,
+    "town": "Garland"
   },
   {
     "lat": 42.95325343677606,
     "lng": -70.82820216345394,
     "fips": "33015",
-    "heading": 201
+    "heading": 201,
+    "town": "Hampton"
   },
   {
     "lat": 35.247600911602014,
     "lng": -97.33780371631865,
     "fips": "40027",
-    "heading": 210
+    "heading": 210,
+    "town": "Norman"
   },
   {
     "lat": 40.12451495206625,
     "lng": -74.26451685631818,
     "fips": "34029",
-    "heading": 215
+    "heading": 215,
+    "town": "Jackson Township"
   },
   {
     "lat": 43.354142676654014,
     "lng": -87.91349615508267,
     "fips": "55089",
-    "heading": 148
+    "heading": 148,
+    "town": "Grafton"
   },
   {
     "lat": 39.4870612436929,
     "lng": -74.63306775835254,
     "fips": "34001",
-    "heading": 194
+    "heading": 194,
+    "town": "Hamilton"
   },
   {
     "lat": 38.03731881598559,
     "lng": -77.2538376509964,
     "fips": "51033",
-    "heading": 272
+    "heading": 272,
+    "town": "Bowling Green"
   },
   {
     "lat": 43.61154930641174,
     "lng": -88.7960801404067,
     "fips": "55027",
-    "heading": 290
+    "heading": 290,
+    "town": "Waupun"
   },
   {
     "lat": 41.96113834947783,
     "lng": -88.32186361799992,
     "fips": "17089",
-    "heading": 61
+    "heading": 61,
+    "town": "St. Charles"
   },
   {
     "lat": 47.211992101870365,
     "lng": -122.17835405557925,
     "fips": "53053",
-    "heading": 303
+    "heading": 303,
+    "town": "Lake Tapps"
   },
   {
     "lat": 30.462985290595206,
     "lng": -81.68024498638272,
     "fips": "12031",
-    "heading": 57
+    "heading": 57,
+    "town": "Jacksonville"
   },
   {
     "lat": 40.767053544559104,
     "lng": -73.8170435574454,
     "fips": "36081",
-    "heading": 97
+    "heading": 97,
+    "town": "Queens"
   },
   {
     "lat": 38.81940216920036,
     "lng": -77.11601981044262,
     "fips": "51510",
-    "heading": 332
+    "heading": 332,
+    "town": "Alexandria"
   },
   {
     "lat": 44.887489291037475,
     "lng": -122.93080918701926,
     "fips": "41047",
-    "heading": 70
+    "heading": 70,
+    "town": "Salem"
   },
   {
     "lat": 42.57242774266596,
     "lng": -70.94841760359205,
     "fips": "25009",
-    "heading": 20
+    "heading": 20,
+    "town": "Danvers"
   },
   {
     "lat": 29.527092514192724,
     "lng": -81.15027628420563,
     "fips": "12035",
-    "heading": 63
+    "heading": 63,
+    "town": "Flagler Beach"
   },
   {
     "lat": 33.88592339706951,
     "lng": -81.09867447489226,
     "fips": "45063",
-    "heading": 82
+    "heading": 82,
+    "town": "West Columbia"
   },
   {
     "lat": 34.11703613088761,
     "lng": -118.14914919741507,
     "fips": "06037",
-    "heading": 301
+    "heading": 301,
+    "town": "South Pasadena"
   },
   {
     "lat": 39.47622372077687,
     "lng": -76.43594418325402,
     "fips": "24005",
-    "heading": 182
+    "heading": 182,
+    "town": "Hydes"
   },
   {
     "lat": 42.93086327387255,
     "lng": -77.51803659164112,
     "fips": "36069",
-    "heading": 102
+    "heading": 102,
+    "town": "Bloomfield"
   },
   {
     "lat": 41.18381442738698,
     "lng": -95.95542824908958,
     "fips": "31153",
-    "heading": 327
+    "heading": 327,
+    "town": "Bellevue"
   },
   {
     "lat": 41.90136251264561,
     "lng": -71.38466399743037,
     "fips": "44007",
-    "heading": 84
+    "heading": 84,
+    "town": "Cumberland"
   },
   {
     "lat": 41.656328898814024,
     "lng": -71.59493970768634,
     "fips": "44003",
-    "heading": 30
+    "heading": 30,
+    "town": "West Greenwich"
   },
   {
     "lat": 31.8240537118407,
     "lng": -94.79634270537231,
     "fips": "48347",
-    "heading": 219
+    "heading": 219,
+    "town": "Cushing"
   },
   {
     "lat": 37.50401458676202,
     "lng": -93.95019999930912,
     "fips": "29057",
-    "heading": 326
+    "heading": 326,
+    "town": "Greenfield"
   },
   {
     "lat": 44.92981136776488,
     "lng": -90.6997904420762,
     "fips": "55019",
-    "heading": 281
+    "heading": 281,
+    "town": "Lombard"
   },
   {
     "lat": 41.48027985970495,
     "lng": -96.60687225233568,
     "fips": "31053",
-    "heading": 250
+    "heading": 250,
+    "town": "Ames"
   },
   {
     "lat": 34.987877661915235,
     "lng": -89.81731274643671,
     "fips": "28033",
-    "heading": 61
+    "heading": 61,
+    "town": "Olive Branch"
   },
   {
     "lat": 38.117308716781736,
     "lng": -85.66055551986456,
     "fips": "21111",
-    "heading": 17
+    "heading": 17,
+    "town": "Louisville"
   },
   {
     "lat": 44.98424765809853,
     "lng": -93.34073454716219,
     "fips": "27053",
-    "heading": 97
+    "heading": 97,
+    "town": "Golden Valley"
   },
   {
     "lat": 42.48848038143081,
     "lng": -71.12233007936271,
     "fips": "25017",
-    "heading": 79
+    "heading": 79,
+    "town": "Woburn"
   },
   {
     "lat": 42.218795086540005,
     "lng": -71.15393560609527,
     "fips": "25021",
-    "heading": 44
+    "heading": 44,
+    "town": "Dedham"
   },
   {
     "lat": 42.88329092063408,
     "lng": -77.7418472488725,
     "fips": "36051",
-    "heading": 243
+    "heading": 243,
+    "town": "Avon"
   },
   {
     "lat": 37.38481906659328,
     "lng": -122.0347649393804,
     "fips": "06085",
-    "heading": 343
+    "heading": 343,
+    "town": "Sunnyvale"
   },
   {
     "lat": 39.95319450161753,
     "lng": -75.35305368165935,
     "fips": "42045",
-    "heading": 176
+    "heading": 176,
+    "town": "Springfield"
   },
   {
     "lat": 41.478248411252025,
     "lng": -83.50972785483812,
     "fips": "39173",
-    "heading": 41
+    "heading": 41,
+    "town": "Luckey"
   },
   {
     "lat": 40.54619574867274,
     "lng": -89.41074968666581,
     "fips": "17179",
-    "heading": 152
+    "heading": 152,
+    "town": "Tremont"
   },
   {
     "lat": 42.2162875826,
     "lng": -83.19128334676161,
     "fips": "26163",
-    "heading": 49
+    "heading": 49,
+    "town": "Southgate"
   },
   {
     "lat": 40.57300745679527,
     "lng": -111.66977159782147,
     "fips": "49035",
-    "heading": 345
+    "heading": 345,
+    "town": "Alta"
   },
   {
     "lat": 42.46801731584556,
     "lng": -74.21662572815809,
     "fips": "36001",
-    "heading": 274
+    "heading": 274,
+    "town": "Rensselaerville"
   },
   {
     "lat": 44.76524027360975,
     "lng": -85.05176607969537,
     "fips": "26079",
-    "heading": 229
+    "heading": 229,
+    "town": "Kalkaska"
   },
   {
     "lat": 30.7231010366405,
     "lng": -83.5096694261018,
     "fips": "13027",
-    "heading": 193
+    "heading": 193,
+    "town": "Quitman"
   },
   {
     "lat": 34.78267363284234,
     "lng": -82.10613518886089,
     "fips": "45083",
-    "heading": 1
+    "heading": 1,
+    "town": "Woodruff"
   },
   {
     "lat": 32.64970804685028,
     "lng": -92.49799089951219,
     "fips": "22061",
-    "heading": 214
+    "heading": 214,
+    "town": "Choudrant"
   },
   {
     "lat": 38.81259330282982,
     "lng": -77.43166252992725,
     "fips": "51059",
-    "heading": 181
+    "heading": 181,
+    "town": "Clifton"
   },
   {
     "lat": 40.891100252172485,
     "lng": -73.85652476977698,
     "fips": "36005",
-    "heading": 130
+    "heading": 130,
+    "town": "The Bronx"
   },
   {
     "lat": 40.08026726477601,
     "lng": -75.06983231328951,
     "fips": "42101",
-    "heading": 197
+    "heading": 197,
+    "town": "Philadelphia"
   },
   {
     "lat": 39.892267566742255,
     "lng": -85.90577034556428,
     "fips": "18059",
-    "heading": 267
+    "heading": 267,
+    "town": "McCordsville"
   },
   {
     "lat": 43.293928438598456,
     "lng": -76.72293759479004,
     "fips": "36117",
-    "heading": 24
+    "heading": 24,
+    "town": "Red Creek"
   },
   {
     "lat": 27.86479865923327,
     "lng": -82.79236728457572,
     "fips": "12103",
-    "heading": 34
+    "heading": 34,
+    "town": "Seminole"
   },
   {
     "lat": 37.03073040439579,
     "lng": -122.06010372383321,
     "fips": "06087",
-    "heading": 200
+    "heading": 200,
+    "town": "Felton"
   },
   {
     "lat": 35.3061475885108,
     "lng": -86.25911667211466,
     "fips": "47127",
-    "heading": 337
+    "heading": 337,
+    "town": "Tullahoma"
   },
   {
     "lat": 37.707856235708235,
     "lng": -81.07220632592961,
     "fips": "54081",
-    "heading": 218
+    "heading": 218,
+    "town": "Shady Spring"
   },
   {
     "lat": 38.88414092501029,
     "lng": -94.7576652992595,
     "fips": "20091",
-    "heading": 180
+    "heading": 180,
+    "town": "Olathe"
   },
   {
     "lat": 37.175733364306964,
     "lng": -76.54410656255732,
     "fips": "51700",
-    "heading": 54
+    "heading": 54,
+    "town": "Newport News"
   },
   {
     "lat": 30.912477578661164,
     "lng": -84.93336507964887,
     "fips": "13253",
-    "heading": 274
+    "heading": 274,
+    "town": "Donalsonville"
   },
   {
     "lat": 45.40043032893992,
     "lng": -122.94130329031472,
     "fips": "41067",
-    "heading": 276
+    "heading": 276,
+    "town": "Hillsboro"
   },
   {
     "lat": 37.2472197841244,
     "lng": -77.40650821843438,
     "fips": "51570",
-    "heading": 167
+    "heading": 167,
+    "town": "Colonial Heights"
   },
   {
     "lat": 40.13119293012422,
     "lng": -75.42206569606253,
     "fips": "42091",
-    "heading": 216
+    "heading": 216,
+    "town": "Eagleville"
   },
   {
     "lat": 33.90621621527878,
     "lng": -84.12455351851719,
     "fips": "13135",
-    "heading": 187
+    "heading": 187,
+    "town": "Lilburn"
   },
   {
     "lat": 34.277013630108996,
     "lng": -77.88085851759394,
     "fips": "37129",
-    "heading": 38
+    "heading": 38,
+    "town": "Wilmington"
   },
   {
     "lat": 37.784962119761474,
     "lng": -122.24206278322798,
     "fips": "06001",
-    "heading": 222
+    "heading": 222,
+    "town": "Oakland"
   },
   {
     "lat": 38.86254337104695,
     "lng": -94.79311217867463,
     "fips": "20091",
-    "heading": 249
+    "heading": 249,
+    "town": "Olathe"
   },
   {
     "lat": 33.17417999848306,
     "lng": -117.23543069015813,
     "fips": "06073",
-    "heading": 86
+    "heading": 86,
+    "town": "Vista"
   },
   {
     "lat": 30.32737941667706,
     "lng": -91.13477447152772,
     "fips": "22033",
-    "heading": 171
+    "heading": 171,
+    "town": "Baton Rouge"
   },
   {
     "lat": 40.70189229391064,
     "lng": -74.09722539976313,
     "fips": "34017",
-    "heading": 44
+    "heading": 44,
+    "town": "Jersey City"
   },
   {
     "lat": 40.05450260700691,
     "lng": -76.29869888358648,
     "fips": "42071",
-    "heading": 73
+    "heading": 73,
+    "town": "Lancaster"
   },
   {
     "lat": 33.53837345452594,
     "lng": -82.08495523285443,
     "fips": "13073",
-    "heading": 178
+    "heading": 178,
+    "town": "Martinez"
   },
   {
     "lat": 34.3396853483087,
     "lng": -81.9299407714654,
     "fips": "45059",
-    "heading": 265
+    "heading": 265,
+    "town": "Mountville"
   },
   {
     "lat": 35.65329128598479,
     "lng": -97.65457277391913,
     "fips": "40109",
-    "heading": 309
+    "heading": 309,
+    "town": "Piedmont"
   },
   {
     "lat": 37.196542795981564,
     "lng": -77.29461401942426,
     "fips": "51149",
-    "heading": 145
+    "heading": 145,
+    "town": "Disputanta"
   },
   {
     "lat": 40.94818846327067,
     "lng": -73.1095119363619,
     "fips": "36103",
-    "heading": 256
+    "heading": 256,
+    "town": "Setauket- East Setauket"
   },
   {
     "lat": 39.76620588909664,
     "lng": -75.1453263712567,
     "fips": "34015",
-    "heading": 188
+    "heading": 188,
+    "town": "Mantua Township"
   },
   {
     "lat": 33.67404811037783,
     "lng": -84.77539284408212,
     "fips": "13097",
-    "heading": 53
+    "heading": 53,
+    "town": "Douglasville"
   },
   {
     "lat": 35.937615319035565,
     "lng": -79.2675561307053,
     "fips": "37001",
-    "heading": 224
+    "heading": 224,
+    "town": "Mebane"
   },
   {
     "lat": 29.92514782007072,
     "lng": -90.63358046354881,
     "fips": "22095",
-    "heading": 36
+    "heading": 36,
+    "town": "Pleasure Bend"
   },
   {
     "lat": 34.34357909844075,
     "lng": -77.81576997214916,
     "fips": "37129",
-    "heading": 255
+    "heading": 255,
+    "town": "Wilmington"
   },
   {
     "lat": 39.133085922699614,
     "lng": -76.72052530968811,
     "fips": "24003",
-    "heading": 247
+    "heading": 247,
+    "town": "Severn"
   },
   {
     "lat": 33.65118152208519,
     "lng": -83.97697740131323,
     "fips": "13247",
-    "heading": 62
+    "heading": 62,
+    "town": "Conyers"
   },
   {
     "lat": 32.50516961204376,
     "lng": -92.3248878601389,
     "fips": "22073",
-    "heading": 325
+    "heading": 325,
+    "town": "Calhoun"
   },
   {
     "lat": 42.22982067038771,
     "lng": -75.51904800596593,
     "fips": "36017",
-    "heading": 109
+    "heading": 109,
+    "town": "Afton"
   },
   {
     "lat": 37.78271283803954,
     "lng": -122.41062032970947,
     "fips": "06075",
-    "heading": 146
+    "heading": 146,
+    "town": "San Francisco"
   },
   {
     "lat": 39.5666648680227,
     "lng": -77.49321843271211,
     "fips": "24021",
-    "heading": 303
+    "heading": 303,
+    "town": "Lewistown"
   },
   {
     "lat": 42.29656476561423,
     "lng": -88.21489137053759,
     "fips": "17111",
-    "heading": 86
+    "heading": 86,
+    "town": "McHenry"
   },
   {
     "lat": 42.46356010477949,
     "lng": -71.08149102037943,
     "fips": "25017",
-    "heading": 296
+    "heading": 296,
+    "town": "Stoneham"
   },
   {
     "lat": 33.436462577658865,
     "lng": -112.25032315372223,
     "fips": "04013",
-    "heading": 38
+    "heading": 38,
+    "town": "Tolleson"
   },
   {
     "lat": 31.732582723052065,
     "lng": -89.28846123858888,
     "fips": "28067",
-    "heading": 237
+    "heading": 237,
+    "town": "Soso"
   },
   {
     "lat": 38.48632170718411,
     "lng": -90.63345735135402,
     "fips": "29189",
-    "heading": 255
+    "heading": 255,
+    "town": "Eureka"
   },
   {
     "lat": 30.747799571406293,
     "lng": -98.35468729217673,
     "fips": "48053",
-    "heading": 355
+    "heading": 355,
+    "town": "Buchanan Dam"
   },
   {
     "lat": 29.615271343440117,
     "lng": -97.80996835636651,
     "fips": "48187",
-    "heading": 243
+    "heading": 243,
+    "town": "Kingsbury"
   },
   {
     "lat": 41.806358070796584,
     "lng": -88.355446428737,
     "fips": "17089",
-    "heading": 252
+    "heading": 252,
+    "town": "North Aurora"
   },
   {
     "lat": 42.96514769276033,
     "lng": -88.08419043070545,
     "fips": "55133",
-    "heading": 48
+    "heading": 48,
+    "town": "New Berlin"
   },
   {
     "lat": 39.518350980017274,
     "lng": -85.86204710300424,
     "fips": "18145",
-    "heading": 132
+    "heading": 132,
+    "town": "Shelbyville"
   },
   {
     "lat": 42.822482966900964,
     "lng": -71.62238619203994,
     "fips": "33011",
-    "heading": 54
+    "heading": 54,
+    "town": "Milford"
   },
   {
     "lat": 40.41946914814512,
     "lng": -79.37401649914983,
     "fips": "42129",
-    "heading": 268
+    "heading": 268,
+    "town": "New Alexandria"
   },
   {
     "lat": 43.18097916339583,
     "lng": -77.7280281073382,
     "fips": "36055",
-    "heading": 118
+    "heading": 118,
+    "town": "Rochester"
   },
   {
     "lat": 39.20652745932489,
     "lng": -84.37206069024536,
     "fips": "39061",
-    "heading": 303
+    "heading": 303,
+    "town": "Cincinnati"
   },
   {
     "lat": 34.93823579703021,
     "lng": -85.32534727523655,
     "fips": "13295",
-    "heading": 24
+    "heading": 24,
+    "town": "Rossville"
   },
   {
     "lat": 40.676367510565385,
     "lng": -73.87506832770833,
     "fips": "36047",
-    "heading": 45
+    "heading": 45,
+    "town": "Brooklyn"
   },
   {
     "lat": 33.27000224965253,
     "lng": -90.89491152828089,
     "fips": "28151",
-    "heading": 36
+    "heading": 36,
+    "town": "Arcola"
   },
   {
     "lat": 40.39515337596002,
     "lng": -75.96242044980623,
     "fips": "42011",
-    "heading": 242
+    "heading": 242,
+    "town": "Reading"
   },
   {
     "lat": 42.32912791144853,
     "lng": -71.08798160518043,
     "fips": "25025",
-    "heading": 281
+    "heading": 281,
+    "town": "Boston"
   },
   {
     "lat": 39.17725057990943,
     "lng": -78.18770110927424,
     "fips": "51840",
-    "heading": 79
+    "heading": 79,
+    "town": "Winchester"
   },
   {
     "lat": 33.79065824656673,
     "lng": -84.6292943004822,
     "fips": "13097",
-    "heading": 208
+    "heading": 208,
+    "town": "Lithia Springs"
   },
   {
     "lat": 34.12884226117604,
     "lng": -84.09801258572672,
     "fips": "13117",
-    "heading": 340
+    "heading": 340,
+    "town": "Cumming"
   },
   {
     "lat": 31.41043414882486,
     "lng": -90.44261408038938,
     "fips": "28085",
-    "heading": 74
+    "heading": 74,
+    "town": "Bogue Chitto"
   },
   {
     "lat": 34.06358768060436,
     "lng": -82.22633020797292,
     "fips": "45047",
-    "heading": 101
+    "heading": 101,
+    "town": "Bradley"
   },
   {
     "lat": 38.17744896513853,
     "lng": -84.81188625713531,
     "fips": "21073",
-    "heading": 312
+    "heading": 312,
+    "town": "Frankfort"
   },
   {
     "lat": 35.530408125396384,
     "lng": -80.84154033076285,
     "fips": "37097",
-    "heading": 212
+    "heading": 212,
+    "town": "Mooresville"
   },
   {
     "lat": 37.9867640436124,
     "lng": -90.09097882990685,
     "fips": "29186",
-    "heading": 35
+    "heading": 35,
+    "town": "Ste. Genevieve"
   },
   {
     "lat": 43.16254330473991,
     "lng": -88.02921570528562,
     "fips": "55079",
-    "heading": 215
+    "heading": 215,
+    "town": "Milwaukee"
   },
   {
     "lat": 41.14628144547684,
     "lng": -75.18601604560183,
     "fips": "42089",
-    "heading": 268
+    "heading": 268,
+    "town": "East Stroudsburg"
   },
   {
     "lat": 39.891429139606416,
     "lng": -75.39510240258507,
     "fips": "42045",
-    "heading": 88
+    "heading": 88,
+    "town": "Media"
   },
   {
     "lat": 34.08728592439483,
     "lng": -84.16807060889397,
     "fips": "13117",
-    "heading": 154
+    "heading": 154,
+    "town": "Suwanee"
   },
   {
     "lat": 35.421833539265904,
     "lng": -78.6332626414567,
     "fips": "37085",
-    "heading": 120
+    "heading": 120,
+    "town": "Coats"
   },
   {
     "lat": 39.42407193113584,
     "lng": -84.56495653862169,
     "fips": "39017",
-    "heading": 270
+    "heading": 270,
+    "town": "Hamilton"
   },
   {
     "lat": 39.17135729009976,
     "lng": -78.16726739365637,
     "fips": "51840",
-    "heading": 2
+    "heading": 2,
+    "town": "Winchester"
   },
   {
     "lat": 42.21987664491519,
     "lng": -93.8756759059008,
     "fips": "19079",
-    "heading": 347
+    "heading": 347,
+    "town": "Stratford"
   },
   {
     "lat": 40.82654258486473,
     "lng": -73.10759399815004,
     "fips": "36103",
-    "heading": 218
+    "heading": 218,
+    "town": "Lake Ronkonkoma"
   },
   {
     "lat": 33.0143164596635,
     "lng": -97.20000764193762,
     "fips": "48121",
-    "heading": 178
+    "heading": 178,
+    "town": "Roanoke"
   },
   {
     "lat": 40.85983065269884,
     "lng": -74.1518344516872,
     "fips": "34031",
-    "heading": 62
+    "heading": 62,
+    "town": "Clifton"
   },
   {
     "lat": 42.71891142348439,
     "lng": -73.75866811671867,
     "fips": "36001",
-    "heading": 180
+    "heading": 180,
+    "town": "Albany"
   },
   {
     "lat": 47.94018770964579,
     "lng": -94.4467877497186,
     "fips": "27007",
-    "heading": 317
+    "heading": 317,
+    "town": "Kelliher"
   },
   {
     "lat": 38.971195613978985,
     "lng": -77.06011060785882,
     "fips": "11001",
-    "heading": 31
+    "heading": 31,
+    "town": "Washington"
   },
   {
     "lat": 40.656049490818404,
     "lng": -73.90026075115458,
     "fips": "36047",
-    "heading": 249
+    "heading": 249,
+    "town": "Brooklyn"
   },
   {
     "lat": 40.818922406393185,
     "lng": -74.17577257989205,
     "fips": "34013",
-    "heading": 277
+    "heading": 277,
+    "town": "Nutley"
   },
   {
     "lat": 40.81175934343474,
     "lng": -73.93573659677182,
     "fips": "36061",
-    "heading": 308
+    "heading": 308,
+    "town": "New York"
   },
   {
     "lat": 34.38638868835823,
     "lng": -89.50564617485405,
     "fips": "28071",
-    "heading": 84
+    "heading": 84,
+    "town": "Oxford"
   },
   {
     "lat": 41.32858204591771,
     "lng": -72.96378430982335,
     "fips": "09170",
-    "heading": 139
+    "heading": 139,
+    "town": "New Haven"
   },
   {
     "lat": 38.2386508725733,
     "lng": -85.6252513516728,
     "fips": "21111",
-    "heading": 194
+    "heading": 194,
+    "town": "Louisville"
   },
   {
     "lat": 41.78642634233786,
     "lng": -87.90095368880428,
     "fips": "17031",
-    "heading": 177
+    "heading": 177,
+    "town": "Western Springs"
   },
   {
     "lat": 38.816521121638054,
     "lng": -77.11047164315241,
     "fips": "51510",
-    "heading": 185
+    "heading": 185,
+    "town": "Alexandria"
   },
   {
     "lat": 36.920931888292884,
     "lng": -76.2330699532171,
     "fips": "51710",
-    "heading": 89
+    "heading": 89,
+    "town": "Norfolk"
   },
   {
     "lat": 35.01272365612642,
     "lng": -106.71861507817357,
     "fips": "35001",
-    "heading": 356
+    "heading": 356,
+    "town": "Albuquerque"
   },
   {
     "lat": 42.8468853722634,
     "lng": -78.82420461724377,
     "fips": "36029",
-    "heading": 94
+    "heading": 94,
+    "town": "Buffalo"
   },
   {
     "lat": 39.23649715133808,
     "lng": -94.57909088720447,
     "fips": "29047",
-    "heading": 230
+    "heading": 230,
+    "town": "Kansas City"
   },
   {
     "lat": 33.142853426281846,
     "lng": -80.26977102186636,
     "fips": "45015",
-    "heading": 61
+    "heading": 61,
+    "town": "Ridgeville"
   },
   {
     "lat": 30.514691034107578,
     "lng": -92.07735754664323,
     "fips": "22097",
-    "heading": 125
+    "heading": 125,
+    "town": "Opelousas"
   },
   {
     "lat": 43.89966229570692,
     "lng": -69.91316348954615,
     "fips": "23005",
-    "heading": 99
+    "heading": 99,
+    "town": "Brunswick"
   },
   {
     "lat": 40.66332266576723,
     "lng": -75.14586730503618,
     "fips": "34041",
-    "heading": 108
+    "heading": 108,
+    "town": "Phillipsburg"
   },
   {
     "lat": 41.52607452495952,
     "lng": -72.78647522603505,
     "fips": "09170",
-    "heading": 359
+    "heading": 359,
+    "town": "Meriden"
   },
   {
     "lat": 32.65055280379092,
     "lng": -96.53458957800369,
     "fips": "48113",
-    "heading": 300
+    "heading": 300,
+    "town": "Seagoville"
   },
   {
     "lat": 36.17163552606708,
     "lng": -95.99614025171932,
     "fips": "40143",
-    "heading": 151
+    "heading": 151,
+    "town": "Tulsa"
   },
   {
     "lat": 38.845604114092644,
     "lng": -77.08942250202887,
     "fips": "51013",
-    "heading": 269
+    "heading": 269,
+    "town": "Arlington"
   },
   {
     "lat": 40.70000091157813,
     "lng": -73.74372347374452,
     "fips": "36081",
-    "heading": 359
+    "heading": 359,
+    "town": "Queens"
   },
   {
     "lat": 36.00912928951681,
     "lng": -79.30569635107763,
     "fips": "37001",
-    "heading": 198
+    "heading": 198,
+    "town": "Graham"
   },
   {
     "lat": 34.44126713315092,
     "lng": -84.721727182001,
     "fips": "13129",
-    "heading": 347
+    "heading": 347,
+    "town": "Fairmount"
   },
   {
     "lat": 37.80304883667026,
     "lng": -122.45843632391117,
     "fips": "06075",
-    "heading": 154
+    "heading": 154,
+    "town": "San Francisco"
   },
   {
     "lat": 33.313241142685186,
     "lng": -84.54896132483019,
     "fips": "13077",
-    "heading": 161
+    "heading": 161,
+    "town": "Senoia"
   },
   {
     "lat": 38.96161327138839,
     "lng": -77.42104231324076,
     "fips": "51059",
-    "heading": 167
+    "heading": 167,
+    "town": "Herndon"
   },
   {
     "lat": 43.23769945883047,
     "lng": -89.25773892569678,
     "fips": "55025",
-    "heading": 141
+    "heading": 141,
+    "town": "Sun Prairie"
   },
   {
     "lat": 39.70795611246442,
     "lng": -84.05964936575577,
     "fips": "39057",
-    "heading": 115
+    "heading": 115,
+    "town": "Dayton"
   },
   {
     "lat": 33.73020606626588,
     "lng": -87.79563561059659,
     "fips": "01057",
-    "heading": 239
+    "heading": 239,
+    "town": "Fayette"
   },
   {
     "lat": 39.71237995733769,
     "lng": -104.71051131035694,
     "fips": "08005",
-    "heading": 194
+    "heading": 194,
+    "town": "Aurora"
   },
   {
     "lat": 30.851264120766825,
     "lng": -89.0732384863616,
     "fips": "28131",
-    "heading": 184
+    "heading": 184,
+    "town": "Wiggins"
   },
   {
     "lat": 37.56494437428308,
     "lng": -77.38008234862792,
     "fips": "51087",
-    "heading": 98
+    "heading": 98,
+    "town": "Richmond"
   },
   {
     "lat": 43.027908879850486,
     "lng": -75.38879634189405,
     "fips": "36065",
-    "heading": 227
+    "heading": 227,
+    "town": "Clinton"
   },
   {
     "lat": 41.34422668781875,
     "lng": -80.83067158972399,
     "fips": "39155",
-    "heading": 262
+    "heading": 262,
+    "town": "Warren"
   },
   {
     "lat": 40.018638031680325,
     "lng": -83.11148594411986,
     "fips": "39049",
-    "heading": 68
+    "heading": 68,
+    "town": "Columbus"
   },
   {
     "lat": 36.44810709035393,
     "lng": -82.14784288112881,
     "fips": "47163",
-    "heading": 355
+    "heading": 355,
+    "town": "Hunter"
   },
   {
     "lat": 39.90027861021691,
     "lng": -95.34127965361905,
     "fips": "20013",
-    "heading": 192
+    "heading": 192,
+    "town": "Robinson"
   },
   {
     "lat": 26.67783185094698,
     "lng": -81.8183485957889,
     "fips": "12071",
-    "heading": 5
+    "heading": 5,
+    "town": "Fort Myers"
   },
   {
     "lat": 29.482069452822547,
     "lng": -98.72325007929629,
     "fips": "48029",
-    "heading": 5
+    "heading": 5,
+    "town": "San Antonio"
   },
   {
     "lat": 35.11489962407141,
     "lng": -106.25655344857897,
     "fips": "35001",
-    "heading": 277
+    "heading": 277,
+    "town": "Edgewood"
   },
   {
     "lat": 45.110954958065975,
     "lng": -93.25851229446164,
     "fips": "27003",
-    "heading": 171
+    "heading": 171,
+    "town": "Spring Lake Park"
   },
   {
     "lat": 40.4607116182817,
     "lng": -77.80552690105213,
     "fips": "42087",
-    "heading": 303
+    "heading": 303,
+    "town": "McVeytown"
   },
   {
     "lat": 40.61590768723805,
     "lng": -86.63211790762443,
     "fips": "18015",
-    "heading": 156
+    "heading": 156,
+    "town": "Delphi"
   },
   {
     "lat": 33.441571924755046,
     "lng": -94.41687724388635,
     "fips": "48037",
-    "heading": 215
+    "heading": 215,
+    "town": "New Boston"
   },
   {
     "lat": 33.75383400881415,
     "lng": -84.8163733796138,
     "fips": "13097",
-    "heading": 230
+    "heading": 230,
+    "town": "Douglasville"
   },
   {
     "lat": 40.96593779699758,
     "lng": -80.7134189808576,
     "fips": "39099",
-    "heading": 298
+    "heading": 298,
+    "town": "Canfield"
   },
   {
     "lat": 36.18174569606546,
     "lng": -115.13600761917765,
     "fips": "32003",
-    "heading": 353
+    "heading": 353,
+    "town": "Las Vegas"
   },
   {
     "lat": 38.4355652438914,
     "lng": -121.33652541354334,
     "fips": "06067",
-    "heading": 17
+    "heading": 17,
+    "town": "Elk Grove"
   },
   {
     "lat": 35.37883478270607,
     "lng": -82.31306021518522,
     "fips": "37089",
-    "heading": 143
+    "heading": 143,
+    "town": "Hendersonville"
   },
   {
     "lat": 38.720335244742095,
     "lng": -77.95565734265433,
     "fips": "51061",
-    "heading": 134
+    "heading": 134,
+    "town": "Marshall"
   },
   {
     "lat": 38.94204658110464,
     "lng": -76.8863252010947,
     "fips": "24033",
-    "heading": 11
+    "heading": 11,
+    "town": "Hyattsville"
   },
   {
     "lat": 37.70673216378004,
     "lng": -121.71981428795257,
     "fips": "06001",
-    "heading": 321
+    "heading": 321,
+    "town": "Livermore"
   },
   {
     "lat": 40.04215296513518,
     "lng": -75.07743422930601,
     "fips": "42101",
-    "heading": 32
+    "heading": 32,
+    "town": "Philadelphia"
   },
   {
     "lat": 35.18081314130038,
     "lng": -81.11710440122279,
     "fips": "37071",
-    "heading": 347
+    "heading": 347,
+    "town": "Gastonia"
   },
   {
     "lat": 39.00020033204595,
     "lng": -78.11718383495138,
     "fips": "51187",
-    "heading": 346
+    "heading": 346,
+    "town": "Front Royal"
   },
   {
     "lat": 48.91703699732405,
     "lng": -112.75252591340498,
     "fips": "30035",
-    "heading": 332
+    "heading": 332,
+    "town": "Big Sky Colony"
   },
   {
     "lat": 32.891541069859706,
     "lng": -96.67876991234527,
     "fips": "48113",
-    "heading": 134
+    "heading": 134,
+    "town": "Garland"
   },
   {
     "lat": 47.07071666097388,
     "lng": -108.79822061508213,
     "fips": "30027",
-    "heading": 122
+    "heading": 122,
+    "town": "Grass Range"
   },
   {
     "lat": 39.554325750654264,
     "lng": -104.67951463619269,
     "fips": "08035",
-    "heading": 193
+    "heading": 193,
+    "town": "Parker"
   },
   {
     "lat": 27.648316556906334,
     "lng": -80.52084251899466,
     "fips": "12061",
-    "heading": 231
+    "heading": 231,
+    "town": "Fellsmere"
   },
   {
     "lat": 34.18283031834845,
     "lng": -83.49080227285681,
     "fips": "13157",
-    "heading": 269
+    "heading": 269,
+    "town": "Commerce"
   },
   {
     "lat": 38.09933090881474,
     "lng": -85.48840334355961,
     "fips": "21111",
-    "heading": 45
+    "heading": 45,
+    "town": "Jeffersontown"
   },
   {
     "lat": 39.90707652356854,
     "lng": -86.33986841002758,
     "fips": "18063",
-    "heading": 286
+    "heading": 286,
+    "town": "Brownsburg"
   },
   {
     "lat": 41.740797435063605,
     "lng": -71.44106049742146,
     "fips": "44003",
-    "heading": 66
+    "heading": 66,
+    "town": "Warwick"
   },
   {
     "lat": 42.38337894422553,
     "lng": -72.92953835981795,
     "fips": "25015",
-    "heading": 177
+    "heading": 177,
+    "town": "Worthington"
   },
   {
     "lat": 43.26446298287394,
     "lng": -86.31562813603429,
     "fips": "26121",
-    "heading": 88
+    "heading": 88,
+    "town": "Muskegon"
   },
   {
     "lat": 29.320769741037797,
     "lng": -82.14945856221979,
     "fips": "12083",
-    "heading": 116
+    "heading": 116,
+    "town": "Ocala"
   },
   {
     "lat": 33.94355560827378,
     "lng": -117.07674418604672,
     "fips": "06065",
-    "heading": 128
+    "heading": 128,
+    "town": "Beaumont"
   },
   {
     "lat": 41.17204592176766,
     "lng": -86.26154351625794,
     "fips": "18049",
-    "heading": 250
+    "heading": 250,
+    "town": "Argos"
   },
   {
     "lat": 40.6658390403374,
     "lng": -74.1049929231988,
     "fips": "34017",
-    "heading": 307
+    "heading": 307,
+    "town": "Bayonne"
   },
   {
     "lat": 39.76318785103075,
     "lng": -105.43108114513238,
     "fips": "08047",
-    "heading": 122
+    "heading": 122,
+    "town": "Black Hawk"
   },
   {
     "lat": 43.22027152443923,
     "lng": -85.57153848829155,
     "fips": "26081",
-    "heading": 191
+    "heading": 191,
+    "town": "Cedar Springs"
   },
   {
     "lat": 43.02816181283317,
     "lng": -83.93982246559474,
     "fips": "26155",
-    "heading": 228
+    "heading": 228,
+    "town": "Lennon"
   },
   {
     "lat": 38.481661610216385,
     "lng": -75.09941005518688,
     "fips": "10005",
-    "heading": 165
+    "heading": 165,
+    "town": "Selbyville"
   },
   {
     "lat": 38.847720945128785,
     "lng": -77.10548991901622,
     "fips": "51013",
-    "heading": 85
+    "heading": 85,
+    "town": "Arlington"
   },
   {
     "lat": 39.318128143875356,
     "lng": -84.66154853345168,
     "fips": "39017",
-    "heading": 254
+    "heading": 254,
+    "town": "Hamilton"
   },
   {
     "lat": 43.58678396462439,
     "lng": -88.402695268959,
     "fips": "55027",
-    "heading": 318
+    "heading": 318,
+    "town": "Lomira"
   },
   {
     "lat": 37.383357191457876,
     "lng": -121.99795202588177,
     "fips": "06085",
-    "heading": 296
+    "heading": 296,
+    "town": "Sunnyvale"
   },
   {
     "lat": 42.6581791057727,
     "lng": -71.26159703536983,
     "fips": "25017",
-    "heading": 186
+    "heading": 186,
+    "town": "Dracut"
   }
 ]

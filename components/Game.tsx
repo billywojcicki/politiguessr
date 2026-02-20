@@ -136,7 +136,7 @@ export default function Game() {
                   <div key={r.roundNumber} className="flex items-center px-3 py-2.5 gap-3">
                     <span className="font-mono text-xs text-white/20 w-4">0{r.roundNumber}</span>
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium truncate">{r.county}, {stateAbbr(r.state)}</div>
+                      <div className="text-sm font-medium truncate">{r.county}, {stateAbbr(r.state)}{r.town ? ` · ${r.town}` : ""}</div>
                       <div className="font-mono text-xs text-white/30 flex gap-3 mt-0.5">
                         <span>Actual <span className={marginColor(r.actualMargin)}>{formatMargin(r.actualMargin)}</span></span>
                         <span>Guess <span className={marginColor(r.guessedMargin)}>{formatMargin(r.guessedMargin)}</span></span>
@@ -276,6 +276,9 @@ function RevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown }: R
             <p className="font-mono text-xs text-yellow-400 tracking-widest uppercase mb-2">⏱ Time&apos;s up</p>
           )}
           <h2 className="text-2xl font-bold leading-tight tracking-tight">{result.county}</h2>
+          {result.town && (
+            <p className="font-mono text-xs text-white/60 tracking-wider">{result.town}</p>
+          )}
           <p className="font-mono text-xs text-white/40 tracking-wider uppercase">{result.state}</p>
           <p className={`text-4xl font-bold tabular-nums mt-2 ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
             {formatMargin(result.actualMargin)}
@@ -333,7 +336,7 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
           {/* Bar */}
           <div className="border-b border-white/10 px-4 py-3 flex items-center justify-between flex-shrink-0">
             <div>
-              <span className="font-bold text-sm">{result.county}, {stateAbbr(result.state)}</span>
+              <span className="font-bold text-sm">{result.county}, {stateAbbr(result.state)}{result.town ? ` · ${result.town}` : ""}</span>
               <span className={`font-mono text-sm ml-3 ${isRed ? "text-red-500" : isBlue ? "text-blue-500" : "text-white/50"}`}>
                 {formatMargin(result.actualMargin)}
               </span>

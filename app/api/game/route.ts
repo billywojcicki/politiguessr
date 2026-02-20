@@ -19,6 +19,7 @@ export async function GET() {
         fips: loc.fips,
         county: result?.county ?? "Unknown County",
         state: result?.state ?? "Unknown",
+        town: loc.town ?? null,
         margin: result?.margin ?? 0,
       };
     });

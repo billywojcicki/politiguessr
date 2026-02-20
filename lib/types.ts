@@ -16,6 +16,7 @@ export interface Location {
   lng: number;
   fips: string;
   heading: number;
+  town?: string | null;
 }
 
 export interface GameRound {
@@ -59,6 +60,7 @@ export interface GuessResult {
   fips: string;
   county: string;
   state: string;
+  town?: string | null;
   actualMargin: number;
   guessedMargin: number;
   score: number;

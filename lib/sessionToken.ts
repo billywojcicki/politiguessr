@@ -5,6 +5,7 @@ export interface SecretRound {
   fips: string;
   county: string;
   state: string;
+  town?: string | null;
   margin: number;
 }
 

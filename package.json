@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "process-data": "npx tsx scripts/process-data.ts",
-    "curate-locations": "npx tsx scripts/curate-locations.ts"
+    "curate-locations": "npx tsx scripts/curate-locations.ts",
+    "enrich-locations": "npx tsx scripts/enrich-locations.ts"
   },
   "dependencies": {
     "@turf/turf": "^6.5.0",

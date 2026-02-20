@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
       fips: round.fips,
       county: round.county,
       state: round.state,
+      town: round.town ?? null,
       actualMargin: round.margin,
       guessedMargin,
       score,
