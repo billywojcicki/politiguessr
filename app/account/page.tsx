@@ -40,9 +40,9 @@ export default function AccountPage() {
       <div className="border-b border-white/20 px-6 py-4 flex items-center justify-between">
         <a
           href="/"
-          className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+          className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
         >
-          ← PolitiGuessr
+          ← Home
         </a>
         <span className="font-mono text-xs text-white/40 tracking-widest uppercase">Account</span>
       </div>

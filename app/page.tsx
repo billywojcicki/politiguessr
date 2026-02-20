@@ -1,5 +1,7 @@
 import Link from "next/link";
 import AuthModal from "@/components/AuthModal";
+import HomeLeaderboard from "@/components/HomeLeaderboard";
+import DatasetSelector from "@/components/DatasetSelector";
 
 function AmericanFlag() {
   // Standard US flag proportions: 1.9:1
@@ -82,19 +84,17 @@ export default function Home() {
                 Guessr
               </h1>
             </div>
-            <div className="border-t border-white mt-4 pt-4">
-              <p className="font-mono text-sm text-white/60 tracking-wide uppercase">
-                Guess the county. Read the landscape.
-              </p>
-            </div>
+            <DatasetSelector />
           </div>
 
           {/* Rules */}
+          <div className="space-y-3">
+          <p className="font-mono text-xs text-white/30 tracking-widest uppercase">How to play:</p>
           <div className="border border-white/20 divide-y divide-white/10">
             {[
-              ["01", "A Street View image. Anywhere in America."],
-              ["02", "Slide from D+100 to R+100. Make your call."],
-              ["03", "30 seconds per round. Five rounds. Max 500 pts."],
+              ["1", "Google Street View image loads"],
+              ["2", "You guess how the county voted from D+100 to R+100"],
+              ["3", "30 seconds per round, five rounds, win up to 1000 pts"],
             ].map(([n, text]) => (
               <div key={n} className="flex gap-4 px-4 py-3">
                 <span className="font-mono text-xs text-white/30 pt-0.5 w-5 flex-shrink-0">{n}</span>
@@ -102,14 +102,26 @@ export default function Home() {
               </div>
             ))}
           </div>
+          </div>
 
-          {/* CTA */}
-          <Link
-            href="/play"
-            className="block w-full border border-white py-4 text-center font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
-          >
-            Play →
-          </Link>
+          {/* CTAs */}
+          <div className="space-y-3">
+            <Link
+              href="/play"
+              className="block w-full border border-white/40 py-4 text-center font-mono text-sm tracking-widest uppercase text-white/60 hover:border-white hover:text-white transition-colors duration-150"
+            >
+              Play →
+            </Link>
+            <Link
+              href="/daily"
+              className="block w-full border border-amber-400/60 py-4 text-center font-mono text-sm tracking-widest uppercase text-amber-400 hover:bg-amber-400 hover:text-black transition-colors duration-150"
+            >
+              Daily Challenge →
+            </Link>
+          </div>
+
+          {/* Today's leaderboard */}
+          <HomeLeaderboard />
 
           {/* Footer note */}
           <p className="font-mono text-xs text-white/20 text-center tracking-wider uppercase">

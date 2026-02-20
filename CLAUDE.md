@@ -38,6 +38,9 @@ To enrich town names: `npm run enrich-locations` (skips already-enriched, retrie
   - `GET /api/game` — enforces rate limits server-side, returns `sessionToken` (HMAC-signed) + 5 random rounds + user `tier`. Requires `Authorization: Bearer <token>` header for signed-in users.
   - `POST /api/guess` — accepts `sessionToken` + guess, verifies HMAC signature, returns fips, county, state, town, actual margin, score
   - `GET /api/county-map?fips=XXXXX` — returns SVG of state with county highlighted red/blue
+  - `GET /api/daily` — returns today's deterministic session (same rounds for all players). Returns `alreadyPlayed: true` for signed-in users who already submitted.
+  - `POST /api/daily/submit` — verifies HMAC, recalculates scores server-side, saves to `daily_challenge_scores`. Returns rank + leaderboard.
+  - `GET /api/daily/leaderboard` — returns today's top 20 scores
 - Sessions are **stateless**: answers are HMAC-signed into the token using `SESSION_SECRET`. See `lib/sessionToken.ts`.
 - All game UI in `components/Game.tsx` — single component, phases: loading → playing → reveal → done → **limited**
 - `GuessResult` includes `fips` so client can fetch county map SVG after reveal
@@ -71,6 +74,7 @@ Tables:
 - `games` — `id, user_id, total_score, rounds (jsonb), played_at` — RLS: insert own, select all
 - `profiles` — `id, username (unique), tier ('free'|'pro'), created_at` — RLS: select + update own only
 - `anon_rate_limits` — `ip_hash, game_date, count` — no RLS (server-side only via service role)
+- `daily_challenge_scores` — `id, challenge_date, user_id (nullable), display_name, is_registered, total_score, rounds (jsonb), submitted_at` — RLS: public select, no client insert (service role only). UNIQUE on `(user_id, challenge_date)` where user_id not null.
 
 `rounds` JSONB shape: `[{ roundNumber, fips, county, state, town, actualMargin, guessedMargin, score, timedOut }]`
 
@@ -82,6 +86,11 @@ Scores are saved client-side to Supabase at end of game if user is logged in and
 - End game screen has per-round REVIEW button — opens full-screen Street View for that location
 - **Timer Off/On** toggle (top-right during game) — disables round timer and auto-advance. Once disabled, scores won't be saved for the rest of that game even if re-enabled. Yellow warning banner shown persistently.
 - Round timer: 30s. Auto-advance between rounds: 10s.
+- **Daily Challenge** at `/daily` — same 5 locations for all players, determined by seeded LCG shuffle of `locations.json` using the date as seed (`getDailyLocations` in `lib/gameData.ts`). No timer toggle (always competitive). Once-per-day: UNIQUE constraint for registered users, localStorage for anon.
+- Daily leaderboard: registered users shown with `●` marker, guests shown with `[guest]` tag. Amber highlight for current player's entry.
+- `components/DailyGame.tsx` — daily game UI. `components/DailyLeaderboard.tsx` — leaderboard display. `components/HomeLeaderboard.tsx` — home page widget (top 5, client-fetches `/api/daily/leaderboard`). `components/DailyResetTimer.tsx` — live countdown to midnight UTC reset.
+- `/leaderboard` page — full top-20 daily leaderboard. Shows user's score + rank if already played (fetches `/api/daily` with auth, or reads localStorage for anon).
+- `components/DatasetSelector.tsx` — dropdown under the title on home page. Currently a dummy UI signalling future election datasets (2020, midterms, etc).
 
 ## Deployment
 - Deployed on Vercel (free/Hobby plan) — auto-deploys on push to `master`
@@ -97,6 +106,10 @@ Scores are saved client-side to Supabase at end of game if user is logged in and
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — public anon key (set in Vercel dashboard)
 - `SUPABASE_SERVICE_ROLE_KEY` — secret service role key, server-side only, never expose client-side (set in Vercel dashboard)
 - Never commit .env.local
+
+## Known Gotchas
+- **Next.js Data Cache + Supabase**: Next.js 14 caches all server-side `fetch` calls, including those made internally by `@supabase/supabase-js`. This causes stale data across all browsers even after DB changes. Fixed in `lib/supabaseServer.ts` by passing `global: { fetch: (url, init) => fetch(url, { ...init, cache: "no-store" }) }` to `createClient()`. Do not remove this.
+- **PostgREST date `.eq()` filter**: `.eq("challenge_date", "YYYY-MM-DD")` silently returns 0 rows for PostgreSQL `date` columns via Supabase JS. Workaround: fetch all rows without a date filter and filter by date in JavaScript (`String(row.challenge_date) === today`). Applied in all three daily API routes.
 
 ## Conventions
 - TypeScript everywhere; scripts excluded from Next.js tsconfig (have own tsx config)

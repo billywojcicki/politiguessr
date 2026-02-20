@@ -56,6 +56,19 @@ export interface GuessPayload {
   guessedMargin: number;
 }
 
+export interface LeaderboardEntry {
+  rank: number;
+  display_name: string;
+  is_registered: boolean;
+  total_score: number;
+}
+
+export interface DailySubmitResult {
+  totalScore: number;
+  rank: number;
+  leaderboard: LeaderboardEntry[];
+}
+
 /** Returned after a guess is submitted */
 export interface GuessResult {
   roundNumber: number;

@@ -34,6 +34,22 @@ export function pickRandomLocations(count: number): Location[] {
   return shuffled.slice(0, count);
 }
 
+/** Returns the same 5 locations for every server given the same dateStr (YYYY-MM-DD). */
+export function getDailyLocations(dateStr: string): Location[] {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  let seed = y * 10000 + m * 100 + d;
+  const rand = () => {
+    seed = (Math.imul(1664525, seed) + 1013904223) >>> 0;
+    return seed / 0x100000000;
+  };
+  const locs = [...getLocations()];
+  for (let i = locs.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [locs[i], locs[j]] = [locs[j], locs[i]];
+  }
+  return locs.slice(0, 5);
+}
+
 export function getStreetViewUrl(lat: number, lng: number, heading: number): string {
   const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   return (
