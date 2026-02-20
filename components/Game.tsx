@@ -5,12 +5,22 @@ import MarginSlider, { formatMargin, marginColor } from "./MarginSlider";
 import CountdownTimer from "./CountdownTimer";
 import StreetViewPanorama from "./StreetViewPanorama";
 import CountyMap from "./CountyMap";
+import AuthModal from "./AuthModal";
+import { supabase } from "@/lib/supabase";
+import {
+  checkGameLimit,
+  incrementAnonGamesPlayed,
+  incrementSignedInGamesCount,
+  cacheUserTier,
+} from "@/lib/gameLimits";
+import type { Tier } from "@/lib/gameLimits";
+import type { User } from "@supabase/supabase-js";
 import type { GameSession, GuessResult } from "@/lib/types";
 
 const ROUNDS = 5;
 const ROUND_SECONDS = 15;
 
-type Phase = "loading" | "playing" | "reveal" | "done";
+type Phase = "loading" | "playing" | "reveal" | "done" | "limited";
 
 interface RoundResult extends GuessResult {
   timedOut: boolean;
@@ -27,15 +37,54 @@ export default function Game() {
   const [currentResult, setCurrentResult] = useState<RoundResult | null>(null);
   const [autoAdvanceCountdown, setAutoAdvanceCountdown] = useState<number | null>(null);
   const [devMode, setDevMode] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [scoreSaved, setScoreSaved] = useState(false);
+  const [scoreSaveError, setScoreSaveError] = useState(false);
+  const [limitTier, setLimitTier] = useState<Tier>("anon");
 
   const startGame = useCallback(async () => {
     setPhase("loading");
     setResults([]);
     setCurrentRound(0);
     setGuessedMargin(0);
-    const res = await fetch("/api/game");
+    setScoreSaved(false);
+    setScoreSaveError(false);
+
+    // Client-side UX gate — fast, no DB calls
+    const { canPlay, tier: clientTier } = await checkGameLimit();
+    if (!canPlay) {
+      setLimitTier(clientTier);
+      setPhase("limited");
+      return;
+    }
+
+    // Send auth token so server can enforce signed-in limits
+    const { data: { session: authSession } } = await supabase.auth.getSession();
+    const headers: Record<string, string> = {};
+    if (authSession?.access_token) {
+      headers["Authorization"] = `Bearer ${authSession.access_token}`;
+    }
+
+    const res = await fetch("/api/game", { headers });
+
+    if (res.status === 429) {
+      const err = await res.json() as { tier: Tier };
+      setLimitTier(err.tier);
+      setPhase("limited");
+      return;
+    }
+
     if (!res.ok) return;
     const data = (await res.json()) as GameSession;
+
+    // Update client-side counters and tier cache
+    if (!authSession?.user) {
+      incrementAnonGamesPlayed();
+    } else {
+      incrementSignedInGamesCount();
+      if (data.tier && data.tier !== "anon") cacheUserTier(data.tier);
+    }
+
     setSession(data);
     setTimerKey((k) => k + 1);
     setTimerPaused(false);
@@ -43,6 +92,36 @@ export default function Game() {
   }, []);
 
   useEffect(() => { startGame(); }, [startGame]);
+
+  // Auth state
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setUser(data.session?.user ?? null));
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // If user signs in while on the limited screen, re-check and auto-start if now allowed
+  useEffect(() => {
+    if (phase !== "limited" || !user) return;
+    checkGameLimit().then(({ canPlay }) => { if (canPlay) startGame(); });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  // Save score when game ends (fires immediately if logged in, or when user logs in on done screen)
+  useEffect(() => {
+    if (phase !== "done" || results.length === 0 || scoreSaved || !user) return;
+    const totalScore = results.reduce((s, r) => s + r.score, 0);
+    supabase.from("games").insert({
+      user_id: user.id,
+      total_score: totalScore,
+      rounds: results,
+    }).then(({ error }) => {
+      if (!error) setScoreSaved(true);
+      else setScoreSaveError(true);
+    });
+  }, [phase, user, scoreSaved, results]);
 
   const submitGuess = useCallback(
     async (margin: number, timedOut = false) => {
@@ -97,6 +176,66 @@ export default function Game() {
     );
   }
 
+  // ── Limited ───────────────────────────────────────────────────────────────
+  if (phase === "limited") {
+    return (
+      <div className="fixed inset-0 bg-black flex flex-col overflow-y-auto">
+        <div className="border-b border-white/10 px-6 py-3 flex items-center justify-between flex-shrink-0">
+          <span className="font-mono text-xs text-white/30 tracking-widest uppercase">PolitiGuessr</span>
+          <AuthModal />
+        </div>
+        <div className="flex-1 flex items-start justify-center px-6 py-10">
+          <div className="w-full max-w-sm space-y-6">
+            <div className="space-y-1">
+              <p className="font-mono text-xs text-white/30 tracking-widest uppercase">Daily Limit</p>
+              <h2 className="text-3xl font-bold leading-tight tracking-tight">
+                {limitTier === "anon" ? "3 games a day" : "6 games a day"}
+              </h2>
+              <p className="font-mono text-xs text-white/40 tracking-wider">
+                {limitTier === "anon" ? "Free accounts get 6." : "Pro accounts get unlimited."}
+              </p>
+            </div>
+
+            <div className="border-t border-white/10" />
+
+            {limitTier === "anon" ? (
+              <div className="space-y-3">
+                <p className="font-mono text-xs text-white/40 tracking-wider leading-relaxed">
+                  Sign in for 6 games per day.
+                </p>
+                <AuthModal />
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <p className="font-mono text-xs text-white/40 tracking-wider leading-relaxed">
+                  Upgrade to Pro for unlimited games per day.
+                </p>
+                <div className="border border-white/10 px-4 py-3 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs tracking-widest uppercase text-white/50">Pro Plan</span>
+                    <span className="font-mono text-xs text-white/20 border border-white/10 px-1.5 py-0.5 tracking-widest">Coming Soon</span>
+                  </div>
+                  <p className="text-sm text-white/40">Unlimited games · more features planned</p>
+                </div>
+              </div>
+            )}
+
+            <p className="font-mono text-xs text-white/20 tracking-wider text-center">
+              Resets at midnight
+            </p>
+
+            <a
+              href="/"
+              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white transition-colors duration-150"
+            >
+              ← Home
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // ── Done ─────────────────────────────────────────────────────────────────
   if (phase === "done") {
     const totalScore = results.reduce((s, r) => s + r.score, 0);
@@ -109,7 +248,7 @@ export default function Game() {
         {/* Header */}
         <div className="border-b border-white/10 px-6 py-3 flex items-center justify-between flex-shrink-0">
           <span className="font-mono text-xs text-white/30 tracking-widest uppercase">PolitiGuessr</span>
-          <span className="font-mono text-xs text-white/30 tracking-widest uppercase">Results</span>
+          <AuthModal />
         </div>
 
         <div className="flex-1 flex items-start justify-center px-6 py-10">
@@ -151,6 +290,15 @@ export default function Game() {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Save status */}
+            <div className="font-mono text-xs tracking-widest text-center py-1">
+              {scoreSaved && <span className="text-white/40">Score saved ✓</span>}
+              {scoreSaveError && <span className="text-red-400/60">Failed to save score</span>}
+              {!user && !scoreSaved && (
+                <span className="text-white/20">Sign in to save your score</span>
+              )}
             </div>
 
             <div className="flex gap-3">
@@ -197,6 +345,7 @@ export default function Game() {
           <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
             Score <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
           </span>
+          <AuthModal />
           <button
             onClick={() => setDevMode((d) => !d)}
             className={`font-mono text-xs px-1.5 py-0.5 border tracking-widest transition-colors ${devMode ? "border-yellow-400 text-yellow-400" : "border-white/10 text-white/20 hover:text-white/40"}`}

@@ -36,6 +36,8 @@ export interface GameRound {
 export interface GameSession {
   sessionToken: string;
   rounds: RoundPublic[];
+  /** User's tier — lets the client cache it without a separate DB call */
+  tier?: "anon" | "free" | "pro";
 }
 
 /** Public round data sent to client — no answer */

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AuthModal from "@/components/AuthModal";
 
 function AmericanFlag() {
   // Standard US flag proportions: 1.9:1
@@ -60,7 +61,7 @@ export default function Home() {
       {/* Masthead */}
       <div className="border-b border-white/20 px-6 py-4 flex items-center justify-between">
         <span className="font-mono text-xs text-white/40 tracking-widest uppercase">Est. 2024</span>
-        <span className="font-mono text-xs text-white/40 tracking-widest uppercase">United States</span>
+        <AuthModal />
       </div>
 
       {/* Hero */}
