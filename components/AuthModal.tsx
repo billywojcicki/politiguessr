@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import type { User } from "@supabase/supabase-js";
 
+type Mode = "signin" | "signup" | "forgot" | "forgot-sent";
+
 export default function AuthModal() {
   const [user, setUser] = useState<User | null>(null);
   const [open, setOpen] = useState(false);
-  const [step, setStep] = useState<"email" | "otp">("email");
+  const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,35 +24,53 @@ export default function AuthModal() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const sendOtp = async () => {
-    setLoading(true);
+  const closeModal = () => {
+    setOpen(false);
+    setMode("signin");
+    setEmail("");
+    setPassword("");
+    setConfirm("");
     setError(null);
-    const { error } = await supabase.auth.signInWithOtp({ email });
-    setLoading(false);
-    if (error) { setError(error.message); return; }
-    setStep("otp");
   };
 
-  const verifyOtp = async () => {
+  const switchMode = (next: Mode) => {
+    setMode(next);
+    setError(null);
+    setPassword("");
+    setConfirm("");
+  };
+
+  const signIn = async () => {
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.verifyOtp({ email, token: otp, type: "email" });
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (error) { setError(error.message); return; }
-    setOpen(false);
-    setStep("email");
-    setEmail("");
-    setOtp("");
+    closeModal();
+  };
+
+  const signUp = async () => {
+    if (password !== confirm) { setError("Passwords don't match."); return; }
+    if (password.length < 6) { setError("Password must be at least 6 characters."); return; }
+    setLoading(true);
+    setError(null);
+    const { error } = await supabase.auth.signUp({ email, password });
+    setLoading(false);
+    if (error) { setError(error.message); return; }
+    closeModal();
+  };
+
+  const sendReset = async () => {
+    setLoading(true);
+    setError(null);
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    setLoading(false);
+    if (error) { setError(error.message); return; }
+    setMode("forgot-sent");
   };
 
   const signOut = async () => {
     await supabase.auth.signOut();
-  };
-
-  const closeModal = () => {
-    setOpen(false);
-    setStep("email");
-    setError(null);
   };
 
   if (user) {
@@ -68,6 +89,13 @@ export default function AuthModal() {
     );
   }
 
+  const titles: Record<Mode, string> = {
+    signin: "Sign In",
+    signup: "Create Account",
+    forgot: "Reset Password",
+    "forgot-sent": "Check Your Email",
+  };
+
   return (
     <>
       <button
@@ -80,9 +108,11 @@ export default function AuthModal() {
       {open && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4" onClick={closeModal}>
           <div className="w-full max-w-sm bg-black border border-white/20" onClick={(e) => e.stopPropagation()}>
+
+            {/* Header */}
             <div className="border-b border-white/10 px-5 py-3 flex items-center justify-between">
               <span className="font-mono text-xs tracking-widest uppercase text-white/40">
-                {step === "email" ? "Sign In" : "Enter Code"}
+                {titles[mode]}
               </span>
               <button
                 onClick={closeModal}
@@ -93,60 +123,141 @@ export default function AuthModal() {
             </div>
 
             <div className="p-5 space-y-4">
-              {step === "email" ? (
+
+              {/* Sign In */}
+              {mode === "signin" && (
+                <>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
+                    autoFocus
+                  />
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && email && password && signIn()}
+                    placeholder="Password"
+                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
+                  />
+                  {error && <p className="font-mono text-xs text-red-400">{error}</p>}
+                  <button
+                    onClick={signIn}
+                    disabled={loading || !email || !password}
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    {loading ? "Signing in…" : "Sign In →"}
+                  </button>
+                  <div className="flex items-center justify-between pt-1">
+                    <button
+                      onClick={() => switchMode("signup")}
+                      className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                    >
+                      Create account
+                    </button>
+                    <button
+                      onClick={() => switchMode("forgot")}
+                      className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                    >
+                      Forgot password
+                    </button>
+                  </div>
+                </>
+              )}
+
+              {/* Sign Up */}
+              {mode === "signup" && (
+                <>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
+                    autoFocus
+                  />
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
+                  />
+                  <input
+                    type="password"
+                    value={confirm}
+                    onChange={(e) => setConfirm(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && email && password && confirm && signUp()}
+                    placeholder="Confirm password"
+                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
+                  />
+                  {error && <p className="font-mono text-xs text-red-400">{error}</p>}
+                  <button
+                    onClick={signUp}
+                    disabled={loading || !email || !password || !confirm}
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    {loading ? "Creating account…" : "Create Account →"}
+                  </button>
+                  <button
+                    onClick={() => switchMode("signin")}
+                    className="w-full font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                  >
+                    ← Back to sign in
+                  </button>
+                </>
+              )}
+
+              {/* Forgot Password */}
+              {mode === "forgot" && (
                 <>
                   <p className="font-mono text-xs text-white/40 tracking-wider leading-relaxed">
-                    Enter your email to receive a sign-in code.
+                    Enter your email and we&apos;ll send a reset link.
                   </p>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && email && sendOtp()}
-                    placeholder="you@example.com"
+                    onKeyDown={(e) => e.key === "Enter" && email && sendReset()}
+                    placeholder="Email"
                     className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
                     autoFocus
                   />
                   {error && <p className="font-mono text-xs text-red-400">{error}</p>}
                   <button
-                    onClick={sendOtp}
+                    onClick={sendReset}
                     disabled={loading || !email}
                     className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
                   >
-                    {loading ? "Sending…" : "Send Code →"}
-                  </button>
-                </>
-              ) : (
-                <>
-                  <p className="font-mono text-xs text-white/40 tracking-wider leading-relaxed">
-                    Check <span className="text-white/60">{email}</span> for a 6-digit code.
-                  </p>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                    onKeyDown={(e) => e.key === "Enter" && otp.length === 6 && verifyOtp()}
-                    placeholder="000000"
-                    className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-lg text-white placeholder:text-white/20 focus:outline-none focus:border-white/60 tracking-[0.5em] text-center"
-                    autoFocus
-                  />
-                  {error && <p className="font-mono text-xs text-red-400">{error}</p>}
-                  <button
-                    onClick={verifyOtp}
-                    disabled={loading || otp.length < 6}
-                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    {loading ? "Verifying…" : "Verify →"}
+                    {loading ? "Sending…" : "Send Reset Link →"}
                   </button>
                   <button
-                    onClick={() => { setStep("email"); setOtp(""); setError(null); }}
+                    onClick={() => switchMode("signin")}
                     className="w-full font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
                   >
-                    ← Use different email
+                    ← Back to sign in
                   </button>
                 </>
               )}
+
+              {/* Reset sent confirmation */}
+              {mode === "forgot-sent" && (
+                <>
+                  <p className="font-mono text-xs text-white/40 tracking-wider leading-relaxed">
+                    Reset link sent to <span className="text-white/60">{email}</span>. Check your inbox.
+                  </p>
+                  <button
+                    onClick={() => switchMode("signin")}
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+                  >
+                    ← Back to sign in
+                  </button>
+                </>
+              )}
+
             </div>
           </div>
         </div>
