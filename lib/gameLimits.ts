@@ -77,7 +77,12 @@ export async function checkGameLimit(): Promise<LimitCheck> {
     return { canPlay: true, tier: "pro", played: 0, limit: Infinity };
   }
 
-  // Use session counter — no DB call needed
   const played = getSignedInGamesCount();
+
+  // If tier isn't cached yet, let the server decide rather than risk blocking a pro user
+  if (!cachedTier) {
+    return { canPlay: true, tier: "free", played, limit: FREE_DAILY_LIMIT };
+  }
+
   return { canPlay: played < FREE_DAILY_LIMIT, tier: "free", played, limit: FREE_DAILY_LIMIT };
 }

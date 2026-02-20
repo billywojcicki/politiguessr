@@ -9,7 +9,7 @@ A web game where players see an interactive Google Street View of a random US lo
 - Fonts: Space Grotesk + Space Mono (loaded via next/font/google)
 - Google Maps JS API (interactive Street View panorama)
 - Turf.js (point-in-polygon, used in data scripts only)
-- Supabase — auth (email OTP), game history DB, rate limiting
+- Supabase — auth (email + password), game history DB, rate limiting
 
 ## Key Files & Directories
 - `data/election-results.json` — county FIPS → election data (generated, do not edit)
@@ -18,7 +18,7 @@ A web game where players see an interactive Google Street View of a random US lo
 - `scripts/process-data.ts` — parses CSV + shapefile → generates data/
 - `scripts/curate-locations.ts` — hits Street View Metadata API to build locations.json
 - `scripts/enrich-locations.ts` — reverse geocodes each location to add `town` field (safe to re-run, skips already-enriched)
-- `lib/supabase.ts` — browser Supabase client singleton
+- `lib/supabase.ts` — browser Supabase client singleton (navigator.locks overridden — fixes WSL2/fast-refresh timeout bug)
 - `lib/supabaseServer.ts` — server-side Supabase client (uses service role key, API routes only)
 - `lib/gameLimits.ts` — client-side limit checking (localStorage/sessionStorage, no DB calls — fast UX gate only)
 - `lib/sessionToken.ts` — HMAC session signing
@@ -41,6 +41,7 @@ To enrich town names: `npm run enrich-locations` (skips already-enriched, retrie
 - Sessions are **stateless**: answers are HMAC-signed into the token using `SESSION_SECRET`. See `lib/sessionToken.ts`.
 - All game UI in `components/Game.tsx` — single component, phases: loading → playing → reveal → done → **limited**
 - `GuessResult` includes `fips` so client can fetch county map SVG after reveal
+- Top bar has **Quit** (returns to home) and **Timer Off/On** toggle. If timer is ever disabled (`hadTimerOff`), scores are not saved for that game.
 
 ## Auth & Accounts
 - Auth via Supabase email + password — `components/AuthModal.tsx`
@@ -68,13 +69,13 @@ Tables:
 
 `rounds` JSONB shape: `[{ roundNumber, fips, county, state, town, actualMargin, guessedMargin, score, timedOut }]`
 
-Scores are saved client-side to Supabase at end of game if user is logged in. If user logs in on the done screen, save triggers automatically.
+Scores are saved client-side to Supabase at end of game if user is logged in and timer was never disabled. If user logs in on the done screen, save triggers automatically.
 
 ## Game Design
 - Slider range: D+100 to R+100 (covers the full spectrum; some counties approach these extremes)
 - Scoring: `max(0, round(100 - |actual - guess|))` per round, 5 rounds, max 500 pts
 - End game screen has per-round REVIEW button — opens full-screen Street View for that location
-- DEV mode toggle (top-right during game) pauses both the round timer and auto-advance timer
+- **Timer Off/On** toggle (top-right during game) — disables round timer and auto-advance. Once disabled, scores won't be saved for the rest of that game even if re-enabled. Yellow warning banner shown persistently.
 
 ## Deployment
 - Deployed on Vercel (free/Hobby plan) — auto-deploys on push to `master`

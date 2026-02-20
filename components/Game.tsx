@@ -36,7 +36,8 @@ export default function Game() {
   const [results, setResults] = useState<RoundResult[]>([]);
   const [currentResult, setCurrentResult] = useState<RoundResult | null>(null);
   const [autoAdvanceCountdown, setAutoAdvanceCountdown] = useState<number | null>(null);
-  const [devMode, setDevMode] = useState(false);
+  const [timerOff, setTimerOff] = useState(false);
+  const [hadTimerOff, setHadTimerOff] = useState(false);
   const [user, setUser] = useState<User | null>(null);
   const [scoreSaved, setScoreSaved] = useState(false);
   const [scoreSaveError, setScoreSaveError] = useState(false);
@@ -49,6 +50,8 @@ export default function Game() {
     setGuessedMargin(0);
     setScoreSaved(false);
     setScoreSaveError(false);
+    setTimerOff(false);
+    setHadTimerOff(false);
 
     // Client-side UX gate — fast, no DB calls
     const { canPlay, tier: clientTier } = await checkGameLimit();
@@ -111,7 +114,7 @@ export default function Game() {
 
   // Save score when game ends (fires immediately if logged in, or when user logs in on done screen)
   useEffect(() => {
-    if (phase !== "done" || results.length === 0 || scoreSaved || !user) return;
+    if (phase !== "done" || results.length === 0 || scoreSaved || !user || hadTimerOff) return;
     const totalScore = results.reduce((s, r) => s + r.score, 0);
     supabase.from("games").insert({
       user_id: user.id,
@@ -146,12 +149,12 @@ export default function Game() {
 
   useEffect(() => {
     if (autoAdvanceCountdown === null) return;
-    if (devMode) return;
+    if (timerOff) return;
     if (autoAdvanceCountdown <= 0) { setAutoAdvanceCountdown(null); advance(); return; }
     const id = setTimeout(() => setAutoAdvanceCountdown((c) => (c ?? 0) - 1), 1000);
     return () => clearTimeout(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoAdvanceCountdown, devMode]);
+  }, [autoAdvanceCountdown, timerOff]);
 
   const advance = useCallback(() => {
     setAutoAdvanceCountdown(null);
@@ -294,11 +297,10 @@ export default function Game() {
 
             {/* Save status */}
             <div className="font-mono text-xs tracking-widest text-center py-1">
-              {scoreSaved && <span className="text-white/40">Score saved ✓</span>}
-              {scoreSaveError && <span className="text-red-400/60">Failed to save score</span>}
-              {!user && !scoreSaved && (
-                <span className="text-white/20">Sign in to save your score</span>
-              )}
+              {hadTimerOff && <span className="text-yellow-400/40">Timer was disabled — score not saved</span>}
+              {!hadTimerOff && scoreSaved && <span className="text-white/40">Score saved ✓</span>}
+              {!hadTimerOff && scoreSaveError && <span className="text-red-400/60">Failed to save score</span>}
+              {!hadTimerOff && !user && <span className="text-white/20">Sign in to save your score</span>}
             </div>
 
             <div className="flex gap-3">
@@ -332,14 +334,22 @@ export default function Game() {
 
       {/* Top bar */}
       <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3 bg-black/80 border-b border-white/10">
-        <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
-          Round <span className="text-white">{String(currentRound + 1).padStart(2, "0")}</span>/{ROUNDS}
-        </span>
+        <div className="flex items-center gap-3">
+          <a
+            href="/"
+            className="font-mono text-xs text-white/20 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+          >
+            Quit
+          </a>
+          <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
+            Round <span className="text-white">{String(currentRound + 1).padStart(2, "0")}</span>/{ROUNDS}
+          </span>
+        </div>
         <CountdownTimer
           key={timerKey}
           seconds={ROUND_SECONDS}
           onExpire={() => submitGuess(guessedMargin, true)}
-          paused={timerPaused || devMode}
+          paused={timerPaused || timerOff}
         />
         <div className="flex items-center gap-3">
           <span className="font-mono text-xs tracking-widest text-white/50 uppercase">
@@ -347,13 +357,26 @@ export default function Game() {
           </span>
           <AuthModal />
           <button
-            onClick={() => setDevMode((d) => !d)}
-            className={`font-mono text-xs px-1.5 py-0.5 border tracking-widest transition-colors ${devMode ? "border-yellow-400 text-yellow-400" : "border-white/10 text-white/20 hover:text-white/40"}`}
+            onClick={() => {
+              const next = !timerOff;
+              setTimerOff(next);
+              if (next) setHadTimerOff(true);
+            }}
+            className={`font-mono text-xs px-2 py-1 border tracking-widest uppercase transition-colors duration-150 ${timerOff ? "border-yellow-400/60 text-yellow-400/60 hover:border-yellow-400 hover:text-yellow-400" : "border-white/10 text-white/20 hover:text-white/40"}`}
           >
-            DEV
+            {timerOff ? "Timer On" : "Timer Off"}
           </button>
         </div>
       </div>
+
+      {/* Timer-off warning banner */}
+      {hadTimerOff && (
+        <div className="absolute top-[49px] left-0 right-0 z-10 border-b border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5 text-center">
+          <span className="font-mono text-xs text-yellow-400/70 tracking-widest uppercase">
+            Competitive mode disabled — scores will not be saved
+          </span>
+        </div>
+      )}
 
       {/* Guess panel */}
       {phase === "playing" && (
@@ -496,6 +519,12 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
             >
               ← Back
             </button>
+          </div>
+          {/* Review banner */}
+          <div className="border-b border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5 text-center flex-shrink-0">
+            <span className="font-mono text-xs text-yellow-400/70 tracking-widest uppercase">
+              Review mode — not a live game
+            </span>
           </div>
           {/* Panorama */}
           <div className="flex-1">
