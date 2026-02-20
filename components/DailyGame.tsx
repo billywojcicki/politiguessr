@@ -255,7 +255,7 @@ export default function DailyGame() {
     return (
       <div className="fixed inset-0 bg-black flex flex-col overflow-y-auto">
         <div className="border-b border-white/10 px-6 py-3 flex items-center justify-between flex-shrink-0">
-          <a href="/" className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150">
+          <a href="/" className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase">
             ← Home
           </a>
           <span className="font-mono text-xs text-amber-400/70 tracking-widest uppercase">Daily Challenge</span>
@@ -286,7 +286,7 @@ export default function DailyGame() {
             <DailyResetTimer />
             <a
               href="/"
-              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white transition-colors duration-150"
+              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white"
             >
               ← Home
             </a>
@@ -377,13 +377,13 @@ export default function DailyGame() {
                   <div className="flex gap-2">
                     <button
                       onClick={skipSubmit}
-                      className="flex-1 border border-white/20 py-2.5 font-mono text-xs tracking-widest uppercase text-white/30 hover:border-white/40 hover:text-white/60 transition-colors duration-150"
+                      className="flex-1 border border-white/20 py-2.5 font-mono text-xs tracking-widest uppercase text-white/30 hover:border-white/40 hover:text-white/60"
                     >
                       Skip
                     </button>
                     <button
                       onClick={submitAsGuest}
-                      className="flex-1 border border-amber-400/60 py-2.5 font-mono text-xs tracking-widest uppercase text-amber-400/60 hover:border-amber-400 hover:text-amber-400 transition-colors duration-150"
+                      className="flex-1 border border-amber-400/60 py-2.5 font-mono text-xs tracking-widest uppercase text-amber-400/60 hover:border-amber-400 hover:text-amber-400"
                     >
                       Post Score →
                     </button>
@@ -406,7 +406,7 @@ export default function DailyGame() {
 
             <a
               href="/"
-              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white transition-colors duration-150"
+              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white"
             >
               ← Home
             </a>
@@ -429,7 +429,7 @@ export default function DailyGame() {
         <div className="flex items-center gap-3">
           <a
             href="/"
-            className="font-mono text-xs text-white/20 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+            className="font-mono text-xs text-white/20 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
           >
             Quit
           </a>
@@ -464,7 +464,7 @@ export default function DailyGame() {
               </span>
               <button
                 onClick={() => submitGuess(guessedMargin)}
-                className="flex-1 border border-white py-2.5 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+                className="flex-1 border border-white py-2.5 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black"
               >
                 Lock In →
               </button>
@@ -537,7 +537,7 @@ function DailyRevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown
         <div className="p-4">
           <button
             onClick={onAdvance}
-            className="w-full border border-white py-3 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+            className="w-full border border-white py-3 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black"
           >
             {isLastRound ? "See Results" : `Next Round${autoAdvanceCountdown !== null ? ` (${autoAdvanceCountdown})` : ""}`} →
           </button>
@@ -558,7 +558,7 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
     <>
       <button
         onClick={() => setOpen(true)}
-        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
       >
         Review
       </button>
@@ -573,7 +573,7 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+              className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
             >
               ← Back
             </button>

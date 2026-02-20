@@ -68,14 +68,14 @@ export default function LeaderboardPage() {
       <div className="border-b border-white/20 px-6 py-4 flex items-center justify-between">
         <Link
           href="/"
-          className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+          className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
         >
           ← Home
         </Link>
         <span className="font-mono text-xs text-amber-400/70 tracking-widest uppercase">Daily Challenge</span>
         <Link
           href="/daily"
-          className="font-mono text-xs text-amber-400/60 hover:text-amber-400 border border-amber-400/20 hover:border-amber-400/60 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+          className="font-mono text-xs text-amber-400/60 hover:text-amber-400 border border-amber-400/20 hover:border-amber-400/60 px-2 py-1 tracking-widest uppercase"
         >
           Play →
         </Link>

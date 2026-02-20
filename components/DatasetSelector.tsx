@@ -11,10 +11,10 @@ export default function DatasetSelector() {
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between group"
       >
-        <span className="font-mono text-sm text-white/60 tracking-wide uppercase group-hover:text-white/80 transition-colors duration-150">
+        <span className="font-mono text-sm text-white/60 tracking-wide uppercase group-hover:text-white/80">
           2024 US Presidential Election Results
         </span>
-        <span className={`font-mono text-white/40 group-hover:text-white/60 transition-transform duration-150 ${open ? "rotate-180" : ""}`}>
+        <span className={`font-mono text-white/40 group-hover:text-white/60 ${open ? "rotate-180" : ""}`}>
           ▾
         </span>
       </button>

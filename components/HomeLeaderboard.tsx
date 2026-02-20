@@ -46,7 +46,7 @@ export default function HomeLeaderboard() {
       {!loading && (
         <Link
           href="/leaderboard"
-          className="block w-full text-center font-mono text-xs text-white/25 hover:text-white/50 tracking-widest uppercase transition-colors duration-150 py-1"
+          className="block w-full text-center font-mono text-xs text-white/25 hover:text-white/50 tracking-widest uppercase py-1"
         >
           View full leaderboard →
         </Link>

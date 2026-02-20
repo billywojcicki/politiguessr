@@ -134,13 +134,13 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
           <>
             <a
               href="/account"
-              className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+              className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
             >
               Account
             </a>
             <button
               onClick={signOut}
-              className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+              className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
             >
               Sign Out
             </button>
@@ -161,7 +161,7 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
       >
         Sign In
       </button>
@@ -177,7 +177,7 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
               </span>
               <button
                 onClick={closeModal}
-                className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+                className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
               >
                 ✕
               </button>
@@ -211,20 +211,20 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
                   <button
                     onClick={signIn}
                     disabled={loading || !email || !password}
-                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     {loading ? "Signing in…" : "Sign In →"}
                   </button>
                   <div className="flex items-center justify-between pt-1">
                     <button
                       onClick={() => switchMode("signup")}
-                      className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                      className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase"
                     >
                       Create account
                     </button>
                     <button
                       onClick={() => switchMode("forgot")}
-                      className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                      className="font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase"
                     >
                       Forgot password
                     </button>
@@ -269,13 +269,13 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
                   <button
                     onClick={signUp}
                     disabled={loading || !email || !username || !password || !confirm}
-                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     {loading ? "Creating account…" : "Create Account →"}
                   </button>
                   <button
                     onClick={() => switchMode("signin")}
-                    className="w-full font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                    className="w-full font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase"
                   >
                     ← Back to sign in
                   </button>
@@ -301,13 +301,13 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
                   <button
                     onClick={sendReset}
                     disabled={loading || !email}
-                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black disabled:opacity-30 disabled:cursor-not-allowed"
                   >
                     {loading ? "Sending…" : "Send Reset Link →"}
                   </button>
                   <button
                     onClick={() => switchMode("signin")}
-                    className="w-full font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase transition-colors duration-150"
+                    className="w-full font-mono text-xs text-white/30 hover:text-white tracking-widest uppercase"
                   >
                     ← Back to sign in
                   </button>
@@ -322,7 +322,7 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
                   </p>
                   <button
                     onClick={() => switchMode("signin")}
-                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+                    className="w-full border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black"
                   >
                     ← Back to sign in
                   </button>

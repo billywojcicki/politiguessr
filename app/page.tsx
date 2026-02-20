@@ -4,13 +4,20 @@ import HomeLeaderboard from "@/components/HomeLeaderboard";
 import DatasetSelector from "@/components/DatasetSelector";
 
 function AmericanFlag() {
-  // Standard US flag proportions: 1.9:1
-  // viewBox 190×100, 13 stripes, canton 76×53.85
   const stripeH = 100 / 13;
   const cantonW = 76;
   const cantonH = stripeH * 7;
 
-  // 50 stars: 5 rows of 6, 4 rows of 5, alternating
+  // 5-pointed star polygon points centered at origin
+  const R = 1.5; // outer radius
+  const r = R * 0.4; // inner radius
+  const starPoints = Array.from({ length: 10 }, (_, i) => {
+    const angle = (i * 36 - 90) * Math.PI / 180;
+    const radius = i % 2 === 0 ? R : r;
+    return `${(radius * Math.cos(angle)).toFixed(3)},${(radius * Math.sin(angle)).toFixed(3)}`;
+  }).join(" ");
+
+  // 50 stars: 6 cols × 5 rows + 5 cols × 4 rows, alternating
   const stars: [number, number][] = [];
   const colsA = 6; const colsB = 5;
   const rows = 9;
@@ -23,10 +30,7 @@ function AmericanFlag() {
     const cols = row % 2 === 0 ? colsA : colsB;
     const offsetX = row % 2 === 0 ? 0 : gapX / 2;
     for (let col = 0; col < cols; col++) {
-      stars.push([
-        starPadX + offsetX + col * gapX,
-        starPadY + row * gapY,
-      ]);
+      stars.push([starPadX + offsetX + col * gapX, starPadY + row * gapY]);
     }
   }
 
@@ -36,22 +40,21 @@ function AmericanFlag() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       className="w-full h-full"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="none"
     >
+      <defs>
+        <polygon id="star" points={starPoints} fill="#FFFFFF" />
+      </defs>
       {/* Stripes */}
       {Array.from({ length: 13 }, (_, i) => (
-        <rect
-          key={i}
-          x={0} y={i * stripeH}
-          width={190} height={stripeH}
-          fill={i % 2 === 0 ? "#B22234" : "#FFFFFF"}
-        />
+        <rect key={i} x={0} y={i * stripeH} width={190} height={stripeH}
+          fill={i % 2 === 0 ? "#B22234" : "#FFFFFF"} />
       ))}
       {/* Canton */}
       <rect x={0} y={0} width={cantonW} height={cantonH} fill="#3C3B6E" />
       {/* Stars */}
       {stars.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r={1.1} fill="#FFFFFF" />
+        <use key={i} href="#star" transform={`translate(${x},${y})`} />
       ))}
     </svg>
   );
@@ -74,7 +77,7 @@ export default function Home() {
           <div>
             <div className="relative">
               {/* Flag — faded behind the text */}
-              <div className="absolute inset-0 opacity-20 pointer-events-none select-none overflow-hidden">
+              <div className="absolute inset-0 opacity-25 pointer-events-none select-none overflow-hidden">
                 <AmericanFlag />
               </div>
               {/* Title text */}
@@ -92,9 +95,9 @@ export default function Home() {
           <p className="font-mono text-xs text-white/30 tracking-widest uppercase">How to play:</p>
           <div className="border border-white/20 divide-y divide-white/10">
             {[
-              ["1", "Google Street View image loads"],
-              ["2", "You guess how the county voted from D+100 to R+100"],
-              ["3", "30 seconds per round, five rounds, win up to 1000 pts"],
+              ["1", "Click around Google Street View"],
+              ["2", "Guess how the county voted from D+100 to R+100"],
+              ["3", "30 seconds/round, 5 rounds, 1000 pts max"],
             ].map(([n, text]) => (
               <div key={n} className="flex gap-4 px-4 py-3">
                 <span className="font-mono text-xs text-white/30 pt-0.5 w-5 flex-shrink-0">{n}</span>
@@ -108,13 +111,13 @@ export default function Home() {
           <div className="space-y-3">
             <Link
               href="/play"
-              className="block w-full border border-white/40 py-4 text-center font-mono text-sm tracking-widest uppercase text-white/60 hover:border-white hover:text-white transition-colors duration-150"
+              className="block w-full border border-white py-4 text-center font-mono text-sm tracking-widest uppercase text-white hover:bg-white hover:text-black"
             >
               Play →
             </Link>
             <Link
               href="/daily"
-              className="block w-full border border-amber-400/60 py-4 text-center font-mono text-sm tracking-widest uppercase text-amber-400 hover:bg-amber-400 hover:text-black transition-colors duration-150"
+              className="block w-full border border-amber-400/60 py-4 text-center font-mono text-sm tracking-widest uppercase text-amber-400 hover:bg-amber-400 hover:text-black"
             >
               Daily Challenge →
             </Link>

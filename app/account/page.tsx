@@ -40,7 +40,7 @@ export default function AccountPage() {
       <div className="border-b border-white/20 px-6 py-4 flex items-center justify-between">
         <a
           href="/"
-          className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+          className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
         >
           ← Home
         </a>
@@ -124,7 +124,7 @@ function UsernameSection({ userId }: { userId: string }) {
       <button
         onClick={save}
         disabled={saving || !value || value === current}
-        className="w-full border border-white py-2.5 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+        className="w-full border border-white py-2.5 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black disabled:opacity-30 disabled:cursor-not-allowed"
       >
         {saving ? "Saving…" : "Save Username →"}
       </button>
@@ -167,7 +167,7 @@ function EmailSection({ user }: { user: User }) {
       <button
         onClick={save}
         disabled={saving || !value || value === user.email}
-        className="w-full border border-white py-2.5 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+        className="w-full border border-white py-2.5 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black disabled:opacity-30 disabled:cursor-not-allowed"
       >
         {saving ? "Saving…" : "Save Email →"}
       </button>
@@ -218,7 +218,7 @@ function PasswordSection() {
       <button
         onClick={save}
         disabled={saving || !password || !confirm}
-        className="w-full border border-white py-2.5 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+        className="w-full border border-white py-2.5 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black disabled:opacity-30 disabled:cursor-not-allowed"
       >
         {saving ? "Saving…" : "Save Password →"}
       </button>
@@ -257,7 +257,7 @@ function DangerZone({ userId: _userId }: { userId: string }) {
       {!confirming ? (
         <button
           onClick={() => setConfirming(true)}
-          className="w-full border border-red-500/30 py-2.5 font-mono text-xs tracking-widest uppercase text-red-400/60 hover:border-red-500/60 hover:text-red-400 transition-colors duration-150"
+          className="w-full border border-red-500/30 py-2.5 font-mono text-xs tracking-widest uppercase text-red-400/60 hover:border-red-500/60 hover:text-red-400"
         >
           Delete Account
         </button>
@@ -271,14 +271,14 @@ function DangerZone({ userId: _userId }: { userId: string }) {
             <button
               onClick={() => { setConfirming(false); setError(null); }}
               disabled={deleting}
-              className="flex-1 border border-white/20 py-2.5 font-mono text-xs tracking-widest uppercase text-white/30 hover:border-white/40 hover:text-white/60 transition-colors duration-150 disabled:opacity-30"
+              className="flex-1 border border-white/20 py-2.5 font-mono text-xs tracking-widest uppercase text-white/30 hover:border-white/40 hover:text-white/60 disabled:opacity-30"
             >
               Cancel
             </button>
             <button
               onClick={deleteAccount}
               disabled={deleting}
-              className="flex-1 border border-red-500 py-2.5 font-mono text-xs tracking-widest uppercase text-red-400 hover:bg-red-500 hover:text-white transition-colors duration-150 disabled:opacity-30"
+              className="flex-1 border border-red-500 py-2.5 font-mono text-xs tracking-widest uppercase text-red-400 hover:bg-red-500 hover:text-white disabled:opacity-30"
             >
               {deleting ? "Deleting…" : "Confirm Delete"}
             </button>

@@ -229,7 +229,7 @@ export default function Game() {
 
             <a
               href="/"
-              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white transition-colors duration-150"
+              className="block w-full border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white"
             >
               ← Home
             </a>
@@ -306,13 +306,13 @@ export default function Game() {
             <div className="flex gap-3">
               <a
                 href="/"
-                className="flex-1 border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white transition-colors duration-150"
+                className="flex-1 border border-white/30 py-3 font-mono text-sm tracking-widest uppercase text-center text-white/50 hover:border-white hover:text-white"
               >
                 Home
               </a>
               <button
                 onClick={startGame}
-                className="flex-1 border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+                className="flex-1 border border-white py-3 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black"
               >
                 Play Again →
               </button>
@@ -332,50 +332,50 @@ export default function Game() {
       {/* Street View */}
       <StreetViewPanorama lat={round.lat} lng={round.lng} heading={round.heading} />
 
-      {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3 bg-black/80 border-b border-white/10">
-        <div className="flex items-center gap-3">
-          <a
-            href="/"
-            className="font-mono text-xs text-white/20 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
-          >
-            Quit
-          </a>
-          <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
-            <span className="text-white">{currentRound + 1}</span>/{ROUNDS}
-          </span>
+      {/* Top bar + optional warning banner — stacked in a flex column */}
+      <div className="absolute top-0 left-0 right-0 z-10 flex flex-col">
+        <div className="flex items-center justify-between px-4 py-3 bg-black/80 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <a
+              href="/"
+              className="font-mono text-xs text-white/20 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
+            >
+              Quit
+            </a>
+            <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
+              <span className="text-white">{currentRound + 1}</span>/{ROUNDS}
+            </span>
+          </div>
+          <CountdownTimer
+            key={timerKey}
+            seconds={ROUND_SECONDS}
+            onExpire={() => submitGuess(guessedMargin, true)}
+            paused={timerPaused || timerOff}
+          />
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
+              <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
+            </span>
+            <button
+              onClick={() => {
+                const next = !timerOff;
+                setTimerOff(next);
+                if (next) setHadTimerOff(true);
+              }}
+              className={`font-mono text-xs px-2 py-1 border tracking-widest uppercase ${timerOff ? "border-yellow-400/60 text-yellow-400/60 hover:border-yellow-400 hover:text-yellow-400" : "border-white/10 text-white/20 hover:text-white/40"}`}
+            >
+              {timerOff ? "Timer On" : "Timer Off"}
+            </button>
+          </div>
         </div>
-        <CountdownTimer
-          key={timerKey}
-          seconds={ROUND_SECONDS}
-          onExpire={() => submitGuess(guessedMargin, true)}
-          paused={timerPaused || timerOff}
-        />
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
-            <span className="text-white">{String(totalScore).padStart(3, "0")}</span>
-          </span>
-          <button
-            onClick={() => {
-              const next = !timerOff;
-              setTimerOff(next);
-              if (next) setHadTimerOff(true);
-            }}
-            className={`font-mono text-xs px-2 py-1 border tracking-widest uppercase transition-colors duration-150 ${timerOff ? "border-yellow-400/60 text-yellow-400/60 hover:border-yellow-400 hover:text-yellow-400" : "border-white/10 text-white/20 hover:text-white/40"}`}
-          >
-            {timerOff ? "Timer On" : "Timer Off"}
-          </button>
-        </div>
+        {hadTimerOff && (
+          <div className="border-b border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5 text-center">
+            <span className="font-mono text-xs text-yellow-400/70 tracking-widest uppercase">
+              Competitive mode disabled — scores will not be saved
+            </span>
+          </div>
+        )}
       </div>
-
-      {/* Timer-off warning banner */}
-      {hadTimerOff && (
-        <div className="absolute top-[49px] left-0 right-0 z-10 border-b border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5 text-center">
-          <span className="font-mono text-xs text-yellow-400/70 tracking-widest uppercase">
-            Competitive mode disabled — scores will not be saved
-          </span>
-        </div>
-      )}
 
       {/* Guess panel */}
       {phase === "playing" && (
@@ -388,7 +388,7 @@ export default function Game() {
               </span>
               <button
                 onClick={() => submitGuess(guessedMargin)}
-                className="flex-1 border border-white py-2.5 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+                className="flex-1 border border-white py-2.5 font-mono text-sm tracking-widest uppercase hover:bg-white hover:text-black"
               >
                 Lock In →
               </button>
@@ -476,7 +476,7 @@ function RevealPanel({ result, onAdvance, isLastRound, autoAdvanceCountdown }: R
         <div className="p-4">
           <button
             onClick={onAdvance}
-            className="w-full border border-white py-3 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-colors duration-150"
+            className="w-full border border-white py-3 font-mono text-xs tracking-widest uppercase hover:bg-white hover:text-black"
           >
             {isLastRound ? "See Results" : `Next Round${autoAdvanceCountdown !== null ? ` (${autoAdvanceCountdown})` : ""}`} →
           </button>
@@ -499,7 +499,7 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
     <>
       <button
         onClick={() => setOpen(true)}
-        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+        className="font-mono text-xs text-white/30 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
       >
         Review
       </button>
@@ -516,7 +516,7 @@ function ReviewModal({ loc, result }: { loc: RoundPublic; result: RoundResult })
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase transition-colors duration-150"
+              className="font-mono text-xs text-white/40 hover:text-white border border-white/10 hover:border-white/40 px-2 py-1 tracking-widest uppercase"
             >
               ← Back
             </button>
