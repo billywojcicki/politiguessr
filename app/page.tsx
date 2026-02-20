@@ -93,8 +93,8 @@ export default function Home() {
           <div className="border border-white/20 divide-y divide-white/10">
             {[
               ["01", "A Street View image. Anywhere in America."],
-              ["02", "Slide from D+50 to R+50. Make your call."],
-              ["03", "15 seconds per round. Five rounds. Max 500 pts."],
+              ["02", "Slide from D+100 to R+100. Make your call."],
+              ["03", "30 seconds per round. Five rounds. Max 500 pts."],
             ].map(([n, text]) => (
               <div key={n} className="flex gap-4 px-4 py-3">
                 <span className="font-mono text-xs text-white/30 pt-0.5 w-5 flex-shrink-0">{n}</span>

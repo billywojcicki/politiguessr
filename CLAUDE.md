@@ -48,6 +48,7 @@ To enrich town names: `npm run enrich-locations` (skips already-enriched, retrie
 - Auth is **optional** — anonymous play is fully supported
 - Modal has three modes: **Sign In**, **Create Account**, **Forgot Password** (sends reset link)
 - Sign-up requires a **username** (3–20 chars, `[a-zA-Z0-9_-]`, globally unique) stored in `profiles.username`
+- Sign-in accepts email **or** username — username resolved to email via `get_email_by_username()` RPC (SECURITY DEFINER, case-insensitive)
 - Email confirmation is **disabled** in Supabase — signups are immediately active
 - User tier stored in `profiles` table (`free` | `pro`). Pro is placeholder — no payment integration yet.
 - A Postgres trigger auto-creates a `profiles` row on every new user signup.
@@ -80,6 +81,7 @@ Scores are saved client-side to Supabase at end of game if user is logged in and
 - Scoring: `max(0, round(100 - |actual - guess|))` per round, 5 rounds, max 500 pts
 - End game screen has per-round REVIEW button — opens full-screen Street View for that location
 - **Timer Off/On** toggle (top-right during game) — disables round timer and auto-advance. Once disabled, scores won't be saved for the rest of that game even if re-enabled. Yellow warning banner shown persistently.
+- Round timer: 30s. Auto-advance between rounds: 10s.
 
 ## Deployment
 - Deployed on Vercel (free/Hobby plan) — auto-deploys on push to `master`

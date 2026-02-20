@@ -65,9 +65,19 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
   const signIn = async () => {
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    let loginEmail = email;
+    if (!email.includes("@")) {
+      const { data: lookedUp, error: rpcError } = await supabase.rpc("get_email_by_username", { p_username: email });
+      if (rpcError || !lookedUp) {
+        setLoading(false);
+        setError("Invalid username or password.");
+        return;
+      }
+      loginEmail = lookedUp;
+    }
+    const { error } = await supabase.auth.signInWithPassword({ email: loginEmail, password });
     setLoading(false);
-    if (error) { setError(error.message); return; }
+    if (error) { setError("Invalid username or password."); return; }
     closeModal();
   };
 
@@ -157,8 +167,8 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4" onClick={closeModal}>
-          <div className="w-full max-w-sm bg-black border border-white/20" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center px-4">
+          <div className="w-full max-w-sm bg-black border border-white/20">
 
             {/* Header */}
             <div className="border-b border-white/10 px-5 py-3 flex items-center justify-between">
@@ -179,12 +189,15 @@ export default function AuthModal({ compact = false }: { compact?: boolean }) {
               {mode === "signin" && (
                 <>
                   <input
-                    type="email"
+                    type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
+                    placeholder="Email or username"
                     className="w-full bg-transparent border border-white/20 px-3 py-2 font-mono text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-white/60"
                     autoFocus
+                    autoCapitalize="off"
+                    autoCorrect="off"
+                    spellCheck={false}
                   />
                   <input
                     type="password"

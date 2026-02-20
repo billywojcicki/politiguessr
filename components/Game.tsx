@@ -18,7 +18,7 @@ import type { User } from "@supabase/supabase-js";
 import type { GameSession, GuessResult } from "@/lib/types";
 
 const ROUNDS = 5;
-const ROUND_SECONDS = 15;
+const ROUND_SECONDS = 30;
 
 type Phase = "loading" | "playing" | "reveal" | "done" | "limited";
 
@@ -142,7 +142,7 @@ export default function Game() {
       const roundResult: RoundResult = { ...result, timedOut };
       setCurrentResult(roundResult);
       setResults((prev) => [...prev, roundResult]);
-      setAutoAdvanceCountdown(6);
+      setAutoAdvanceCountdown(10);
     },
     [session, phase, currentRound]
   );
@@ -342,7 +342,7 @@ export default function Game() {
             Quit
           </a>
           <span className="font-mono text-xs tracking-widest text-white/50 tabular-nums">
-            <span className="text-white">{String(currentRound + 1).padStart(2, "0")}</span>/{ROUNDS}
+            <span className="text-white">{currentRound + 1}</span>/{ROUNDS}
           </span>
         </div>
         <CountdownTimer
