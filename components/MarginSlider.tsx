@@ -18,10 +18,10 @@ export function marginColor(margin: number): string {
   return "text-blue-500";
 }
 
-const TICKS = [-50, -25, 0, 25, 50];
+const TICKS = [-100, -50, 0, 50, 100];
 
 export default function MarginSlider({ value, onChange, disabled }: MarginSliderProps) {
-  const pct = (value + 50) / 100; // 0–1
+  const pct = (value + 100) / 200; // 0–1
   const isRed = value > 0.5;
   const isBlue = value < -0.5;
 
@@ -50,7 +50,7 @@ export default function MarginSlider({ value, onChange, disabled }: MarginSlider
 
         {/* Tick marks */}
         {TICKS.map((t) => {
-          const tp = (t + 50) / 100;
+          const tp = (t + 100) / 200;
           return (
             <div
               key={t}
@@ -69,8 +69,8 @@ export default function MarginSlider({ value, onChange, disabled }: MarginSlider
         {/* Invisible input */}
         <input
           type="range"
-          min={-50}
-          max={50}
+          min={-100}
+          max={100}
           step={0.5}
           value={value}
           onChange={(e) => onChange(parseFloat(e.target.value))}
@@ -82,9 +82,9 @@ export default function MarginSlider({ value, onChange, disabled }: MarginSlider
 
       {/* Labels */}
       <div className="flex justify-between text-xs text-white/30 tracking-widest uppercase">
-        <span>D+50</span>
+        <span>D+100</span>
         <span>SPLIT</span>
-        <span>R+50</span>
+        <span>R+100</span>
       </div>
     </div>
   );

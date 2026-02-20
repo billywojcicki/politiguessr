@@ -71,7 +71,7 @@ Tables:
 Scores are saved client-side to Supabase at end of game if user is logged in. If user logs in on the done screen, save triggers automatically.
 
 ## Game Design
-- Slider range: D+50 to R+50 (note: some counties exceed this in reality)
+- Slider range: D+100 to R+100 (covers the full spectrum; some counties approach these extremes)
 - Scoring: `max(0, round(100 - |actual - guess|))` per round, 5 rounds, max 500 pts
 - End game screen has per-round REVIEW button — opens full-screen Street View for that location
 - DEV mode toggle (top-right during game) pauses both the round timer and auto-advance timer
